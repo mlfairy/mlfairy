@@ -107,6 +107,8 @@ class MLFModelTask {
 		
 		switch(response.result) {
 		case .success(let value):
+			self.log.d("Successfully downloaded metadata:\n\(value.debugDescription)")
+			self.persistence.save(value, for: self.token)
 			self.didDownloadMetadata(value)
 			break;
 		case .failure(let failure):
@@ -119,7 +121,7 @@ class MLFModelTask {
 			
 			let diskMetadata = self.persistence.findModel(for: self.token)
 			if let _ = diskMetadata.url, let metadata = diskMetadata.metadata {
-				self.log.d("Couldn't download model metadata for \(token). Will use version from disk: \(error)")
+				self.log.d("Failed to download model metadata for \(token). Will use version from disk:\n\(metadata.debugDescription)\n\(error)")
 				self.didDownloadMetadata(metadata)
 			} else {
 				self.finish(error: MLFError.downloadFailed(message: "Failed to download model metadata for \(token)", reason: error))
@@ -131,6 +133,7 @@ class MLFModelTask {
 	
 	private func didDownloadMetadata(_ metadata: MLFDownloadMetadata) {
 		self.protectedMutableState.write { $0.downloadMetadata = metadata }
+		
 		// TODO: Notify server of userId if not already sent
 		guard let _ = metadata.activeVersion, let url = metadata.modelFileUrl else {
 			self.finish(error: MLFError.noDownloadAvailable)
@@ -139,21 +142,20 @@ class MLFModelTask {
 		
 		if let destination = self.persistence.modelFileFor(model: metadata) {
 			if self.persistence.exists(file: destination) {
-				// TODO: Notify server we're using a version from disk
+				self.log.d(tag: "MLFModelTask", "Download destination file \(destination) exists. Will overwrite it with new download.")
 				self.didDownloadFile(url: destination)
 			} else {
+				self.log.d(tag: "MLFModelTask", "Downloading model into \(destination)")
 				self.download(url:url, into: destination, metadata)
 			}
 		}
 	}
 	
 	private func download(url: String, into destination: URL, _ metadata: MLFDownloadMetadata) {
-		self.log.d(tag: "MLFModelTask", "Downloading model into \(destination)")
 		let request = self.network
 			.download(url, into: destination)
 			.response(queue: self.underlyingQueue) { self.onDownloadFileResponse($0) }
 		
-		self.persistence.save(metadata, for: self.token)
 		self.protectedMutableState.write { $0.downloadRequest = request }
 		
 		request.resume()
@@ -167,7 +169,12 @@ class MLFModelTask {
 			break;
 		case .failure(let failure):
 			// TODO: Notify server of the failure
-			self.finish(error: MLFError.downloadFailed(message:"Failed to download model for \(token)", reason: failure))
+			self.finish(
+				error: MLFError.downloadFailed(
+					message:"Failed to download model for \(token)",
+					reason: failure
+				)
+			)
 			break;
 		}
 	}
@@ -178,7 +185,6 @@ class MLFModelTask {
 	}
 	
 	private func compileModel(at url: URL) {
-		// TODO: Should you store the compiledUrl in the metadata in someway?
 		self.compilationQueue.async {
 			do {
 				let compiledUrl = try MLModel.compileModel(at: url)
@@ -206,13 +212,13 @@ class MLFModelTask {
 			switch(error) {
 			case .compilationFailed(let message, let reason),
 				 .downloadFailed(let message, let reason):
-				self.log.e("\(message): \(reason)")
+				self.log.d("\(message): \(reason)")
 				break
 			case .networkError(let response):
-				self.log.e("\(response)")
+				self.log.d("\(response)")
 				break
 			case .noDownloadAvailable:
-				self.log.i("No model available for download")
+				self.log.d("No model available for download")
 				break
 			}
 		}

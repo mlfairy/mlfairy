@@ -14,27 +14,35 @@ public func print(_ items: Any..., separator: String = " ", terminator: String =
 }
 
 class ViewController: UIViewController {
-//	private let HEALTH_MODEL_TOKEN = "MTUwZTZhZjAtOTIzMS0xMWU5LWEwODItZGQwNWRmMTdjYzFjL2QwYTdhZmYwLWExYWYtMTFlOS1hMmNkLWI3N2ViM2M0MzI4OA=="
 	private let HEALTH_MODEL_TOKEN = "MTUwZTZhZjAtOTIzMS0xMWU5LWEwODItZGQwNWRmMTdjYzFjLzRhYjQ0NDUwLWE3ZTgtMTFlOS04NzNjLTc1MmE5YTZmOWI5Yg=="
+	private let HEALTH_MODEL_TOKEN_BROKEN = "TUwZTZhZjAtOTIzMS0xMWU5LWEwODItZGQwNWRmMTdjYzFjLzRhYjQ0NDUwLWE3ZTgtMTFlOS04NzNjLTc1MmE5YTZmOWI5Yg=="
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let button = UIButton(type: .roundedRect)
+		var button = UIButton(type: .roundedRect)
 		button.frame = CGRect(x: 50, y: 50, width: 100, height: 30)
-		button.setTitle("Refresh", for: [])
-		button.addTarget(self, action: #selector(self.download(_:)), for: .touchUpInside)
+		button.setTitle("good", for: [])
+		button.addTarget(self, action: #selector(self.good(_:)), for: .touchUpInside)
 		view.addSubview(button)
 		
-		self.refresh()
+		button = UIButton(type: .roundedRect)
+		button.frame = CGRect(x: 50, y: 100, width: 100, height: 30)
+		button.setTitle("broken", for: [])
+		button.addTarget(self, action: #selector(self.broken(_:)), for: .touchUpInside)
+		view.addSubview(button)
 	}
 	
-	@IBAction func download(_ sender: AnyObject) {
-		self.refresh()
+	@IBAction func broken(_ sender: AnyObject) {
+		self.refresh(token: HEALTH_MODEL_TOKEN_BROKEN)
 	}
 	
-	private func refresh() {
-		MLFairy.getCoreMLModel(HEALTH_MODEL_TOKEN) { model, error in
+	@IBAction func good(_ sender: AnyObject) {
+		self.refresh(token: HEALTH_MODEL_TOKEN)
+	}
+	
+	private func refresh(token: String) {
+		MLFairy.getCoreMLModel(token) { model, error in
 			guard error == nil else {
 				print("Failed to get CoreML model \(String(describing: error)).")
 				return

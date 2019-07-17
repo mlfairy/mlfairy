@@ -36,6 +36,16 @@ class MLFPersistence {
 		return self.fileManager.fileExists(atPath: file.path)
 	}
 	
+	func size(url: URL) -> Int? {
+		do {
+			let resources = try url.resourceValues(forKeys: [.fileSizeKey])
+			return resources.fileSize
+		} catch {
+			self.log.d("Failed to get size for directory \(url): \(error)")
+			return nil
+		}
+	}
+	
 	func findModel(for token: String) -> OnDiskDownloadMetadata {
 		guard let metadata = self.findDownloadMetadata(for: token) else {
 			return (nil, nil)
@@ -74,7 +84,7 @@ class MLFPersistence {
 		let metadataUrl = path.appendingPathComponent(".metadata")
 		do {
 			let data = try self.encoder.encode(metadata)
-			try data.write(to: metadataUrl)
+			try data.write(to: metadataUrl, options: [.atomic, .completeFileProtectionUnlessOpen])
 			self.metadataMap[token] = metadata
 		} catch {
 			self.log.d("Failed to write metadata for token \(token): \(error)")
