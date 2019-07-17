@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  MLFairyApp.iOS
 //
-//  Created by Vijay Sharma on 2019-07-10.
 //  Copyright © 2019 MLFairy. All rights reserved.
 //
 

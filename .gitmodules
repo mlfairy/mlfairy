@@ -1,0 +1,3 @@
+[submodule "MLFairy/Alamofire"]
+	path = MLFairy/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git

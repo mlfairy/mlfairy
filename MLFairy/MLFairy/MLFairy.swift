@@ -9,13 +9,17 @@ import Foundation
 import CoreML
 
 public class MLFairy {
-	private static let instance = MLFairyImpl()
-	
-	public static func getCoreMLModel(_ modelToken: String, callback: (MLModel?, Error?) -> Void) {
-		MLFairy.instance.getCoreMLModel(modelToken, callback: callback)
-	}
-	
-	public static func setUserId(_ userId: String, forModel modelToken: String) {
-		
+	private static let `default` = MLFairyImpl()
+
+	public static func getCoreMLModel(
+		_ modelToken: String,
+		queue: DispatchQueue = .main,
+		callback: @escaping (MLModel?, Error?) -> Void
+	) {
+		MLFairy.default.getCoreMLModel(
+			token:modelToken,
+			queue: queue,
+			callback:callback
+		)
 	}
 }
