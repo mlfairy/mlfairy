@@ -157,6 +157,10 @@ class MLFPersistence {
 		return digest.map { String(format: "%02hhx", $0) }.joined()
 	}
 	
+	func deleteFile(at url: URL) {
+		try? self.fileManager.removeItem(at: url)
+	}
+	
 	private func initLocalFolders() {
 		do {
 			try self.fileManager.createDirectory(at: self.sdkDirectoryPath, withIntermediateDirectories: true)

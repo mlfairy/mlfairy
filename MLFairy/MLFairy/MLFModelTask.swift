@@ -112,7 +112,7 @@ class MLFModelTask {
 			self.didDownloadMetadata(value)
 			break;
 		case .failure(let failure):
-			let error = MLFNetwork.remapToMLFErrorIfNecessary(failure, data:response.data)			
+			let error = MLFNetwork.remapToMLFErrorIfNecessary(failure, data:response.data)
 			let diskMetadata = self.persistence.findModel(for: self.token)
 			if let _ = diskMetadata.url, let metadata = diskMetadata.metadata {
 				self.log.d("Failed to download model metadata for \(token). Will use version from disk:\n\(metadata.debugDescription)\n\(error)")
@@ -135,10 +135,10 @@ class MLFModelTask {
 		
 		if let destination = self.persistence.modelFileFor(model: metadata) {
 			if self.persistence.exists(file: destination) {
-				self.log.d(tag: "MLFModelTask", "Download destination file \(destination) exists. Will overwrite it with new download.")
+				self.log.d("Skipping download. \(destination) exists. Will use existing file.")
 				self.didDownloadFile(url: destination, metadata)
 			} else {
-				self.log.d(tag: "MLFModelTask", "Downloading model into \(destination)")
+				self.log.d("Downloading model into \(destination)")
 				self.download(url:url, into: destination, metadata)
 			}
 		}
@@ -181,6 +181,7 @@ class MLFModelTask {
 			try self.performChecksum(url, with:metadata)
 			self.compileModel(at: url)
 		} catch MLFError.failedChecksum {
+			self.persistence.deleteFile(at: url)
 			self.finish(error: .failedChecksum)
 		} catch {
 			self.finish(error: .checksumError(error: error))
@@ -225,8 +226,6 @@ class MLFModelTask {
 			$0.compiledModel = model
 			$0.compiledUrl = url
 		}
-		
-		self.finish()
 	}
 	
 	private func finish(error: MLFError? = nil) {
