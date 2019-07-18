@@ -124,7 +124,7 @@ class MLFModelTask {
 				self.log.d("Failed to download model metadata for \(token). Will use version from disk:\n\(metadata.debugDescription)\n\(error)")
 				self.didDownloadMetadata(metadata)
 			} else {
-				self.finish(error: MLFError.downloadFailed(message: "Failed to download model metadata for \(token)", reason: error))
+				self.finish(error: .downloadFailed(message: "Failed to download model metadata for \(token)", reason: error))
 			}
 
 			break;
@@ -134,16 +134,15 @@ class MLFModelTask {
 	private func didDownloadMetadata(_ metadata: MLFDownloadMetadata) {
 		self.protectedMutableState.write { $0.downloadMetadata = metadata }
 		
-		// TODO: Notify server of userId if not already sent
 		guard let _ = metadata.activeVersion, let url = metadata.modelFileUrl else {
-			self.finish(error: MLFError.noDownloadAvailable)
+			self.finish(error: .noDownloadAvailable)
 			return;
 		}
 		
 		if let destination = self.persistence.modelFileFor(model: metadata) {
 			if self.persistence.exists(file: destination) {
 				self.log.d(tag: "MLFModelTask", "Download destination file \(destination) exists. Will overwrite it with new download.")
-				self.didDownloadFile(url: destination)
+				self.didDownloadFile(url: destination, metadata)
 			} else {
 				self.log.d(tag: "MLFModelTask", "Downloading model into \(destination)")
 				self.download(url:url, into: destination, metadata)
@@ -154,23 +153,25 @@ class MLFModelTask {
 	private func download(url: String, into destination: URL, _ metadata: MLFDownloadMetadata) {
 		let request = self.network
 			.download(url, into: destination)
-			.response(queue: self.underlyingQueue) { self.onDownloadFileResponse($0) }
+			.response(queue: self.underlyingQueue) { self.onDownloadFileResponse($0, metadata) }
 		
 		self.protectedMutableState.write { $0.downloadRequest = request }
 		
 		request.resume()
 	}
 	
-	private func onDownloadFileResponse(_ response: DownloadResponse<URL?>) {
+	private func onDownloadFileResponse(
+		_ response: DownloadResponse<URL?>,
+		_ metadata: MLFDownloadMetadata
+	) {
 		self.protectedMutableState.write { $0.downloadRequest = nil }
 		switch(response.result) {
 		case .success(let value):
-			self.didDownloadFile(url: value!)
+			self.didDownloadFile(url: value!, metadata)
 			break;
 		case .failure(let failure):
-			// TODO: Notify server of the failure
 			self.finish(
-				error: MLFError.downloadFailed(
+				error: .downloadFailed(
 					message:"Failed to download model for \(token)",
 					reason: failure
 				)
@@ -179,9 +180,17 @@ class MLFModelTask {
 		}
 	}
 	
-	private func didDownloadFile(url: URL) {
+	private func didDownloadFile(url: URL, _ metadata: MLFDownloadMetadata) {
 		self.protectedMutableState.write { $0.downloadFileUrl = url }
-		self.compileModel(at: url)
+		
+		do {
+			try self.performChecksum(url, with:metadata)
+			self.compileModel(at: url)
+		} catch MLFError.failedChecksum {
+			self.finish(error: .failedChecksum)
+		} catch {
+			self.finish(error: .checksumError(error: error))
+		}
 	}
 	
 	private func compileModel(at url: URL) {
@@ -192,9 +201,28 @@ class MLFModelTask {
 				self.onCompiled(model: model, from:compiledUrl)
 				self.finish()
 			} catch {
-				// TODO: Notify server of the failure
-				self.finish(error:  MLFError.compilationFailed(message: "Failed to compile model for token \(self.token)", reason: error))
+				self.finish(error: .compilationFailed(
+					message: "Failed to compile model for token \(self.token)",
+					reason: error
+				))
 			}
+		}
+	}
+	
+	private func performChecksum(_ url: URL, with metadata: MLFDownloadMetadata) throws {
+		guard let hash = metadata.hash, let algorithm = metadata.algorithm else {
+			self.log.d("No hash or algorithm in metadata. Skipping checksum.")
+			return;
+		}
+		
+		guard algorithm.lowercased() == "md5" else {
+			self.log.d("Unsupported checksum algorithm \(algorithm). Skipping checksum.")
+			return;
+		}
+		
+		let checksum = try self.persistence.md5File(url: url)
+		if checksum != hash {
+			throw MLFError.failedChecksum
 		}
 	}
 	
@@ -219,6 +247,12 @@ class MLFModelTask {
 				break
 			case .noDownloadAvailable:
 				self.log.d("No model available for download")
+				break
+			case .checksumError(let error):
+				self.log.d("There was an error while performing checksum: \(error)")
+				break;
+			case .failedChecksum:
+				self.log.d("Model failed checksum")
 				break
 			}
 		}

@@ -22,6 +22,7 @@
 		42872F5622DE4FCE00573818 /* MLFNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5522DE4FCE00573818 /* MLFNetwork.swift */; };
 		42872F5822DE955600573818 /* MLFDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5722DE955600573818 /* MLFDataModels.swift */; };
 		42872F5E22DF687300573818 /* MLFErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5D22DF687300573818 /* MLFErrors.swift */; };
+		42872F6022DFE94500573818 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42872F5F22DFE94500573818 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		42872F5522DE4FCE00573818 /* MLFNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFNetwork.swift; sourceTree = "<group>"; };
 		42872F5722DE955600573818 /* MLFDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFDataModels.swift; sourceTree = "<group>"; };
 		42872F5D22DF687300573818 /* MLFErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFErrors.swift; sourceTree = "<group>"; };
+		42872F5F22DFE94500573818 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42872F6022DFE94500573818 /* Security.framework in Frameworks */,
 				42872D9922D7F5BF00573818 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +193,7 @@
 		42872D9822D7F5BF00573818 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42872F5F22DFE94500573818 /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

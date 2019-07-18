@@ -30,7 +30,7 @@ class MLFDevice {
 		let osVersion = self.device.systemVersion
 		let osName = self.device.systemName
 		let batteryLevel = self.device.batteryLevel
-		let directoryAttributes = self.homeDirectoryAttributes()
+		let diskSpace = self.diskSpace()
 		let country = self.locale.languageCode
 		let language = Locale.preferredLanguages.first
 		
@@ -43,7 +43,7 @@ class MLFDevice {
 		information["localeCountry"] = country != nil ? country! : ""
 		information["totalSpace"] = ""
 		information["totalFreeSpace"] = ""
-		if let directory = directoryAttributes, let total = directory.totalSpace, let free = directory.totalFreeSpace {
+		if let diskSpace = diskSpace, let total = diskSpace.totalSpace, let free = diskSpace.totalFreeSpace {
 			information["totalSpace"] = String(total)
 			information["totalFreeSpace"] = String(free)
 		}
@@ -51,7 +51,7 @@ class MLFDevice {
 		return information
 	}
 	
-	private func homeDirectoryAttributes() -> (totalSpace:Int64?, totalFreeSpace: Int64?)? {
+	func diskSpace() -> (totalSpace:Int64?, totalFreeSpace: Int64?)? {
 		let homeDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last
 		
 		guard let directory = homeDirectory else {

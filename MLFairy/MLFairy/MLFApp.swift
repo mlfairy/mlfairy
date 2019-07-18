@@ -8,9 +8,9 @@
 import Foundation
 
 class MLFApp {
-	private let device: MLFDevice
-	private let app: Bundle
-	private let sdk: Bundle
+	public let device: MLFDevice
+	public let app: Bundle
+	public let sdk: Bundle
 	private let log: MLFLogger
 	
 	init(logger: MLFLogger, device: MLFDevice) {
