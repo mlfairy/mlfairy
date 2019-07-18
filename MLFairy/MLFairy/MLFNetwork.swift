@@ -83,6 +83,16 @@ class MLFNetwork {
 	
 	private let session: Session = Session(startRequestsImmediately:false)
 	
+	static func remapToMLFErrorIfNecessary(_ error: Error, data: Data?) -> Error {
+		if case AFError.responseSerializationFailed(_) = error {
+			if let data = data, let mlfError = MLFNetwork.decode(of: MLFErrorResponse.self, data) {
+				return MLFError.networkError(response: mlfError.message)
+			}
+		}
+		
+		return error
+	}
+	
 	static func decode<T: Decodable>(
 		of type: T.Type = T.self,
 		_ data: Data,

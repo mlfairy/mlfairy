@@ -112,13 +112,7 @@ class MLFModelTask {
 			self.didDownloadMetadata(value)
 			break;
 		case .failure(let failure):
-			var error = failure
-			if case AFError.responseSerializationFailed(_) = failure {
-				if let data = response.data, let mlfError = MLFNetwork.decode(of: MLFErrorResponse.self, data) {
-					error = MLFError.networkError(response: mlfError.message)
-				}
-			}
-			
+			let error = MLFNetwork.remapToMLFErrorIfNecessary(failure, data:response.data)			
 			let diskMetadata = self.persistence.findModel(for: self.token)
 			if let _ = diskMetadata.url, let metadata = diskMetadata.metadata {
 				self.log.d("Failed to download model metadata for \(token). Will use version from disk:\n\(metadata.debugDescription)\n\(error)")
