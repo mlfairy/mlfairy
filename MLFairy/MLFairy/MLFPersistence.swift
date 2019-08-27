@@ -126,7 +126,7 @@ class MLFPersistence {
 	func md5File(
 		url: URL,
 		bufferSize: Int = 1048576
-	) throws -> String? {
+	) throws -> [UInt8] {
 		// Open file for reading:
 		let file = try FileHandle(forReadingFrom: url)
 		defer {
@@ -154,7 +154,7 @@ class MLFPersistence {
 		var digest: [UInt8] = Array(repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
 		_ = CC_MD5_Final(&digest, &context)
 		
-		return digest.map { String(format: "%02hhx", $0) }.joined()
+		return digest
 	}
 	
 	func deleteFile(at url: URL) {

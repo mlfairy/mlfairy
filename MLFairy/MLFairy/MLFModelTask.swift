@@ -215,7 +215,9 @@ class MLFModelTask {
 			return;
 		}
 		
-		let checksum = try self.persistence.md5File(url: url)
+		let checksumDigest = try self.persistence.md5File(url: url)
+		let data = Data(checksumDigest)
+		let checksum = data.base64EncodedString(); // digest.map { String(format: "%02hhx", $0) }.joined()
 		if checksum != hash {
 			throw MLFError.failedChecksum
 		}
