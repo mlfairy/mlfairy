@@ -84,8 +84,12 @@ class MLFPersistence {
 		
 		let metadataUrl = path.appendingPathComponent(".metadata")
 		do {
+			var options: Data.WritingOptions = [.atomic]
+			#if os(iOS)
+			options.insert(.completeFileProtectionUnlessOpen)
+			#endif
 			let data = try self.encoder.encode(metadata)
-			try data.write(to: metadataUrl, options: [.atomic, .completeFileProtectionUnlessOpen])
+			try data.write(to: metadataUrl, options: options)
 			self.metadataMap[token] = metadata
 		} catch {
 			self.log.d("Failed to write metadata for token \(token): \(error)")

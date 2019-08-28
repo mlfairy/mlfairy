@@ -6,18 +6,17 @@
 //
 
 import Foundation
-import UIKit
 
 class MLFDevice {
 	private let processInfo: ProcessInfo
 	private let fileManager: FileManager
-	private let device: UIDevice
 	private let locale: Locale
+	private let host: MLFHostDevice
 	
-	init() {
+	init(host: MLFHostDevice) {
 		self.processInfo = ProcessInfo.processInfo;
 		self.fileManager = FileManager.default;
-		self.device = UIDevice.current;
+		self.host = host;
 		self.locale = Locale.current
 	}
 	
@@ -28,9 +27,9 @@ class MLFDevice {
 	
 	func deviceInformation() -> [String: String] {
 		let deviceMemory = self.processInfo.physicalMemory
-		let osVersion = self.device.systemVersion
-		let osName = self.device.systemName
-		let batteryLevel = self.device.batteryLevel
+		let osVersion = self.host.version()
+		let osName = self.host.name()
+		let batteryLevel = self.host.batteryLevel()
 		let diskSpace = self.diskSpace()
 		let country = self.locale.languageCode
 		let language = Locale.preferredLanguages.first
@@ -39,7 +38,7 @@ class MLFDevice {
 		information["memorySize"] = String(deviceMemory)
 		information["osVersion"] = osVersion
 		information["osName"] = osName
-		information["batteryLevel"] = String(batteryLevel)
+		information["batteryLevel"] = batteryLevel > -1 ? "" : String(batteryLevel)
 		information["localeLanguage"] = language != nil ? language! : ""
 		information["localeCountry"] = country != nil ? country! : ""
 		information["totalSpace"] = ""

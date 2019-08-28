@@ -37,7 +37,7 @@ class MLFairyImpl {
 	init() {
 		self.network = MLFNetwork()
 		self.log = MLFLogger()
-		self.device = MLFDevice()
+		self.device = MLFDevice(host: MLFHostDevice())
 		self.persistence = MLFPersistence(log: self.log)
 		self.app = MLFApp(logger:self.log, device:self.device)
 		
