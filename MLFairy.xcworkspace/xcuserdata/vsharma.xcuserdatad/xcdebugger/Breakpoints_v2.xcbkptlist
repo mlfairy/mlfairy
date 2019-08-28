@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLFairy/MLFairy/MLFModelTask.swift"
-            timestampString = "588642826.082574"
+            timestampString = "588689479.926288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -42,7 +42,7 @@
                   moduleName = "MLFairy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Storage/programming/mlfairy/ios/MLFairy/MLFairy/MLFModelTask.swift"
-                  timestampString = "588642826.413443"
+                  timestampString = "588689481.6709369"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -57,7 +57,7 @@
                   moduleName = "MLFairy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Storage/programming/mlfairy/ios/MLFairy/MLFairy/MLFModelTask.swift"
-                  timestampString = "588642826.415222"
+                  timestampString = "588689481.672704"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -65,6 +65,22 @@
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLFairyApp.iOS/MLFairyApp.iOS/ViewController.swift"
+            timestampString = "588689479.926368"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "refresh(token:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
