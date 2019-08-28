@@ -7,8 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42005EDC2315F69600C7EF59 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005ECF2315F67C00C7EF59 /* Alamofire.framework */; };
-		422F216822D6CDB8002F2463 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422F215E22D6CDB8002F2463 /* MLFairy.framework */; };
+		42005EE62316DD3700C7EF59 /* MLFairy_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 42005EE42316DD3700C7EF59 /* MLFairy_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		42005EF42316DE5F00C7EF59 /* MLFairy_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 42005EF22316DE5F00C7EF59 /* MLFairy_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		42005EF82316DE7200C7EF59 /* MLFairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F217B22D6CEC5002F2463 /* MLFairy.swift */; };
+		42005EF92316DE7200C7EF59 /* MLFairyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F218722D7B135002F2463 /* MLFairyImpl.swift */; };
+		42005EFA2316DE7200C7EF59 /* MLFModelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F1C22DBAD1500573818 /* MLFModelTask.swift */; };
+		42005EFB2316DE7200C7EF59 /* MLFApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872D9C22DAB40B00573818 /* MLFApp.swift */; };
+		42005EFC2316DE7200C7EF59 /* MLFDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872D9E22DAB50C00573818 /* MLFDevice.swift */; };
+		42005EFD2316DE7200C7EF59 /* MLFLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872DA022DAD1ED00573818 /* MLFLogger.swift */; };
+		42005EFE2316DE7200C7EF59 /* MLFProtector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5122DE033800573818 /* MLFProtector.swift */; };
+		42005EFF2316DE7200C7EF59 /* MLFPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5322DE3EA400573818 /* MLFPersistence.swift */; };
+		42005F002316DE7200C7EF59 /* MLFNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5522DE4FCE00573818 /* MLFNetwork.swift */; };
+		42005F012316DE7200C7EF59 /* MLFDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5722DE955600573818 /* MLFDataModels.swift */; };
+		42005F022316DE7200C7EF59 /* MLFErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5D22DF687300573818 /* MLFErrors.swift */; };
+		42005F032316DE7300C7EF59 /* MLFairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F217B22D6CEC5002F2463 /* MLFairy.swift */; };
+		42005F042316DE7300C7EF59 /* MLFairyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F218722D7B135002F2463 /* MLFairyImpl.swift */; };
+		42005F052316DE7300C7EF59 /* MLFModelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F1C22DBAD1500573818 /* MLFModelTask.swift */; };
+		42005F062316DE7300C7EF59 /* MLFApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872D9C22DAB40B00573818 /* MLFApp.swift */; };
+		42005F072316DE7300C7EF59 /* MLFDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872D9E22DAB50C00573818 /* MLFDevice.swift */; };
+		42005F082316DE7300C7EF59 /* MLFLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872DA022DAD1ED00573818 /* MLFLogger.swift */; };
+		42005F092316DE7300C7EF59 /* MLFProtector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5122DE033800573818 /* MLFProtector.swift */; };
+		42005F0A2316DE7300C7EF59 /* MLFPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5322DE3EA400573818 /* MLFPersistence.swift */; };
+		42005F0B2316DE7300C7EF59 /* MLFNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5522DE4FCE00573818 /* MLFNetwork.swift */; };
+		42005F0C2316DE7300C7EF59 /* MLFDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5722DE955600573818 /* MLFDataModels.swift */; };
+		42005F0D2316DE7300C7EF59 /* MLFErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5D22DF687300573818 /* MLFErrors.swift */; };
+		42005F122316E1C200C7EF59 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42872F5F22DFE94500573818 /* Security.framework */; };
+		42005F142316E1CB00C7EF59 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F132316E1CB00C7EF59 /* Security.framework */; };
+		42005F202316E5C000C7EF59 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F172316E2D500C7EF59 /* Alamofire.framework */; };
+		42005F212316E5D000C7EF59 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F182316E2D600C7EF59 /* Alamofire.framework */; };
+		422F216822D6CDB8002F2463 /* MLFairy-deprecated.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422F215E22D6CDB8002F2463 /* MLFairy-deprecated.framework */; };
 		422F216D22D6CDB8002F2463 /* MLFairyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F216C22D6CDB8002F2463 /* MLFairyTests.swift */; };
 		422F216F22D6CDB8002F2463 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 422F216122D6CDB8002F2463 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		422F217C22D6CEC5002F2463 /* MLFairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F217B22D6CEC5002F2463 /* MLFairy.swift */; };
@@ -27,55 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		42005ECE2315F67C00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-		42005ED02315F67C00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS Tests";
-		};
-		42005ED22315F67C00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
-			remoteInfo = "Alamofire macOS";
-		};
-		42005ED42315F67C00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
-			remoteInfo = "Alamofire macOS Tests";
-		};
-		42005ED62315F67C00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
-			remoteInfo = "Alamofire tvOS";
-		};
-		42005ED82315F67C00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
-			remoteInfo = "Alamofire tvOS Tests";
-		};
-		42005EDA2315F67C00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4202FE01B667AA100C997FB;
-			remoteInfo = "Alamofire watchOS";
-		};
 		422F216922D6CDB8002F2463 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 422F215522D6CDB8002F2463 /* Project object */;
@@ -86,8 +64,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		422F215E22D6CDB8002F2463 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42005EE22316DD3600C7EF59 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42005EE42316DD3700C7EF59 /* MLFairy_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy_iOS.h; sourceTree = "<group>"; };
+		42005EE52316DD3700C7EF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42005EF02316DE5F00C7EF59 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42005EF22316DE5F00C7EF59 /* MLFairy_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy_macOS.h; sourceTree = "<group>"; };
+		42005EF32316DE5F00C7EF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42005F132316E1CB00C7EF59 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		42005F152316E2D500C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
+		42005F162316E2D500C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
+		42005F172316E2D500C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		42005F182316E2D600C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		422F215E22D6CDB8002F2463 /* MLFairy-deprecated.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "MLFairy-deprecated.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		422F216122D6CDB8002F2463 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
 		422F216222D6CDB8002F2463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422F216722D6CDB8002F2463 /* MLFairyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLFairyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,11 +97,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		42005EDF2316DD3600C7EF59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42005F122316E1C200C7EF59 /* Security.framework in Frameworks */,
+				42005F212316E5D000C7EF59 /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42005EED2316DE5F00C7EF59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42005F142316E1CB00C7EF59 /* Security.framework in Frameworks */,
+				42005F202316E5C000C7EF59 /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		422F215B22D6CDB8002F2463 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42005EDC2315F69600C7EF59 /* Alamofire.framework in Frameworks */,
 				42872F6022DFE94500573818 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,53 +127,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				422F216822D6CDB8002F2463 /* MLFairy.framework in Frameworks */,
+				422F216822D6CDB8002F2463 /* MLFairy-deprecated.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		42005EC42315F67C00C7EF59 /* Products */ = {
+		42005EE32316DD3700C7EF59 /* MLFairy-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				42005ECF2315F67C00C7EF59 /* Alamofire.framework */,
-				42005ED12315F67C00C7EF59 /* Alamofire iOS Tests.xctest */,
-				42005ED32315F67C00C7EF59 /* Alamofire.framework */,
-				42005ED52315F67C00C7EF59 /* Alamofire macOS Tests.xctest */,
-				42005ED72315F67C00C7EF59 /* Alamofire.framework */,
-				42005ED92315F67C00C7EF59 /* Alamofire tvOS Tests.xctest */,
-				42005EDB2315F67C00C7EF59 /* Alamofire.framework */,
+				42005EE42316DD3700C7EF59 /* MLFairy_iOS.h */,
+				42005EE52316DD3700C7EF59 /* Info.plist */,
 			);
-			name = Products;
+			path = "MLFairy-iOS";
 			sourceTree = "<group>";
 		};
-		422F215422D6CDB8002F2463 = {
-			isa = PBXGroup;
-			children = (
-				42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */,
-				422F216022D6CDB8002F2463 /* MLFairy */,
-				422F216B22D6CDB8002F2463 /* MLFairyTests */,
-				422F215F22D6CDB8002F2463 /* Products */,
-				42872D9822D7F5BF00573818 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		422F215F22D6CDB8002F2463 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				422F215E22D6CDB8002F2463 /* MLFairy.framework */,
-				422F216722D6CDB8002F2463 /* MLFairyTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		422F216022D6CDB8002F2463 /* MLFairy */ = {
+		42005EEA2316DE1D00C7EF59 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				42872F6122E015C600573818 /* Vendor */,
-				422F216122D6CDB8002F2463 /* MLFairy.h */,
-				422F216222D6CDB8002F2463 /* Info.plist */,
 				422F217B22D6CEC5002F2463 /* MLFairy.swift */,
 				422F218722D7B135002F2463 /* MLFairyImpl.swift */,
 				42872F1C22DBAD1500573818 /* MLFModelTask.swift */,
@@ -180,6 +158,48 @@
 				42872F5522DE4FCE00573818 /* MLFNetwork.swift */,
 				42872F5722DE955600573818 /* MLFDataModels.swift */,
 				42872F5D22DF687300573818 /* MLFErrors.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		42005EF12316DE5F00C7EF59 /* MLFairy-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				42005EF22316DE5F00C7EF59 /* MLFairy_macOS.h */,
+				42005EF32316DE5F00C7EF59 /* Info.plist */,
+			);
+			path = "MLFairy-macOS";
+			sourceTree = "<group>";
+		};
+		422F215422D6CDB8002F2463 = {
+			isa = PBXGroup;
+			children = (
+				42005EEA2316DE1D00C7EF59 /* Source */,
+				422F216022D6CDB8002F2463 /* MLFairy */,
+				422F216B22D6CDB8002F2463 /* MLFairyTests */,
+				42005EE32316DD3700C7EF59 /* MLFairy-iOS */,
+				42005EF12316DE5F00C7EF59 /* MLFairy-macOS */,
+				422F215F22D6CDB8002F2463 /* Products */,
+				42872D9822D7F5BF00573818 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		422F215F22D6CDB8002F2463 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				422F215E22D6CDB8002F2463 /* MLFairy-deprecated.framework */,
+				422F216722D6CDB8002F2463 /* MLFairyTests.xctest */,
+				42005EE22316DD3600C7EF59 /* MLFairy.framework */,
+				42005EF02316DE5F00C7EF59 /* MLFairy.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		422F216022D6CDB8002F2463 /* MLFairy */ = {
+			isa = PBXGroup;
+			children = (
+				422F216122D6CDB8002F2463 /* MLFairy.h */,
+				422F216222D6CDB8002F2463 /* Info.plist */,
 			);
 			path = MLFairy;
 			sourceTree = "<group>";
@@ -196,6 +216,11 @@
 		42872D9822D7F5BF00573818 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42005F182316E2D600C7EF59 /* Alamofire.framework */,
+				42005F172316E2D500C7EF59 /* Alamofire.framework */,
+				42005F162316E2D500C7EF59 /* Alamofire.framework */,
+				42005F152316E2D500C7EF59 /* Alamofire.framework */,
+				42005F132316E1CB00C7EF59 /* Security.framework */,
 				42872F5F22DFE94500573818 /* Security.framework */,
 			);
 			name = Frameworks;
@@ -220,6 +245,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		42005EDD2316DD3600C7EF59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42005EE62316DD3700C7EF59 /* MLFairy_iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42005EEB2316DE5F00C7EF59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42005EF42316DE5F00C7EF59 /* MLFairy_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		422F215922D6CDB8002F2463 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +272,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		42005EE12316DD3600C7EF59 /* MLFairy iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42005EE72316DD3700C7EF59 /* Build configuration list for PBXNativeTarget "MLFairy iOS" */;
+			buildPhases = (
+				42005EDD2316DD3600C7EF59 /* Headers */,
+				42005EDE2316DD3600C7EF59 /* Sources */,
+				42005EDF2316DD3600C7EF59 /* Frameworks */,
+				42005EE02316DD3600C7EF59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MLFairy iOS";
+			productName = "MLFairy iOS";
+			productReference = 42005EE22316DD3600C7EF59 /* MLFairy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		42005EEF2316DE5F00C7EF59 /* MLFairy macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42005EF52316DE5F00C7EF59 /* Build configuration list for PBXNativeTarget "MLFairy macOS" */;
+			buildPhases = (
+				42005EEB2316DE5F00C7EF59 /* Headers */,
+				42005EEC2316DE5F00C7EF59 /* Sources */,
+				42005EED2316DE5F00C7EF59 /* Frameworks */,
+				42005EEE2316DE5F00C7EF59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MLFairy macOS";
+			productName = "MLFairy macOS";
+			productReference = 42005EF02316DE5F00C7EF59 /* MLFairy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		422F215D22D6CDB8002F2463 /* MLFairy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 422F217222D6CDB8002F2463 /* Build configuration list for PBXNativeTarget "MLFairy" */;
@@ -246,7 +323,7 @@
 			);
 			name = MLFairy;
 			productName = MLFairy;
-			productReference = 422F215E22D6CDB8002F2463 /* MLFairy.framework */;
+			productReference = 422F215E22D6CDB8002F2463 /* MLFairy-deprecated.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		422F216622D6CDB8002F2463 /* MLFairyTests */ = {
@@ -277,6 +354,12 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = MLFairy;
 				TargetAttributes = {
+					42005EE12316DD3600C7EF59 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					42005EEF2316DE5F00C7EF59 = {
+						CreatedOnToolsVersion = 10.3;
+					};
 					422F215D22D6CDB8002F2463 = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
@@ -296,73 +379,31 @@
 			mainGroup = 422F215422D6CDB8002F2463;
 			productRefGroup = 422F215F22D6CDB8002F2463 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 42005EC42315F67C00C7EF59 /* Products */;
-					ProjectRef = 42005EC32315F67C00C7EF59 /* Alamofire.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				422F215D22D6CDB8002F2463 /* MLFairy */,
+				42005EE12316DD3600C7EF59 /* MLFairy iOS */,
+				42005EEF2316DE5F00C7EF59 /* MLFairy macOS */,
 				422F216622D6CDB8002F2463 /* MLFairyTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		42005ECF2315F67C00C7EF59 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 42005ECE2315F67C00C7EF59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		42005ED12315F67C00C7EF59 /* Alamofire iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire iOS Tests.xctest";
-			remoteRef = 42005ED02315F67C00C7EF59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		42005ED32315F67C00C7EF59 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 42005ED22315F67C00C7EF59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		42005ED52315F67C00C7EF59 /* Alamofire macOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire macOS Tests.xctest";
-			remoteRef = 42005ED42315F67C00C7EF59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		42005ED72315F67C00C7EF59 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 42005ED62315F67C00C7EF59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		42005ED92315F67C00C7EF59 /* Alamofire tvOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire tvOS Tests.xctest";
-			remoteRef = 42005ED82315F67C00C7EF59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		42005EDB2315F67C00C7EF59 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 42005EDA2315F67C00C7EF59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
+		42005EE02316DD3600C7EF59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42005EEE2316DE5F00C7EF59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		422F215C22D6CDB8002F2463 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,6 +421,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		42005EDE2316DD3600C7EF59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42005EFE2316DE7200C7EF59 /* MLFProtector.swift in Sources */,
+				42005EFA2316DE7200C7EF59 /* MLFModelTask.swift in Sources */,
+				42005EF92316DE7200C7EF59 /* MLFairyImpl.swift in Sources */,
+				42005F022316DE7200C7EF59 /* MLFErrors.swift in Sources */,
+				42005EFF2316DE7200C7EF59 /* MLFPersistence.swift in Sources */,
+				42005EF82316DE7200C7EF59 /* MLFairy.swift in Sources */,
+				42005F012316DE7200C7EF59 /* MLFDataModels.swift in Sources */,
+				42005F002316DE7200C7EF59 /* MLFNetwork.swift in Sources */,
+				42005EFD2316DE7200C7EF59 /* MLFLogger.swift in Sources */,
+				42005EFB2316DE7200C7EF59 /* MLFApp.swift in Sources */,
+				42005EFC2316DE7200C7EF59 /* MLFDevice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42005EEC2316DE5F00C7EF59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42005F092316DE7300C7EF59 /* MLFProtector.swift in Sources */,
+				42005F052316DE7300C7EF59 /* MLFModelTask.swift in Sources */,
+				42005F042316DE7300C7EF59 /* MLFairyImpl.swift in Sources */,
+				42005F0D2316DE7300C7EF59 /* MLFErrors.swift in Sources */,
+				42005F0A2316DE7300C7EF59 /* MLFPersistence.swift in Sources */,
+				42005F032316DE7300C7EF59 /* MLFairy.swift in Sources */,
+				42005F0C2316DE7300C7EF59 /* MLFDataModels.swift in Sources */,
+				42005F0B2316DE7300C7EF59 /* MLFNetwork.swift in Sources */,
+				42005F082316DE7300C7EF59 /* MLFLogger.swift in Sources */,
+				42005F062316DE7300C7EF59 /* MLFApp.swift in Sources */,
+				42005F072316DE7300C7EF59 /* MLFDevice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		422F215A22D6CDB8002F2463 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,6 +495,132 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		42005EE82316DD3700C7EF59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3695BW8G7F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "MLFairy-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.vijaysharma.MLFairy-iOS";
+				PRODUCT_NAME = MLFairy;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42005EE92316DD3700C7EF59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3695BW8G7F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "MLFairy-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.vijaysharma.MLFairy-iOS";
+				PRODUCT_NAME = MLFairy;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		42005EF62316DE5F00C7EF59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3695BW8G7F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "MLFairy-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.vijaysharma.MLFairy-macOS";
+				PRODUCT_NAME = MLFairy;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		42005EF72316DE5F00C7EF59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3695BW8G7F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "MLFairy-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.vijaysharma.MLFairy-macOS";
+				PRODUCT_NAME = MLFairy;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		422F217022D6CDB8002F2463 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -552,6 +755,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -561,7 +771,7 @@
 				);
 				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairy;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)-deprecated";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -581,6 +791,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -590,7 +807,7 @@
 				);
 				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairy;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)-deprecated";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -638,6 +855,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		42005EE72316DD3700C7EF59 /* Build configuration list for PBXNativeTarget "MLFairy iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42005EE82316DD3700C7EF59 /* Debug */,
+				42005EE92316DD3700C7EF59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42005EF52316DE5F00C7EF59 /* Build configuration list for PBXNativeTarget "MLFairy macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42005EF62316DE5F00C7EF59 /* Debug */,
+				42005EF72316DE5F00C7EF59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		422F215822D6CDB8002F2463 /* Build configuration list for PBXProject "MLFairy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

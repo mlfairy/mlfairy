@@ -7,16 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42005F292316E83B00C7EF59 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F282316E83B00C7EF59 /* MLFairy.framework */; };
+		42005F2A2316E83B00C7EF59 /* MLFairy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F282316E83B00C7EF59 /* MLFairy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42005F2D2316E90400C7EF59 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; };
+		42005F2E2316E90400C7EF59 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		422F214322D6CBD8002F2463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F214222D6CBD8002F2463 /* AppDelegate.swift */; };
 		422F214522D6CBD8002F2463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F214422D6CBD8002F2463 /* ViewController.swift */; };
 		422F214822D6CBD8002F2463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422F214622D6CBD8002F2463 /* Main.storyboard */; };
 		422F214A22D6CBD9002F2463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422F214922D6CBD9002F2463 /* Assets.xcassets */; };
 		422F214D22D6CBD9002F2463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422F214B22D6CBD9002F2463 /* LaunchScreen.storyboard */; };
-		422F218422D6D171002F2463 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422F218322D6D171002F2463 /* MLFairy.framework */; };
 		422F218622D79F56002F2463 /* HealthySnacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 422F218522D79F56002F2463 /* HealthySnacks.mlmodel */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		42005F272316E75A00C7EF59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				42005F2A2316E83B00C7EF59 /* MLFairy.framework in Embed Frameworks */,
+				42005F2E2316E90400C7EF59 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		42005F222316E66800C7EF59 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42005F282316E83B00C7EF59 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42005F2B2316E85600C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../MLFairy/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		422F213F22D6CBD8002F2463 /* MLFairyApp.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLFairyApp.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		422F214222D6CBD8002F2463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		422F214422D6CBD8002F2463 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,8 +45,6 @@
 		422F214922D6CBD9002F2463 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		422F214C22D6CBD9002F2463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		422F214E22D6CBD9002F2463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		422F217922D6CE2E002F2463 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		422F218322D6D171002F2463 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		422F218522D79F56002F2463 /* HealthySnacks.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HealthySnacks.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -34,7 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				422F218422D6D171002F2463 /* MLFairy.framework in Frameworks */,
+				42005F292316E83B00C7EF59 /* MLFairy.framework in Frameworks */,
+				42005F2D2316E90400C7EF59 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +64,7 @@
 		422F213622D6CBD8002F2463 = {
 			isa = PBXGroup;
 			children = (
+				42005F282316E83B00C7EF59 /* MLFairy.framework */,
 				422F214122D6CBD8002F2463 /* MLFairyApp.iOS */,
 				422F214022D6CBD8002F2463 /* Products */,
 				422F217822D6CE2E002F2463 /* Frameworks */,
@@ -75,8 +96,8 @@
 		422F217822D6CE2E002F2463 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				422F218322D6D171002F2463 /* MLFairy.framework */,
-				422F217922D6CE2E002F2463 /* MLFairy.framework */,
+				42005F2B2316E85600C7EF59 /* Alamofire.framework */,
+				42005F222316E66800C7EF59 /* MLFairy.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,6 +112,7 @@
 				422F213B22D6CBD8002F2463 /* Sources */,
 				422F213C22D6CBD8002F2463 /* Frameworks */,
 				422F213D22D6CBD8002F2463 /* Resources */,
+				42005F272316E75A00C7EF59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,6 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3695BW8G7F;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../MLFairy/Carthage/Build/iOS";
 				INFOPLIST_FILE = MLFairyApp.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -320,6 +343,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3695BW8G7F;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../MLFairy/Carthage/Build/iOS";
 				INFOPLIST_FILE = MLFairyApp.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

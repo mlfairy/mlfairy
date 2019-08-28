@@ -33,54 +33,6 @@
             endingLineNumber = "161"
             landmarkName = "onDownloadFileResponse(_:_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MLFairy.MLFModelTask.(onDownloadFileResponse in _7AC089D7B4E638F28A4E2AD162AC1D53)(Alamofire.DownloadResponse&lt;Swift.Optional&lt;Foundation.URL&gt;&gt;, MLFairy.MLFDownloadMetadata) -&gt; ()"
-                  moduleName = "MLFairy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Storage/programming/mlfairy/ios/MLFairy/MLFairy/MLFModelTask.swift"
-                  timestampString = "588689481.6709369"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "275">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (inout MLFairy.MLFModelTask.(MutableState in _7AC089D7B4E638F28A4E2AD162AC1D53)) -&gt; () in MLFairy.MLFModelTask.(onDownloadFileResponse in _7AC089D7B4E638F28A4E2AD162AC1D53)(Alamofire.DownloadResponse&lt;Swift.Optional&lt;Foundation.URL&gt;&gt;, MLFairy.MLFDownloadMetadata) -&gt; ()"
-                  moduleName = "MLFairy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Storage/programming/mlfairy/ios/MLFairy/MLFairy/MLFModelTask.swift"
-                  timestampString = "588689481.672704"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MLFairyApp.iOS/MLFairyApp.iOS/ViewController.swift"
-            timestampString = "588689479.926368"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "refresh(token:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
