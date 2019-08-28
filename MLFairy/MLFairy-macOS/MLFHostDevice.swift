@@ -9,8 +9,10 @@ import Foundation
 
 class MLFHostDevice {
 	private let device: Host
+	private let process: ProcessInfo
 	
 	init() {
+		self.process = ProcessInfo.processInfo
 		self.device = Host.current()
 	}
 	
@@ -19,7 +21,7 @@ class MLFHostDevice {
 	}
 	
 	func version() -> String {
-		return ""
+		return self.process.operatingSystemVersionString
 	}
 	
 	func batteryLevel() -> Float {
