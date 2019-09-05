@@ -2,7 +2,8 @@ language: objective-c
 
 matrix:
   include:
-  - osx_image: xcode11
+  - {osx_image: xcode11,   env: DEVICE="iPhone Xs" VERSION=13.0 PLAT=iOS}
+  - {osx_image: xcode10.2, env: DEVICE="iPhone Xs" VERSION=12.2 PLAT=iOS}
 
 cache:
   directories:
@@ -16,4 +17,4 @@ before_install:
 script:
   - cd MLFairy
   - carthage update --cache-builds --new-resolver --configuration Debug
-  - xcodebuild test -scheme 'MLFairy iOS' -project 'MLFairy.xcodeproj' -sdk iphonesimulator
+  - xcodebuild test -scheme 'MLFairy iOS' -project 'MLFairy.xcodeproj' -sdk iphonesimulator -destination "platform=$PLAT Simulator,name=$DEVICE,OS=$VERSION"
