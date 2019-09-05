@@ -48,16 +48,6 @@
 		42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTest.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		42005F472318166A00C7EF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 422F215522D6CDB8002F2463 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 42005EE12316DD3600C7EF59;
-			remoteInfo = "MLFairy iOS";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		42005EE22316DD3600C7EF59 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42005EE42316DD3700C7EF59 /* MLFairy_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy_iOS.h; sourceTree = "<group>"; };
@@ -340,7 +330,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				42005F482318166A00C7EF59 /* PBXTargetDependency */,
 			);
 			name = MLFairyTests;
 			productName = MLFairyTests;
@@ -463,14 +452,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		42005F482318166A00C7EF59 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 42005EE12316DD3600C7EF59 /* MLFairy iOS */;
-			targetProxy = 42005F472318166A00C7EF59 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		42005EE82316DD3700C7EF59 /* Debug */ = {
