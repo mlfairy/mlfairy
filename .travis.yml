@@ -1,11 +1,19 @@
 language: objective-c
-osx_image: xcode11
+
+matrix:
+  include:
+  - osx_image: xcode11
+
+cache:
+  directories:
+  - MLFairy/Carthage
 
 before_install:
   - brew update
   - brew install carthage
+  - gem install xcpretty
 
 script:
   - cd MLFairy
   - carthage update --cache-builds --new-resolver --configuration Debug
-  - xcodebuild test -scheme 'MLFairy iOS' -project 'MLFairy.xcodeproj' -sdk iphonesimulator -destination "name=iPhone X"
+  - xcodebuild test -scheme 'MLFairy iOS' -project 'MLFairy.xcodeproj' -sdk iphonesimulator
