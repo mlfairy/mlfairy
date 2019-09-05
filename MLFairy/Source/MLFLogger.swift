@@ -7,7 +7,19 @@
 
 import Foundation
 
-class MLFLogger {
+protocol MLFLogger {
+	func i(tag: String, _ message: String)
+	func d(tag: String, _ message: String)
+	func e(tag: String, _ message: String)
+}
+
+extension MLFLogger {
+	func i(tag: String = "MLFairy", _ message: String) { return self.i(tag:tag, message) }
+	func d(tag: String = "MLFairy", _ message: String) { return self.d(tag:tag, message) }
+	func e(tag: String = "MLFairy", _ message: String) { return self.e(tag:tag, message) }
+}
+
+class MLFDefaultLogger: MLFLogger {
 	private let debugEnabled: Bool
 	
 	init() {

@@ -8,9 +8,22 @@
 import Foundation
 import CommonCrypto
 
-class MLFPersistence {
-	typealias OnDiskDownloadMetadata = (url: URL?, metadata: MLFDownloadMetadata?)
-	
+typealias OnDiskDownloadMetadata = (url: URL?, metadata: MLFDownloadMetadata?)
+
+protocol MLFPersistence {
+	func save(_ metadata: MLFDownloadMetadata, for token: String) throws
+	func findModel(for token: String) throws -> OnDiskDownloadMetadata
+	func modelFileFor(model: MLFDownloadMetadata) throws -> URL?
+	func deleteFile(at url: URL)
+	func exists(file: URL) throws -> Bool
+	func md5File(url: URL, bufferSize: Int) throws -> [UInt8]
+}
+
+extension MLFPersistence {
+	func md5File(url: URL, bufferSize: Int = 1048576) throws -> [UInt8] { return try self.md5File(url: url, bufferSize: bufferSize)}
+}
+
+class MLFDefaultPersistence: MLFPersistence {
 	private let fileManager: FileManager
 	private let sdkDirectoryPath: URL
 	private let modelDirectoryUrl: URL
@@ -21,11 +34,10 @@ class MLFPersistence {
 	
 	private var metadataMap: [String: MLFDownloadMetadata] = [:]
 	
-	init(log: MLFLogger) {
-		self.fileManager = FileManager.default
+	init(fileManager: FileManager, root: URL, log: MLFLogger) {
+		self.fileManager = fileManager
 		self.log = log
-		self.sdkDirectoryPath = self.fileManager
-			.urls(for: .applicationSupportDirectory, in: .userDomainMask).last!
+		self.sdkDirectoryPath = root
 			.appendingPathComponent("com.mlfairy", isDirectory: true)
 		self.modelDirectoryUrl = self.sdkDirectoryPath
 			.appendingPathComponent("models", isDirectory: true)
@@ -37,34 +49,38 @@ class MLFPersistence {
 		return self.fileManager.fileExists(atPath: file.path)
 	}
 	
-	func size(url: URL) -> Int? {
+	func size(url: URL) throws -> Int? {
 		do {
 			let resources = try url.resourceValues(forKeys: [.fileSizeKey])
 			return resources.fileSize
 		} catch {
 			self.log.d("Failed to get size for directory \(url): \(error)")
-			return nil
+			throw error
 		}
 	}
 	
-	func findModel(for token: String) -> OnDiskDownloadMetadata {
-		guard let metadata = self.findDownloadMetadata(for: token) else {
+	func findModel(for token: String) throws -> OnDiskDownloadMetadata {
+		guard let metadata = try self.findDownloadMetadata(for: token) else {
 			return (nil, nil)
 		}
 		
-		return (self.modelFileFor(model: metadata), metadata)
+		return (try self.modelFileFor(model: metadata), metadata)
 	}
 	
-	func findDownloadMetadata(for token: String) -> MLFDownloadMetadata? {
+	private func findDownloadMetadata(for token: String) throws -> MLFDownloadMetadata? {
 		if let metadata = self.metadataMap[token] {
 			return metadata
 		}
 		
-		guard let path = self.directoryFor(token: token) else {
+		guard let path = try self.directoryFor(token: token) else {
 			return nil
 		}
 		
 		let metadataUrl = path.appendingPathComponent(".metadata")
+		if (!self.exists(file: metadataUrl)) {
+			return nil
+		}
+		
 		do {
 			let data = try Data(contentsOf: metadataUrl)
 			let metadata = try decoder.decode(MLFDownloadMetadata.self, from: data)
@@ -77,8 +93,8 @@ class MLFPersistence {
 		}
 	}
 	
-	func save(_ metadata: MLFDownloadMetadata, for token: String) {
-		guard let path = self.directoryFor(token: token) else {
+	func save(_ metadata: MLFDownloadMetadata, for token: String) throws {
+		guard let path = try self.directoryFor(token: token) else {
 			return
 		}
 		
@@ -93,10 +109,11 @@ class MLFPersistence {
 			self.metadataMap[token] = metadata
 		} catch {
 			self.log.d("Failed to write metadata for token \(token): \(error)")
+			throw error
 		}
 	}
 	
-	func directoryFor(token: String) -> URL? {
+	func directoryFor(token: String) throws -> URL? {
 		do {
 			let modelDirectory = self.modelDirectoryUrl
 				.appendingPathComponent(token, isDirectory: true)
@@ -105,23 +122,15 @@ class MLFPersistence {
 			return modelDirectory
 		} catch {
 			self.log.d("Failed to create model directory for token \(token): \(error)")
-			return nil
+			throw error
 		}
 	}
 	
-	func modelFileFor(model: MLFDownloadMetadata) -> URL? {
+	func modelFileFor(model: MLFDownloadMetadata) throws -> URL? {
 		guard let activeVersion = model.activeVersion else { return nil }
 		
-		if let path = self.directoryFor(token: model.token) {
+		if let path = try self.directoryFor(token: model.token) {
 			return path.appendingPathComponent(activeVersion)
-		}
-		
-		return nil
-	}
-	
-	func metadataFileFor(model: MLFDownloadMetadata) -> URL? {
-		if let path = self.directoryFor(token: model.token) {
-			return path.appendingPathComponent(".metadata")
 		}
 		
 		return nil
