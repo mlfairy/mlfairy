@@ -35,15 +35,12 @@
 		42005F38231807FD00C7EF59 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F36231807FD00C7EF59 /* FBLPromises.framework */; };
 		42005F3B2318082100C7EF59 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F392318082100C7EF59 /* Promises.framework */; };
 		42005F3C2318082100C7EF59 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F3A2318082100C7EF59 /* FBLPromises.framework */; };
-		42005F3E2318083300C7EF59 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F3D2318083300C7EF59 /* OHHTTPStubs.framework */; };
 		42005F40231808AB00C7EF59 /* MLFairyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F3F231808AB00C7EF59 /* MLFairyImpl.swift */; };
 		42005F41231808AB00C7EF59 /* MLFairyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F3F231808AB00C7EF59 /* MLFairyImpl.swift */; };
 		42005F4323180F8700C7EF59 /* MLFDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F4223180F8700C7EF59 /* MLFDownloadTask.swift */; };
 		42005F4423180F8700C7EF59 /* MLFDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F4223180F8700C7EF59 /* MLFDownloadTask.swift */; };
 		42005F462318158000C7EF59 /* MLFTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F452318158000C7EF59 /* MLFTaskTests.swift */; };
 		42005F492318167D00C7EF59 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005EE22316DD3600C7EF59 /* MLFairy.framework */; };
-		42005F4A231819EC00C7EF59 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F35231807FD00C7EF59 /* Promises.framework */; };
-		42005F4B23181A2000C7EF59 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F36231807FD00C7EF59 /* FBLPromises.framework */; };
 		42005F50231BF75500C7EF59 /* MultiSnacks in Resources */ = {isa = PBXBuildFile; fileRef = 42005F4D231BF33500C7EF59 /* MultiSnacks */; };
 		42005F53231DA6B200C7EF59 /* MLFLoggerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F52231DA6B200C7EF59 /* MLFLoggerStub.swift */; };
 		42005F55231EDD3F00C7EF59 /* MLFPersistenceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F54231EDD3F00C7EF59 /* MLFPersistenceStub.swift */; };
@@ -102,6 +99,7 @@
 		42872F5F22DFE94500573818 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		42872F6322E015E800573818 /* Metric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
+		42E6523E23219995003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42005F4A231819EC00C7EF59 /* Promises.framework in Frameworks */,
 				42005F492318167D00C7EF59 /* MLFairy.framework in Frameworks */,
-				42005F3E2318083300C7EF59 /* OHHTTPStubs.framework in Frameworks */,
-				42005F4B23181A2000C7EF59 /* FBLPromises.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				42005F3D2318083300C7EF59 /* OHHTTPStubs.framework */,
+				42E6523E23219995003BB662 /* OHHTTPStubs.framework */,
 				42005F36231807FD00C7EF59 /* FBLPromises.framework */,
 				42005F3A2318082100C7EF59 /* FBLPromises.framework */,
 				42005F35231807FD00C7EF59 /* Promises.framework */,
@@ -490,6 +486,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "MLFairy-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -520,6 +517,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "MLFairy-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -729,23 +727,48 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3695BW8G7F;
-				FRAMEWORK_SEARCH_PATHS = (
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -753,23 +776,48 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3695BW8G7F;
-				FRAMEWORK_SEARCH_PATHS = (
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};

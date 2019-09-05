@@ -3,7 +3,7 @@ language: objective-c
 matrix:
   include:
   - {osx_image: xcode10.2, env: SCHEME="MLFairy iOS" SDK="iphonesimulator" DESTINATION="OS=12.2,name=iPhone Xs"}
-  - {osx_image: xcode11,   env: SCHEME="MLFairy iOS" SDK="iphonesimulator" DESTINATION="OS=13.0,name=iPhone Xs"}
+  - {osx_image: xcode10.2, env: SCHEME="MLFairy macOS" SDK="macosx" DESTINATION="arch=x86_64"}
 
 cache:
   directories:
