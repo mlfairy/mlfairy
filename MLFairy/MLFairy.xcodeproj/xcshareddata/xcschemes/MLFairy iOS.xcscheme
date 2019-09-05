@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "422F215D22D6CDB8002F2463"
-               BuildableName = "MLFairy-deprecated.framework"
-               BlueprintName = "MLFairy"
+               BlueprintIdentifier = "42005EE12316DD3600C7EF59"
+               BuildableName = "MLFairy.framework"
+               BlueprintName = "MLFairy iOS"
+               ReferencedContainer = "container:MLFairy.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "422F216622D6CDB8002F2463"
+               BuildableName = "MLFairyTests.xctest"
+               BlueprintName = "MLFairyTests"
                ReferencedContainer = "container:MLFairy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,6 +40,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -42,9 +57,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "422F215D22D6CDB8002F2463"
-            BuildableName = "MLFairy-deprecated.framework"
-            BlueprintName = "MLFairy"
+            BlueprintIdentifier = "42005EE12316DD3600C7EF59"
+            BuildableName = "MLFairy.framework"
+            BlueprintName = "MLFairy iOS"
             ReferencedContainer = "container:MLFairy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +79,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "422F215D22D6CDB8002F2463"
-            BuildableName = "MLFairy-deprecated.framework"
-            BlueprintName = "MLFairy"
+            BlueprintIdentifier = "42005EE12316DD3600C7EF59"
+            BuildableName = "MLFairy.framework"
+            BlueprintName = "MLFairy iOS"
             ReferencedContainer = "container:MLFairy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +97,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "422F215D22D6CDB8002F2463"
-            BuildableName = "MLFairy-deprecated.framework"
-            BlueprintName = "MLFairy"
+            BlueprintIdentifier = "42005EE12316DD3600C7EF59"
+            BuildableName = "MLFairy.framework"
+            BlueprintName = "MLFairy iOS"
             ReferencedContainer = "container:MLFairy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

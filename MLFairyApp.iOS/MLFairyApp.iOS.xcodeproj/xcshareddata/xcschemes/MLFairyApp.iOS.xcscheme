@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1030"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -18,6 +18,20 @@
                BuildableName = "MLFairyApp.iOS.app"
                BlueprintName = "MLFairyApp.iOS"
                ReferencedContainer = "container:MLFairyApp.iOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "42005EE12316DD3600C7EF59"
+               BuildableName = "MLFairy.framework"
+               BlueprintName = "MLFairy iOS"
+               ReferencedContainer = "container:../MLFairy/MLFairy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

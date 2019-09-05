@@ -1,5 +1,5 @@
 //
-//  MLFairyImpl.swift
+//  MLFairyImpl2.swift
 //  MLFairy
 //
 //  Copyright © 2019 MLFairy. All rights reserved.
@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreML
+import Promises
 
 class MLFairyImpl {
 	public struct Options: OptionSet {
@@ -26,24 +27,32 @@ class MLFairyImpl {
 	private let persistence: MLFPersistence
 	private let network: MLFNetwork;
 	
-	private var requestMap:[String: MLFModelTask] = [:]
-	
 	private let requestQueue: DispatchQueue
 	private let computationQueue: DispatchQueue
 	private let compilationQueue: DispatchQueue
 	
-	private var userId: String?
+	private var cache:[Promise<MLModel>] = []
 	
-	init() {
+	convenience init() {
+		let fileManger = FileManager.default;
+		let root = fileManger.urls(for: .applicationSupportDirectory, in: .userDomainMask).last!
+		self.init(fileManager: fileManger, persistenceRoot: root)
+	}
+	
+	init(fileManager: FileManager, persistenceRoot: URL) {
 		self.network = MLFNetwork()
-		self.log = MLFLogger()
+		self.log = MLFDefaultLogger()
 		self.device = MLFDevice(host: MLFHostDevice())
-		self.persistence = MLFPersistence(log: self.log)
+		self.persistence = MLFDefaultPersistence(
+			fileManager: fileManager,
+			root: persistenceRoot,
+			log: self.log
+		)
 		self.app = MLFApp(logger:self.log, device:self.device)
 		
+		self.requestQueue = DispatchQueue(label: "com.mlfairy.requestQueue")
 		self.computationQueue = DispatchQueue(label: "com.mlfairy.computation")
-		self.requestQueue = DispatchQueue(label: "com.mlfairy.requestQueue", target: self.computationQueue)
-		self.compilationQueue = DispatchQueue(label: "com.mlfairy.compilation", target: self.computationQueue)
+		self.compilationQueue = DispatchQueue(label: "com.mlfairy.compilation")
 	}
 	
 	func getCoreMLModel(
@@ -52,61 +61,31 @@ class MLFairyImpl {
 		queue: DispatchQueue,
 		callback: @escaping (MLModel?, Error?) -> Void
 	) {
-		// TODO: Cleanup requestMap?
-		self.download(
-			model:token
-		).response(
-			queue: queue,
-			callback
-		)
-	}
-	
-	func set(userId: String, forModel modelToken: String?) {
-		self.requestQueue.async {
-			if let token = modelToken {
-				self.task(for: token).set(userId: userId)
-			} else {
-				self.userId = userId
-				self.requestMap.forEach { (_, task) in
-					task.set(userId: userId)
-				}
-			}
-		}
-	}
-	
-	func watch(model: Any, forToken: String) {
-		
-	}
-	
-	private func download(model modelId: String) -> MLFModelTask {
-		let task = self.task(for: modelId)
-		self.perform(task)
-		
-		return task
-	}
-	
-	private func task(for modelId: String) -> MLFModelTask {
-		if let task = self.requestMap[modelId] {
-			return task
-		}
-		
-		let task = MLFModelTask(
-			token: modelId,
-			app: self.app,
-			network: self.network,
-			persistence: self.persistence,
-			computationQueue: self.computationQueue,
-			compilationQueue: self.compilationQueue,
-			log: self.log
-		)
-		self.requestMap[modelId] = task
-		
-		return task
-	}
-	
-	private func perform(_ task: MLFModelTask) {
-		self.requestQueue.async {
-			task.resume()
+		Promise<MLModel>(on:self.requestQueue) { () -> MLModel in
+			let task = MLFDownloadTask(
+				network: self.network,
+				persistence: self.persistence,
+				log: self.log
+			)
+			let diskMetadata = try self.persistence.findModel(for: token)
+			let metadata = try await(task.downloadMetadata(
+				token,
+				info: self.app.appInformation(),
+				fallback: diskMetadata.metadata,
+				on: self.computationQueue
+			))
+			try self.persistence.save(metadata, for: token)
+			let destination = try self.persistence.modelFileFor(model: metadata)!
+			let url = try await(task.downloadModel(
+				metadata,
+				to: destination,
+				on: self.computationQueue
+			))
+			return try await(task.compileModel(url, metadata, on: self.compilationQueue))
+		}.then(on: queue) { model in
+			callback(model, nil)
+		}.catch(on: queue) { error in
+			callback(nil, error)
 		}
 	}
 }

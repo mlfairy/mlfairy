@@ -2,7 +2,6 @@
 //  MLFairy_macOS.h
 //  MLFairy macOS
 //
-//  Created by Vijay Sharma on 2019-08-28.
 //  Copyright © 2019 MLFairy. All rights reserved.
 //
 
