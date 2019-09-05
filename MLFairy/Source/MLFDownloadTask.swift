@@ -35,7 +35,7 @@ class MLFDownloadTask {
 			let body: [String: Any] = ["token": token, "data": info]
 			let request = self.network
 				.metadata(body)
-				.responseDecodable(queue: queue) { (response: DataResponse<MLFDownloadMetadata>) in
+				.responseDecodable(queue: queue) { (response: DataResponse<MLFDownloadMetadata, AFError>) in
 					do {
 						let metadata = try self.onDownloadMetadata(response, fallback)
 						resolve(metadata)
@@ -63,7 +63,7 @@ class MLFDownloadTask {
 					self.log.d("Downloading model into \(destination)")
 					let request = self.network
 						.download(metadata.modelFileUrl!, into: destination)
-						.response(queue: queue) { (response: DownloadResponse<URL?>) in
+						.response(queue: queue) { (response: DownloadResponse<URL?, AFError>) in
 							do {
 								let url = try self.onDownloadModel(response, metadata)
 								resolve(url)
@@ -96,7 +96,7 @@ class MLFDownloadTask {
 	}
 	
 	private func onDownloadMetadata(
-		_ response: DataResponse<MLFDownloadMetadata>,
+		_ response: DataResponse<MLFDownloadMetadata, AFError>,
 		_ fallback: MLFDownloadMetadata?
 	) throws -> MLFDownloadMetadata  {
 		switch(response.result) {
@@ -119,7 +119,7 @@ class MLFDownloadTask {
 	}
 	
 	private func onDownloadModel(
-		_ response: DownloadResponse<URL?>,
+		_ response: DownloadResponse<URL?, AFError>,
 		_ metadata: MLFDownloadMetadata
 	) throws -> URL {
 		switch(response.result) {
