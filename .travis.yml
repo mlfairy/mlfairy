@@ -19,4 +19,4 @@ before_install:
 script:
   - cd MLFairy
   - carthage update --cache-builds --new-resolver --configuration Debug
-  - xcodebuild test -scheme $SCHEME -project 'MLFairy.xcodeproj' -sdk $SDK -destination "$DESTINATION"
+  - xcodebuild test -scheme "$SCHEME" -project 'MLFairy.xcodeproj' -sdk $SDK -destination "$DESTINATION"
