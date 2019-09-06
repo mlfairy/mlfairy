@@ -12,7 +12,7 @@ matrix:
     env: 
       - SCHEME="MLFairy macOS" 
       - SDK="macosx" 
-      - DESTINATION="arch=x86_64"}
+      - DESTINATION="arch=x86_64"
       - PLATFORM="macos"
 
 cache:
@@ -27,4 +27,4 @@ before_install:
 script:
   - set -o pipefail
   - carthage update --cache-builds --new-resolver --configuration Debug --project-directory MLFairy
-  - xcodebuild test -scheme "$SCHEME" -workspace "MLFairy.workspace" -sdk $SDK -destination "$DESTINATION" | xcpretty
+  - xcodebuild test -scheme "$SCHEME" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination "$DESTINATION" | xcpretty
