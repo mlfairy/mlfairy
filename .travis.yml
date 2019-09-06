@@ -3,9 +3,17 @@ language: objective-c
 matrix:
   include:
   - osx_image: xcode10.2 
-    env: SCHEME="MLFairy iOS" SDK="iphonesimulator" DESTINATION="OS=12.2,name=iPhone Xs"
+    env: 
+      - SCHEME="MLFairy iOS" 
+      - SDK="iphonesimulator" 
+      - DESTINATION="OS=12.2,name=iPhone Xs"
+      - PLATFORM="ios"
   - osx_image: xcode10.2 
-    env: SCHEME="MLFairy macOS" SDK="macosx" DESTINATION="arch=x86_64"}
+    env: 
+      - SCHEME="MLFairy macOS" 
+      - SDK="macosx" 
+      - DESTINATION="arch=x86_64"}
+      - PLATFORM="macos"
 
 cache:
   directories:
@@ -18,5 +26,5 @@ before_install:
 
 script:
   - set -o pipefail
-  - carthage update --cache-builds --new-resolver --configuration Debug
+  - carthage update --cache-builds --new-resolver --configuration Debug --project-directory MLFairy
   - xcodebuild test -scheme "$SCHEME" -workspace "MLFairy.workspace" -sdk $SDK -destination "$DESTINATION" | xcpretty
