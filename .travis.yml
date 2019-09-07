@@ -4,18 +4,16 @@ matrix:
   include:
   - osx_image: xcode10.2 
     env: 
-      - SCHEME="MLFairy iOS" 
       - SDK="iphonesimulator" 
       - DESTINATION="OS=12.2,name=iPhone Xs"
-      - PLATFORM="ios"
-      - DERIVED_DATA_DIR="./Build/DerivedData/iOS"
   - osx_image: xcode10.2 
     env: 
-      - SCHEME="MLFairy macOS" 
       - SDK="macosx" 
-      - DESTINATION="arch=x86_64"
-      - PLATFORM="macos"
-      - DERIVED_DATA_DIR="./Build/DerivedData/macOS"
+      - DESTINATION="arch=x86_64" 
+  - osx_image: xcode10.2 
+    env: 
+      - SDK="appletvsimulator" 
+      - DESTINATION="OS=12.2,name=Apple TV 4K (at 1080p)"
 
 cache:
   directories:
@@ -29,5 +27,4 @@ before_install:
 script:
   - set -o pipefail
   - carthage update --cache-builds --new-resolver --configuration Debug --project-directory MLFairy
-  - mkdir -p $DERIVED_DATA_DIR
-  - xcodebuild test -scheme "$SCHEME" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination "$DESTINATION" -derivedDataPath "$DERIVED_DATA_DIR" | xcpretty
+  - xcodebuild test -scheme "MLFairy" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination "$DESTINATION" | xcpretty
