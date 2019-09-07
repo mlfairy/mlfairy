@@ -5,7 +5,7 @@
 //  Copyright © 2019 MLFairy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for MLFairy.
 FOUNDATION_EXPORT double MLFairyVersionNumber;

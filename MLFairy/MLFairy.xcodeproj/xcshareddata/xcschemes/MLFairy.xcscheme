@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42005EEF2316DE5F00C7EF59"
+               BlueprintIdentifier = "42E652492322CED3003BB662"
                BuildableName = "MLFairy.framework"
-               BlueprintName = "MLFairy macOS"
+               BlueprintName = "MLFairy"
                ReferencedContainer = "container:MLFairy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,9 +57,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42005EEF2316DE5F00C7EF59"
+            BlueprintIdentifier = "42E652492322CED3003BB662"
             BuildableName = "MLFairy.framework"
-            BlueprintName = "MLFairy macOS"
+            BlueprintName = "MLFairy"
             ReferencedContainer = "container:MLFairy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,9 +79,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42005EEF2316DE5F00C7EF59"
+            BlueprintIdentifier = "42E652492322CED3003BB662"
             BuildableName = "MLFairy.framework"
-            BlueprintName = "MLFairy macOS"
+            BlueprintName = "MLFairy"
             ReferencedContainer = "container:MLFairy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -97,9 +97,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42005EEF2316DE5F00C7EF59"
+            BlueprintIdentifier = "42E652492322CED3003BB662"
             BuildableName = "MLFairy.framework"
-            BlueprintName = "MLFairy macOS"
+            BlueprintName = "MLFairy"
             ReferencedContainer = "container:MLFairy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
