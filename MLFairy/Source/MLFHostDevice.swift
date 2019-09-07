@@ -25,7 +25,11 @@ class MLFHostDevice {
 	}
 	
 	func batteryLevel() -> Float {
+#if os(iOS) || os(watchOS)
 		return self.device.batteryLevel
+#elseif os(tvOS)
+		return -1
+#endif
 	}
 }
 	

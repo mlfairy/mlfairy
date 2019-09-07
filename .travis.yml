@@ -12,10 +12,6 @@ matrix:
       - DESTINATION="arch=x86_64"
   - osx_image: xcode10.2 
     env: 
-      - SDK="watchsimulator" 
-      - DESTINATION="OS=5.2,name=Apple Watch Series 4 - 44mm"
-  - osx_image: xcode10.2 
-    env: 
       - SDK="appletvsimulator" 
       - DESTINATION="OS=12.2,name=Apple TV 4K (at 1080p)"
 
