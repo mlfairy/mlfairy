@@ -9,7 +9,7 @@ matrix:
   - osx_image: xcode10.2 
     env: 
       - SDK="macosx" 
-      - DESTINATION="arch=x86_64"
+      - DESTINATION="arch=x86_64" 
   - osx_image: xcode10.2 
     env: 
       - SDK="appletvsimulator" 
@@ -27,5 +27,4 @@ before_install:
 script:
   - set -o pipefail
   - carthage update --cache-builds --new-resolver --configuration Debug --project-directory MLFairy
-  - mkdir -p $DERIVED_DATA_DIR
   - xcodebuild test -scheme "MLFairy" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination "$DESTINATION" | xcpretty
