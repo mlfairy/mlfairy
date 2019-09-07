@@ -4,14 +4,14 @@ matrix:
   include:
   - osx_image: xcode10.2 
     env: 
-      - SCHEME="MLFairy iOS" 
+      - SCHEME="MLFairy" 
       - SDK="iphonesimulator" 
       - DESTINATION="OS=12.2,name=iPhone Xs"
       - PLATFORM="ios"
       - DERIVED_DATA_DIR="./Build/DerivedData/iOS"
   - osx_image: xcode10.2 
     env: 
-      - SCHEME="MLFairy macOS" 
+      - SCHEME="MLFairy" 
       - SDK="macosx" 
       - DESTINATION="arch=x86_64"
       - PLATFORM="macos"

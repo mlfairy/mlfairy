@@ -26,6 +26,7 @@
 		42E6525B2322CF0F003BB662 /* MLFDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5722DE955600573818 /* MLFDataModels.swift */; };
 		42E6525C2322CF0F003BB662 /* MLFErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5D22DF687300573818 /* MLFErrors.swift */; };
 		42E6525D2322CF0F003BB662 /* MLFHostDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */; };
+		42E6525E23235693003BB662 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F132316E1CB00C7EF59 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E6525E23235693003BB662 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
