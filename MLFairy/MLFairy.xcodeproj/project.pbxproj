@@ -27,7 +27,18 @@
 		42E6525C2322CF0F003BB662 /* MLFErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F5D22DF687300573818 /* MLFErrors.swift */; };
 		42E6525D2322CF0F003BB662 /* MLFHostDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */; };
 		42E6525E23235693003BB662 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F132316E1CB00C7EF59 /* Security.framework */; };
+		42E652642323599E003BB662 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6524A2322CED3003BB662 /* MLFairy.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		42E6526223235982003BB662 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 422F215522D6CDB8002F2463 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42E652492322CED3003BB662;
+			remoteInfo = MLFairy;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		42005F132316E1CB00C7EF59 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -74,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E652642323599E003BB662 /* MLFairy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +248,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				42E6526323235982003BB662 /* PBXTargetDependency */,
 			);
 			name = MLFairyTests;
 			productName = MLFairyTests;
@@ -348,6 +361,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42E6526323235982003BB662 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42E652492322CED3003BB662 /* MLFairy */;
+			targetProxy = 42E6526223235982003BB662 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		422F217022D6CDB8002F2463 /* Debug */ = {
