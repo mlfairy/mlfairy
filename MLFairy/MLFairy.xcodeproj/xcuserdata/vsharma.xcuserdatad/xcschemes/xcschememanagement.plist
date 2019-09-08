@@ -4,15 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MLFairy iOS.xcscheme_^#shared#^_</key>
+		<key>MLFairy.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>MLFairy macOS.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>MLFairyTests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -38,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>422F216622D6CDB8002F2463</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42E652492322CED3003BB662</key>
 		<dict>
 			<key>primary</key>
 			<true/>
