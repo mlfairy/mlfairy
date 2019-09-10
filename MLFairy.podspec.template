@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name         = "MLFairy"
-	s.version      = "0.0.1"
+	s.version      = "%VERSION%"
 	s.summary      = "Better understand your CoreML models"
 	s.homepage     = "https://www.mlfairy.com"
 	s.license      = { :type => "GPLv3", :file => "License.txt" }
