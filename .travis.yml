@@ -31,7 +31,7 @@ before_deploy:
   - carthage build --archive --platform iOS,tvOS,macOS --project-directory MLFairy
   - sed "s/%VERSION%/${TRAVIS_TAG}/g" MLFairy.podspec.template > MLFairy.podspec
 after_deploy:
-  - pod trunk push MLFairy.podspec --skip-tests --allow-warnings --verbose
+  - pod trunk push MLFairy.podspec --skip-tests --allow-warnings --verbose | xcpretty
 deploy:
   provider: releases
   skip_cleanup: true
