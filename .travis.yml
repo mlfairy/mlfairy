@@ -33,7 +33,7 @@ matrix:
     - DESTINATION="OS=12.2,name=Apple TV 4K (at 1080p)"
 cache:
   directories:
-  - MLFairy/Carthage
+  - Carthage
 before_install:
 - brew update
 - brew install carthage
