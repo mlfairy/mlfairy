@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 	s.homepage     = "https://www.mlfairy.com"
 	s.license      = { :type => "GPLv3", :file => "License.txt" }
 	s.author       = { "MLFairy" => "support@mlfairy.com" }
-	s.source       = { :git => "https://github.com/mlfairy/ios.git", :tag => s.version }
+	s.source       = { :git => "https://github.com/mlfairy/mlfairy.git", :tag => s.version }
 	s.requires_arc = true
 	s.swift_version = "5.0"
 

@@ -22,7 +22,7 @@ matrix:
       on:
         branch: master
         tags: true
-        repo: mlfairy/ios
+        repo: mlfairy/mlfairy
   - osx_image: xcode10.2
     env:
     - SDK="macosx"
