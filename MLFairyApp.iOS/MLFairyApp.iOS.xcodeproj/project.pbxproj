@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42005F2D2316E90400C7EF59 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; };
-		42005F2E2316E90400C7EF59 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		422F214322D6CBD8002F2463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F214222D6CBD8002F2463 /* AppDelegate.swift */; };
 		422F214522D6CBD8002F2463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F214422D6CBD8002F2463 /* ViewController.swift */; };
 		422F214822D6CBD8002F2463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422F214622D6CBD8002F2463 /* Main.storyboard */; };
 		422F214A22D6CBD9002F2463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422F214922D6CBD9002F2463 /* Assets.xcassets */; };
 		422F214D22D6CBD9002F2463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422F214B22D6CBD9002F2463 /* LaunchScreen.storyboard */; };
 		422F218622D79F56002F2463 /* HealthySnacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 422F218522D79F56002F2463 /* HealthySnacks.mlmodel */; };
-		42E6523823203547003BB662 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652352320353B003BB662 /* FBLPromises.framework */; };
-		42E6523923203547003BB662 /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652352320353B003BB662 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		42E6523A23203547003BB662 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652342320353B003BB662 /* Promises.framework */; };
-		42E6523B23203547003BB662 /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652342320353B003BB662 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42E652602323578F003BB662 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6525F2323578F003BB662 /* MLFairy.framework */; };
 		42E652612323578F003BB662 /* MLFairy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6525F2323578F003BB662 /* MLFairy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42E652A623298380003BB662 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652352320353B003BB662 /* FBLPromises.framework */; };
+		42E652A723298380003BB662 /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652352320353B003BB662 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42E652A823298380003BB662 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652342320353B003BB662 /* Promises.framework */; };
+		42E652A923298380003BB662 /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652342320353B003BB662 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42E652AA23298380003BB662 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; };
+		42E652AB23298380003BB662 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,10 +30,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				42E6523B23203547003BB662 /* Promises.framework in Embed Frameworks */,
+				42E652A923298380003BB662 /* Promises.framework in Embed Frameworks */,
 				42E652612323578F003BB662 /* MLFairy.framework in Embed Frameworks */,
-				42E6523923203547003BB662 /* FBLPromises.framework in Embed Frameworks */,
-				42005F2E2316E90400C7EF59 /* Alamofire.framework in Embed Frameworks */,
+				42E652A723298380003BB662 /* FBLPromises.framework in Embed Frameworks */,
+				42E652AB23298380003BB662 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,10 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E6523A23203547003BB662 /* Promises.framework in Frameworks */,
+				42E652A823298380003BB662 /* Promises.framework in Frameworks */,
 				42E652602323578F003BB662 /* MLFairy.framework in Frameworks */,
-				42E6523823203547003BB662 /* FBLPromises.framework in Frameworks */,
-				42005F2D2316E90400C7EF59 /* Alamofire.framework in Frameworks */,
+				42E652A623298380003BB662 /* FBLPromises.framework in Frameworks */,
+				42E652AA23298380003BB662 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

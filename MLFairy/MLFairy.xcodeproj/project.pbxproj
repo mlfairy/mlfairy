@@ -42,16 +42,7 @@
 
 /* Begin PBXFileReference section */
 		42005F132316E1CB00C7EF59 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		42005F152316E2D500C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
-		42005F162316E2D500C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
-		42005F172316E2D500C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
-		42005F182316E2D600C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFHostDevice.swift; sourceTree = "<group>"; };
-		42005F35231807FD00C7EF59 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
-		42005F36231807FD00C7EF59 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
-		42005F392318082100C7EF59 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/Mac/Promises.framework; sourceTree = "<group>"; };
-		42005F3A2318082100C7EF59 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/Mac/FBLPromises.framework; sourceTree = "<group>"; };
-		42005F3D2318083300C7EF59 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		42005F3F231808AB00C7EF59 /* MLFairyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImpl.swift; sourceTree = "<group>"; };
 		42005F4223180F8700C7EF59 /* MLFDownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFDownloadTask.swift; sourceTree = "<group>"; };
 		42005F452318158000C7EF59 /* MLFTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFTaskTests.swift; sourceTree = "<group>"; };
@@ -74,10 +65,24 @@
 		42872F5F22DFE94500573818 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		42872F6322E015E800573818 /* Metric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
-		42E6523E23219995003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
 		42E6524D2322CED4003BB662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42E652972329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/tvOS/FBLPromises.framework; sourceTree = "<group>"; };
+		42E652982329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/watchOS/FBLPromises.framework; sourceTree = "<group>"; };
+		42E652992329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/tvOS/Promises.framework; sourceTree = "<group>"; };
+		42E6529A2329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
+		42E6529B2329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/Mac/Promises.framework; sourceTree = "<group>"; };
+		42E6529C2329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		42E6529D2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/tvOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		42E6529E2329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/watchOS/Promises.framework; sourceTree = "<group>"; };
+		42E6529F2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		42E652A02329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		42E652A12329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
+		42E652A22329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
+		42E652A32329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/Mac/FBLPromises.framework; sourceTree = "<group>"; };
+		42E652A42329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
+		42E652A52329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,16 +187,21 @@
 		42872D9822D7F5BF00573818 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42005F3D2318083300C7EF59 /* OHHTTPStubs.framework */,
-				42E6523E23219995003BB662 /* OHHTTPStubs.framework */,
-				42005F36231807FD00C7EF59 /* FBLPromises.framework */,
-				42005F3A2318082100C7EF59 /* FBLPromises.framework */,
-				42005F35231807FD00C7EF59 /* Promises.framework */,
-				42005F392318082100C7EF59 /* Promises.framework */,
-				42005F182316E2D600C7EF59 /* Alamofire.framework */,
-				42005F172316E2D500C7EF59 /* Alamofire.framework */,
-				42005F162316E2D500C7EF59 /* Alamofire.framework */,
-				42005F152316E2D500C7EF59 /* Alamofire.framework */,
+				42E652A42329835F003BB662 /* Alamofire.framework */,
+				42E652A12329835F003BB662 /* Alamofire.framework */,
+				42E652A02329835F003BB662 /* Alamofire.framework */,
+				42E6529C2329835F003BB662 /* Alamofire.framework */,
+				42E652A32329835F003BB662 /* FBLPromises.framework */,
+				42E6529A2329835F003BB662 /* FBLPromises.framework */,
+				42E652982329835F003BB662 /* FBLPromises.framework */,
+				42E652972329835F003BB662 /* FBLPromises.framework */,
+				42E652A52329835F003BB662 /* OHHTTPStubs.framework */,
+				42E6529F2329835F003BB662 /* OHHTTPStubs.framework */,
+				42E6529D2329835F003BB662 /* OHHTTPStubs.framework */,
+				42E652A22329835F003BB662 /* Promises.framework */,
+				42E6529E2329835F003BB662 /* Promises.framework */,
+				42E6529B2329835F003BB662 /* Promises.framework */,
+				42E652992329835F003BB662 /* Promises.framework */,
 				42005F132316E1CB00C7EF59 /* Security.framework */,
 				42872F5F22DFE94500573818 /* Security.framework */,
 			);
@@ -503,31 +513,31 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				"FRAMEWORK_SEARCH_PATHS[sdk=appletvos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=appletvsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/../Carthage/Build/Mac",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=watchos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=watchsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -538,31 +548,31 @@
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/../Carthage/Build/Mac",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
@@ -586,31 +596,31 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				"FRAMEWORK_SEARCH_PATHS[sdk=appletvos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=appletvsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/../Carthage/Build/Mac",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=watchos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				"FRAMEWORK_SEARCH_PATHS[sdk=watchsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -621,31 +631,31 @@
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/../Carthage/Build/Mac",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
@@ -670,13 +680,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"FRAMEWORK_SEARCH_PATHS[sdk=appletvos*]" = "$(PROJECT_DIR)/Carthage/Build/tvOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=appletvsimulator*]" = "$(PROJECT_DIR)/Carthage/Build/tvOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/Carthage/Build/Mac";
-				"FRAMEWORK_SEARCH_PATHS[sdk=watchos*]" = "$(PROJECT_DIR)/Carthage/Build/watchOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=watchsimulator*]" = "$(PROJECT_DIR)/Carthage/Build/watchOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletvos*]" = "$(PROJECT_DIR)/../Carthage/Build/tvOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletvsimulator*]" = "$(PROJECT_DIR)/../Carthage/Build/tvOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/../Carthage/Build/Mac";
+				"FRAMEWORK_SEARCH_PATHS[sdk=watchos*]" = "$(PROJECT_DIR)/../Carthage/Build/watchOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=watchsimulator*]" = "$(PROJECT_DIR)/../Carthage/Build/watchOS";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -688,31 +698,31 @@
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/../Carthage/Build/Mac",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.vijaysharma.MLFairy;
@@ -737,13 +747,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"FRAMEWORK_SEARCH_PATHS[sdk=appletvos*]" = "$(PROJECT_DIR)/Carthage/Build/tvOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=appletvsimulator*]" = "$(PROJECT_DIR)/Carthage/Build/tvOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/Carthage/Build/Mac";
-				"FRAMEWORK_SEARCH_PATHS[sdk=watchos*]" = "$(PROJECT_DIR)/Carthage/Build/watchOS";
-				"FRAMEWORK_SEARCH_PATHS[sdk=watchsimulator*]" = "$(PROJECT_DIR)/Carthage/Build/watchOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletvos*]" = "$(PROJECT_DIR)/../Carthage/Build/tvOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletvsimulator*]" = "$(PROJECT_DIR)/../Carthage/Build/tvOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = "$(PROJECT_DIR)/../Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/../Carthage/Build/Mac";
+				"FRAMEWORK_SEARCH_PATHS[sdk=watchos*]" = "$(PROJECT_DIR)/../Carthage/Build/watchOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=watchsimulator*]" = "$(PROJECT_DIR)/../Carthage/Build/watchOS";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -755,31 +765,31 @@
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=appletvsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/../Carthage/Build/tvOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/../Carthage/Build/iOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/../Carthage/Build/Mac",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=watchsimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.vijaysharma.MLFairy;

@@ -5,6 +5,24 @@ matrix:
     env:
     - SDK="iphonesimulator"
     - DESTINATION="OS=12.2,name=iPhone Xs"
+    before_deploy:
+      - plutil -replace CFBundleShortVersionString -string "${TRAVIS_TAG}" MLFairy/MLFairy/Info.plist
+      - carthage build --archive --platform iOS,tvOS,macOS
+      - sed "s/%VERSION%/${TRAVIS_TAG}/g" MLFairy.podspec.template > MLFairy.podspec
+    after_deploy:
+      - pod trunk push MLFairy.podspec --skip-tests --allow-warnings
+    deploy:
+      provider: releases
+      skip_cleanup: true
+      api_key:
+        secure: QZMUnWCheQq0D8F3jox24xxvrsB7WUFv/aYrLV2kcDls8swVwAjem2iV/tq7qyzfWpHb6f50RVsCd/zVvn656RjARt9XW8+Pu+vMJPzkoPO2b9pHP2cA3DCgFsg74nP18zK7OwA19B5lqSx6wh5hiBLii2UU3/e2FTgiFoSdyYfSqam7ZBM6A1ywnGd16R1g5rN4A77JvzjxGFvp8nS9GGiXeLuH4TzdT7pugNjwmtuVT99bJJNAdSVPwBmYGE0vO2Bvlcg3KdIJfQkoJ0iMsSCWGK479lHwnIAW7nWFJOUxgBpIHj+/TSH8l1x92IopwWwlzuescnYTWfs42T77ijwOxtYRaYysR5KX8MJxjYky8KuCC7Zs74NZ7CtcGro+MpepVfsLSc+pzazhjXGlM9NVTF+EcYr65Ji619bkVwa/i+l5V8eq3L3F0iz6ds9ML1+Tb0MwXvRKfeQK/3Uf4KuQg9fdOV2pgPHOEED7Jr11xNU4b2kIqq8QxJkZeI5OrthJOiaVqUCGZYYP9E4NCShxmwyZE/fs57SFfR3+rIBFMqWy0dtqtKvVEUEc4CuOCOR1txkDG2RPJRoRSsgWyKEoVDFhK3XF9hPqngEG6aohoVMrW6O2rxGWn/Lqow8y/crAQv1KfeCDoO4SLEWPolN7DQPDxbS0aOFxdm9rROA=
+      file: 
+        - MLFairy.framework.zip
+        - MLFairy.podspec
+      on:
+        branch: master
+        tags: true
+        repo: mlfairy/ios
   - osx_image: xcode10.2
     env:
     - SDK="macosx"
@@ -22,25 +40,6 @@ before_install:
 - gem install xcpretty
 script:
 - set -o pipefail
-- carthage update --cache-builds --new-resolver --configuration Debug --project-directory
-  MLFairy
-- xcodebuild test -scheme "MLFairy" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination
-  "$DESTINATION" | xcpretty
-before_deploy:
-  - plutil -replace CFBundleShortVersionString -string "${TRAVIS_TAG}" MLFairy/MLFairy/Info.plist
-  - carthage build --archive --platform iOS,tvOS,macOS --project-directory MLFairy
-  - sed "s/%VERSION%/${TRAVIS_TAG}/g" MLFairy.podspec.template > MLFairy.podspec
-after_deploy:
-  - pod trunk push MLFairy.podspec --skip-tests --allow-warnings
-deploy:
-  provider: releases
-  skip_cleanup: true
-  api_key:
-    secure: QZMUnWCheQq0D8F3jox24xxvrsB7WUFv/aYrLV2kcDls8swVwAjem2iV/tq7qyzfWpHb6f50RVsCd/zVvn656RjARt9XW8+Pu+vMJPzkoPO2b9pHP2cA3DCgFsg74nP18zK7OwA19B5lqSx6wh5hiBLii2UU3/e2FTgiFoSdyYfSqam7ZBM6A1ywnGd16R1g5rN4A77JvzjxGFvp8nS9GGiXeLuH4TzdT7pugNjwmtuVT99bJJNAdSVPwBmYGE0vO2Bvlcg3KdIJfQkoJ0iMsSCWGK479lHwnIAW7nWFJOUxgBpIHj+/TSH8l1x92IopwWwlzuescnYTWfs42T77ijwOxtYRaYysR5KX8MJxjYky8KuCC7Zs74NZ7CtcGro+MpepVfsLSc+pzazhjXGlM9NVTF+EcYr65Ji619bkVwa/i+l5V8eq3L3F0iz6ds9ML1+Tb0MwXvRKfeQK/3Uf4KuQg9fdOV2pgPHOEED7Jr11xNU4b2kIqq8QxJkZeI5OrthJOiaVqUCGZYYP9E4NCShxmwyZE/fs57SFfR3+rIBFMqWy0dtqtKvVEUEc4CuOCOR1txkDG2RPJRoRSsgWyKEoVDFhK3XF9hPqngEG6aohoVMrW6O2rxGWn/Lqow8y/crAQv1KfeCDoO4SLEWPolN7DQPDxbS0aOFxdm9rROA=
-  file: 
-    - MLFairy.framework.zip
-    - MLFairy.podspec
-  on:
-    branch: master
-    tags: true
-    repo: mlfairy/ios
+- carthage update --cache-builds --new-resolver --configuration Debug
+- xcodebuild test -scheme "MLFairy" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination "$DESTINATION" | xcpretty
+
