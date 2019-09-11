@@ -29,7 +29,7 @@ In any file you'd like to use MLFairy in, don't forget to import the framework w
 Make the following entry in your Cartfile:
 
 ```
-github "MLFairy/ios" ~> 0.0.1
+github "mlfairy/mlfairy" ~> 0.0.1
 ```
 
 Then run `carthage update`.
