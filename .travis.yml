@@ -24,8 +24,7 @@ script:
 - set -o pipefail
 - carthage update --cache-builds --new-resolver --configuration Debug --project-directory
   MLFairy
-- xcodebuild test -scheme "MLFairy" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination
-  "$DESTINATION" | xcpretty
+- xcodebuild test -scheme "MLFairy" -workspace "MLFairy.xcworkspace" -sdk $SDK -destination "$DESTINATION" | xcpretty
 before_deploy:
   - plutil -replace CFBundleShortVersionString -string "${TRAVIS_TAG}" MLFairy/MLFairy/Info.plist
   - carthage build --archive --platform iOS,tvOS,macOS --project-directory MLFairy
