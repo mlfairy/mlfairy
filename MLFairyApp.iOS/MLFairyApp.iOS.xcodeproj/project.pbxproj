@@ -13,14 +13,14 @@
 		422F214A22D6CBD9002F2463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422F214922D6CBD9002F2463 /* Assets.xcassets */; };
 		422F214D22D6CBD9002F2463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422F214B22D6CBD9002F2463 /* LaunchScreen.storyboard */; };
 		422F218622D79F56002F2463 /* HealthySnacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 422F218522D79F56002F2463 /* HealthySnacks.mlmodel */; };
+		428ED9CD2329EF60008F289C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C92329EF51008F289C /* Alamofire.framework */; };
+		428ED9CE2329EF60008F289C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C92329EF51008F289C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		428ED9CF2329EF60008F289C /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C72329EF51008F289C /* FBLPromises.framework */; };
+		428ED9D02329EF60008F289C /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C72329EF51008F289C /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		428ED9D12329EF60008F289C /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C82329EF51008F289C /* Promises.framework */; };
+		428ED9D22329EF60008F289C /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C82329EF51008F289C /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42E652602323578F003BB662 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6525F2323578F003BB662 /* MLFairy.framework */; };
 		42E652612323578F003BB662 /* MLFairy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6525F2323578F003BB662 /* MLFairy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		42E652A623298380003BB662 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652352320353B003BB662 /* FBLPromises.framework */; };
-		42E652A723298380003BB662 /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652352320353B003BB662 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		42E652A823298380003BB662 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652342320353B003BB662 /* Promises.framework */; };
-		42E652A923298380003BB662 /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E652342320353B003BB662 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		42E652AA23298380003BB662 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; };
-		42E652AB23298380003BB662 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F2B2316E85600C7EF59 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,10 +30,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				42E652A923298380003BB662 /* Promises.framework in Embed Frameworks */,
+				428ED9D22329EF60008F289C /* Promises.framework in Embed Frameworks */,
+				428ED9D02329EF60008F289C /* FBLPromises.framework in Embed Frameworks */,
 				42E652612323578F003BB662 /* MLFairy.framework in Embed Frameworks */,
-				42E652A723298380003BB662 /* FBLPromises.framework in Embed Frameworks */,
-				42E652AB23298380003BB662 /* Alamofire.framework in Embed Frameworks */,
+				428ED9CE2329EF60008F289C /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,7 +41,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		42005F2B2316E85600C7EF59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../MLFairy/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		422F213F22D6CBD8002F2463 /* MLFairyApp.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLFairyApp.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		422F214222D6CBD8002F2463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		422F214422D6CBD8002F2463 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,8 +49,9 @@
 		422F214C22D6CBD9002F2463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		422F214E22D6CBD9002F2463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422F218522D79F56002F2463 /* HealthySnacks.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HealthySnacks.mlmodel; sourceTree = "<group>"; };
-		42E652342320353B003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../MLFairy/Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
-		42E652352320353B003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../MLFairy/Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
+		428ED9C72329EF51008F289C /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
+		428ED9C82329EF51008F289C /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
+		428ED9C92329EF51008F289C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		42E6525F2323578F003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -60,10 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E652A823298380003BB662 /* Promises.framework in Frameworks */,
+				428ED9D12329EF60008F289C /* Promises.framework in Frameworks */,
+				428ED9CF2329EF60008F289C /* FBLPromises.framework in Frameworks */,
 				42E652602323578F003BB662 /* MLFairy.framework in Frameworks */,
-				42E652A623298380003BB662 /* FBLPromises.framework in Frameworks */,
-				42E652AA23298380003BB662 /* Alamofire.framework in Frameworks */,
+				428ED9CD2329EF60008F289C /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,9 +105,9 @@
 		422F217822D6CE2E002F2463 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42E652352320353B003BB662 /* FBLPromises.framework */,
-				42E652342320353B003BB662 /* Promises.framework */,
-				42005F2B2316E85600C7EF59 /* Alamofire.framework */,
+				428ED9C92329EF51008F289C /* Alamofire.framework */,
+				428ED9C72329EF51008F289C /* FBLPromises.framework */,
+				428ED9C82329EF51008F289C /* Promises.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3695BW8G7F;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../MLFairy/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MLFairyApp.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -353,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3695BW8G7F;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../MLFairy/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MLFairyApp.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
