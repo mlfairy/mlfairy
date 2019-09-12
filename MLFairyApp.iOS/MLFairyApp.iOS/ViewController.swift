@@ -14,20 +14,20 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var outputLabel: UILabel!
+	@IBOutlet weak var cameraButton: UIButton!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
 	}
 	
 	@IBAction func takePhoto(_ sender: Any) {
-		
+		presentPhotoPicker(sourceType: .camera)
 	}
 	
 	@IBAction func selectPhoto(_ sender: Any) {
-		
+		presentPhotoPicker(sourceType: .photoLibrary)
 	}
-	
 	
 	@IBAction func downloadLatest(_ sender: Any) {
 		self.outputLabel.text = "Downloading model from MLFairy..."
@@ -48,8 +48,24 @@ class ViewController: UIViewController {
 		}
 	}
 	
-	private func refresh(token: String) {
+	private func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
+		self.outputLabel.text = ""
+		let picker = UIImagePickerController()
+		picker.delegate = self
+		picker.sourceType = sourceType
+		present(picker, animated: true)
+	}
+}
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+	func imagePickerController(
+		_ picker: UIImagePickerController,
+		didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+	) {
+		picker.dismiss(animated: true)
 		
+		let image = info[.originalImage] as! UIImage
+		imageView.image = image
 	}
 }
 
