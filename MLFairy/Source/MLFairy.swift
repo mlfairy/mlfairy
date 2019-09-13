@@ -14,7 +14,7 @@ public class MLFairy {
 	public static func getCoreMLModel(
 		_ modelToken: String,
 		queue: DispatchQueue = .main,
-		callback: @escaping (MLModel?, Error?) -> Void
+		callback: @escaping (MLFModelResult) -> Void
 	) {
 		MLFairy.default.getCoreMLModel(
 			token:modelToken,
