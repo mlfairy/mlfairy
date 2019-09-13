@@ -80,12 +80,12 @@ class MLFDownloadTask {
 		}
 	}
 	
-	func compileModel(_ url: URL, _ metadata: MLFDownloadMetadata, on queue: DispatchQueue) -> Promise<(compiledModelUrl: URL, model: MLModel)> {
+	func compileModel(_ url: URL, _ metadata: MLFDownloadMetadata, on queue: DispatchQueue) -> Promise<MLModel> {
 		return Promise(on: queue) { resolve, reject in
 			do {
 				let compiledUrl = try MLModel.compileModel(at: url)
 				let model = try MLModel(contentsOf: compiledUrl)
-				resolve((compiledUrl, model))
+				resolve(model)
 			} catch {
 				reject(MLFError.compilationFailed(
 					message: "Failed to compile model for token \(metadata.token)",

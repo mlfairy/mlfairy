@@ -12,7 +12,6 @@
 		42005F53231DA6B200C7EF59 /* MLFLoggerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F52231DA6B200C7EF59 /* MLFLoggerStub.swift */; };
 		42005F55231EDD3F00C7EF59 /* MLFPersistenceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F54231EDD3F00C7EF59 /* MLFPersistenceStub.swift */; };
 		422F216D22D6CDB8002F2463 /* MLFairyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F216C22D6CDB8002F2463 /* MLFairyTests.swift */; };
-		428ED9D6232BEB11008F289C /* MLFModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428ED9D5232BEB11008F289C /* MLFModelResult.swift */; };
 		42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTest.swift */; };
 		42E6524E2322CED4003BB662 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E6524C2322CED4003BB662 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42E652522322CF0F003BB662 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F6322E015E800573818 /* Metric.swift */; };
@@ -65,7 +64,6 @@
 		42872F5D22DF687300573818 /* MLFErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFErrors.swift; sourceTree = "<group>"; };
 		42872F5F22DFE94500573818 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		42872F6322E015E800573818 /* Metric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
-		428ED9D5232BEB11008F289C /* MLFModelResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelResult.swift; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				42872F5722DE955600573818 /* MLFDataModels.swift */,
 				42872F5D22DF687300573818 /* MLFErrors.swift */,
 				42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */,
-				428ED9D5232BEB11008F289C /* MLFModelResult.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -368,7 +365,6 @@
 				42E6525D2322CF0F003BB662 /* MLFHostDevice.swift in Sources */,
 				42E6525A2322CF0F003BB662 /* MLFNetwork.swift in Sources */,
 				42E652522322CF0F003BB662 /* Metric.swift in Sources */,
-				428ED9D6232BEB11008F289C /* MLFModelResult.swift in Sources */,
 				42E652582322CF0F003BB662 /* MLFLogger.swift in Sources */,
 				42E652562322CF0F003BB662 /* MLFApp.swift in Sources */,
 			);

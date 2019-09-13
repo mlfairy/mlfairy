@@ -31,22 +31,20 @@ class ViewController: UIViewController {
 	
 	@IBAction func downloadLatest(_ sender: Any) {
 		self.outputLabel.text = "Downloading model from MLFairy..."
-		MLFairy.getCoreMLModel(HEALTH_MODEL_TOKEN) { result in
-			switch (result.result) {
-				case .success(let model):
-					guard let _ = model else {
-						self.outputLabel.text = "Failed to assign CoreML model"
-						print("Failed to get CoreML model.")
-						return
-					}
-					
-					self.outputLabel.text = "Model successfully downloaded"
-					break
-				case .failure(let error):
-					self.outputLabel.text = "Failed to download CoreML model"
-					print("Failed to get CoreML model \(String(describing: error)).")
-					break
+		MLFairy.getCoreMLModel(HEALTH_MODEL_TOKEN) { model, error in
+			guard error == nil else {
+				self.outputLabel.text = "Failed to download CoreML model"
+				print("Failed to get CoreML model \(String(describing: error)).")
+				return
 			}
+			
+			guard let _ = model else {
+				self.outputLabel.text = "Failed to assign CoreML model"
+				print("Failed to get CoreML model.")
+				return
+			}
+			
+			self.outputLabel.text = "Model successfully downloaded"
 		}
 	}
 	
