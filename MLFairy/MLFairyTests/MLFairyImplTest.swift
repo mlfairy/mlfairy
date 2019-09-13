@@ -56,9 +56,9 @@ class MLFairyImplTest: XCTestCase {
 		var error: Error? = nil
 		
 		let expectation = self.expectation(description: "Get CoreML Model")
-		instance.getCoreMLModel(token: self.token, queue:queue) { m, e in
-			model = m
-			error = e
+		instance.getCoreMLModel(token: self.token, queue:queue) { result in
+			model = result.model!
+			error = result.error
 			expectation.fulfill()
 		}
 		
@@ -97,9 +97,9 @@ class MLFairyImplTest: XCTestCase {
 		var error: Error? = nil
 		
 		let expectation = self.expectation(description: "Get CoreML Model")
-		instance.getCoreMLModel(token: self.token, queue:queue) { m, e in
-			model = m
-			error = e
+		instance.getCoreMLModel(token: self.token, queue:queue) { result in
+			model = result.model ?? nil
+			error = result.error
 			expectation.fulfill()
 		}
 		

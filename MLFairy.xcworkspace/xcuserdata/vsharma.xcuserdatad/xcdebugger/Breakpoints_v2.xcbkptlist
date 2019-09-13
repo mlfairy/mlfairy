@@ -122,13 +122,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MLFairy/MLFairyTests/MLFairyImplTest.swift"
-            timestampString = "589393559.066184"
+            timestampString = "590087389.510785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "testSuccessfulDownload()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLFairy/Source/MLFDownloadTask.swift"
+            timestampString = "590087389.5108581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "downloadModel(_:to:on:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Foundation.URL) -&gt; (), (Swift.Error) -&gt; ()) -&gt; () in MLFairy.MLFDownloadTask.downloadModel(_: MLFairy.MLFDownloadMetadata, to: Foundation.URL, on: __C.OS_dispatch_queue) -&gt; Promises.Promise&lt;Foundation.URL&gt;"
+                  moduleName = "MLFairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Storage/programming/mlfairy/sdk/MLFairy/Source/MLFDownloadTask.swift"
+                  timestampString = "590085473.5807199"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "2034">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DownloadResponse&lt;Swift.Optional&lt;Foundation.URL&gt;, Alamofire.AFError&gt;) -&gt; () in closure #1 ((Foundation.URL) -&gt; (), (Swift.Error) -&gt; ()) -&gt; () in MLFairy.MLFDownloadTask.downloadModel(_: MLFairy.MLFDownloadMetadata, to: Foundation.URL, on: __C.OS_dispatch_queue) -&gt; Promises.Promise&lt;Foundation.URL&gt;"
+                  moduleName = "MLFairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Storage/programming/mlfairy/sdk/MLFairy/Source/MLFDownloadTask.swift"
+                  timestampString = "590085473.582824"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "261">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

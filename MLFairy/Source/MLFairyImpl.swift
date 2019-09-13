@@ -59,9 +59,9 @@ class MLFairyImpl {
 		token: String,
 		options: Options = [.fallbackDisk],
 		queue: DispatchQueue,
-		callback: @escaping (MLModel?, Error?) -> Void
+		callback: @escaping (MLFModelResult) -> Void
 	) {
-		Promise<MLModel>(on:self.requestQueue) { () -> MLModel in
+		Promise<MLFModelResult>(on:self.requestQueue) { () -> MLFModelResult in
 			let task = MLFDownloadTask(
 				network: self.network,
 				persistence: self.persistence,
@@ -81,11 +81,26 @@ class MLFairyImpl {
 				to: destination,
 				on: self.computationQueue
 			))
-			return try await(task.compileModel(url, metadata, on: self.compilationQueue))
+			
+			let compilation = try await(task.compileModel(url, metadata, on: self.compilationQueue))
+			let result = Result<MLModel?, Error>(value:compilation.model, error: nil)
+			return MLFModelResult(
+				result: result,
+				compiledModel: compilation.model,
+				compiledModelUrl: compilation.compiledModelUrl,
+				downloadedModelUrl: url
+			)
 		}.then(on: queue) { model in
-			callback(model, nil)
+			callback(model)
 		}.catch(on: queue) { error in
-			callback(nil, error)
+			let result = Result<MLModel?, Error>(value:nil, error: error)
+			let model = MLFModelResult(
+				result: result,
+				compiledModel: nil,
+				compiledModelUrl: nil,
+				downloadedModelUrl: nil
+			)
+			callback(model)
 		}
 	}
 }
