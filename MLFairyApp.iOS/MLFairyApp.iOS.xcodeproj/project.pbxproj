@@ -12,13 +12,13 @@
 		422F214822D6CBD8002F2463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422F214622D6CBD8002F2463 /* Main.storyboard */; };
 		422F214A22D6CBD9002F2463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422F214922D6CBD9002F2463 /* Assets.xcassets */; };
 		422F214D22D6CBD9002F2463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422F214B22D6CBD9002F2463 /* LaunchScreen.storyboard */; };
-		422F218622D79F56002F2463 /* HealthySnacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 422F218522D79F56002F2463 /* HealthySnacks.mlmodel */; };
 		428ED9CD2329EF60008F289C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C92329EF51008F289C /* Alamofire.framework */; };
 		428ED9CE2329EF60008F289C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C92329EF51008F289C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		428ED9CF2329EF60008F289C /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C72329EF51008F289C /* FBLPromises.framework */; };
 		428ED9D02329EF60008F289C /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C72329EF51008F289C /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		428ED9D12329EF60008F289C /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C82329EF51008F289C /* Promises.framework */; };
 		428ED9D22329EF60008F289C /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 428ED9C82329EF51008F289C /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42B5C1EE232C35D600A88ED6 /* MobileNetV2Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1ED232C35D600A88ED6 /* MobileNetV2Int8LUT.mlmodel */; };
 		42E652602323578F003BB662 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6525F2323578F003BB662 /* MLFairy.framework */; };
 		42E652612323578F003BB662 /* MLFairy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6525F2323578F003BB662 /* MLFairy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -48,10 +48,10 @@
 		422F214922D6CBD9002F2463 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		422F214C22D6CBD9002F2463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		422F214E22D6CBD9002F2463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		422F218522D79F56002F2463 /* HealthySnacks.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HealthySnacks.mlmodel; sourceTree = "<group>"; };
 		428ED9C72329EF51008F289C /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
 		428ED9C82329EF51008F289C /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
 		428ED9C92329EF51008F289C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		42B5C1ED232C35D600A88ED6 /* MobileNetV2Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2Int8LUT.mlmodel; sourceTree = "<group>"; };
 		42E6525F2323578F003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,7 +91,7 @@
 		422F214122D6CBD8002F2463 /* MLFairyApp.iOS */ = {
 			isa = PBXGroup;
 			children = (
-				422F218522D79F56002F2463 /* HealthySnacks.mlmodel */,
+				42B5C1ED232C35D600A88ED6 /* MobileNetV2Int8LUT.mlmodel */,
 				422F214222D6CBD8002F2463 /* AppDelegate.swift */,
 				422F214422D6CBD8002F2463 /* ViewController.swift */,
 				422F214622D6CBD8002F2463 /* Main.storyboard */,
@@ -185,8 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				422F214522D6CBD8002F2463 /* ViewController.swift in Sources */,
+				42B5C1EE232C35D600A88ED6 /* MobileNetV2Int8LUT.mlmodel in Sources */,
 				422F214322D6CBD8002F2463 /* AppDelegate.swift in Sources */,
-				422F218622D79F56002F2463 /* HealthySnacks.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
