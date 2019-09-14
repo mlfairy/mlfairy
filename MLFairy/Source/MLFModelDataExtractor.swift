@@ -108,7 +108,7 @@ class MLFModelDataExtractor {
 			extras["multiArrayConstraint"] = "\(constraint)"
 		}
 		
-		if #available(iOS 12.0, *) {
+		if #available(iOS 12.0, macOS 10.14, tvOS 12.0, *) {
 			if let constraint = description.sequenceConstraint {
 				extras["sequenceConstraint"] = "\(constraint)"
 			}
