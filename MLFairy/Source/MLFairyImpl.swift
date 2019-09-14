@@ -25,13 +25,13 @@ class MLFairyImpl {
 	private let app: MLFApp
 	private let device: MLFDevice
 	private let persistence: MLFPersistence
-	private let network: MLFNetwork;
+	private let network: MLFNetwork
+	private let collector: MLFPredictionCollector
+	private let extractor: MLFModelDataExtractor
 	
 	private let requestQueue: DispatchQueue
 	private let computationQueue: DispatchQueue
 	private let compilationQueue: DispatchQueue
-	
-	private var cache:[Promise<MLModel>] = []
 	
 	convenience init() {
 		let fileManger = FileManager.default;
@@ -49,6 +49,13 @@ class MLFairyImpl {
 			log: self.log
 		)
 		self.app = MLFApp(logger:self.log, device:self.device)
+		self.collector = MLFPredictionCollector(
+			info: self.app.appInformation(),
+			persistence: self.persistence,
+			network: self.network,
+			log: self.log
+		)
+		self.extractor = MLFModelDataExtractor()
 		
 		self.requestQueue = DispatchQueue(label: "com.mlfairy.requestQueue")
 		self.computationQueue = DispatchQueue(label: "com.mlfairy.computation")
@@ -68,9 +75,10 @@ class MLFairyImpl {
 				log: self.log
 			)
 			let diskMetadata = try self.persistence.findModel(for: token)
+			let appInfo = self.app.appInformation()
 			let metadata = try await(task.downloadMetadata(
 				token,
-				info: self.app.appInformation(),
+				info: appInfo,
 				fallback: diskMetadata.metadata,
 				on: self.computationQueue
 			))
@@ -84,11 +92,14 @@ class MLFairyImpl {
 			
 			let compilation = try await(task.compileModel(url, metadata, on: self.compilationQueue))
 			let result = Result<MLModel?, Error>(value:compilation.model, error: nil)
+			
+			let modelIdentifier = MLFModelId(metadata: metadata)
 			return MLFModelResult(
 				result: result,
 				compiledModel: compilation.model,
 				compiledModelUrl: compilation.compiledModelUrl,
-				downloadedModelUrl: url
+				downloadedModelUrl: url,
+				mlFairyModel: self.wrap(compilation.model, identifier: modelIdentifier)
 			)
 		}.then(on: queue) { model in
 			callback(model)
@@ -98,9 +109,27 @@ class MLFairyImpl {
 				result: result,
 				compiledModel: nil,
 				compiledModelUrl: nil,
-				downloadedModelUrl: nil
+				downloadedModelUrl: nil,
+				mlFairyModel: nil
 			)
 			callback(model)
 		}
+	}
+	
+	func wrap(_ model: MLModel, token: String) -> MLFModel {
+		let identifier = MLFModelId(token: token, downloadId: nil)
+		return self.wrap(model, identifier: identifier)
+	}
+	
+	private func wrap(_ model: MLModel, identifier: MLFModelId) -> MLFModel {
+		let info = self.extractor.modelInformation(model: model);
+		self.collector.addModelInformation(info: info, for: identifier)
+		return MLFModel(
+			model: model,
+			identifier: identifier,
+			collector:self.collector,
+			extractor:self.extractor,
+			log: self.log
+		)
 	}
 }

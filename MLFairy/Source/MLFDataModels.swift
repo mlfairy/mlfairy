@@ -11,6 +11,21 @@ struct MLFErrorResponse: Codable {
 	let message: String
 }
 
+
+struct MLFModelId {
+	public let token: String
+	public let downloadId: String?
+	
+	init(metadata: MLFDownloadMetadata) {
+		self.init(token: metadata.token, downloadId: metadata.downloadId)
+	}
+	
+	init(token: String, downloadId: String?) {
+		self.token = token
+		self.downloadId = downloadId
+	}
+}
+
 struct MLFDownloadMetadata: Codable {
 	let downloadId: String
 	let modelId: String

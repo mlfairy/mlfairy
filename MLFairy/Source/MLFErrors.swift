@@ -15,3 +15,7 @@ public enum MLFError: Error {
 	case networkError(response: String)
 	case noDownloadAvailable
 }
+
+public enum MLFModelError: Error {
+	case notSupported
+}

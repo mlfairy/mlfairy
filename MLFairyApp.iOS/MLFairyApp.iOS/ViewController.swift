@@ -11,7 +11,7 @@ import Vision
 import MLFairy
 
 class ViewController: UIViewController {
-	private let HEALTH_MODEL_TOKEN = "MLFcfcEL6JiOn5jMEKDsy6n"
+	private let MLFAIRY_TOKEN = "MLFcfcEL6JiOnUzXdaHUxrl"
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var outputLabel: UILabel!
@@ -37,6 +37,8 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		self.outputLabel.superview?.backgroundColor = UIColor.black.withAlphaComponent(0.7)
 		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+		
+		model.model = MLFairy.wrapMpdel(model.model, token: MLFAIRY_TOKEN)
 	}
 	
 	@IBAction func takePhoto(_ sender: Any) {
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
 	
 	@IBAction func downloadLatest(_ sender: Any) {
 		self.outputLabel.text = "Downloading model from MLFairy..."
-		MLFairy.getCoreMLModel(HEALTH_MODEL_TOKEN) { result in
+		MLFairy.getCoreMLModel(MLFAIRY_TOKEN) { result in
 			switch (result.result) {
 				case .success(let model):
 					guard let model = model else {

@@ -22,4 +22,8 @@ public class MLFairy {
 			callback:callback
 		)
 	}
+	
+	public static func wrapMpdel(_ input: MLModel, token modelToken: String) -> MLFModel {
+		return MLFairy.default.wrap(input, token: modelToken)
+	}
 }
