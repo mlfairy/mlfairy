@@ -137,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MLFairy/MLFairyTests/MLFModelDataExtractorTest.swift"
-            timestampString = "590126713.856268"
+            filePath = "MLFairy/Source/MLFValueExtractor.swift"
+            timestampString = "590445840.892439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "testConvert()"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "extract(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

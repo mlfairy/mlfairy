@@ -44,7 +44,7 @@ class MLFHostDevice {
 	}
 	
 	func name() -> String {
-		return self.device.name ?? "";
+		return self.device.name ?? "osx";
 	}
 	
 	func version() -> String {

@@ -17,7 +17,6 @@
 		42B5C1EC232C33F300A88ED6 /* MLFPredictionCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1EB232C33F300A88ED6 /* MLFPredictionCollector.swift */; };
 		42B5C1F0232C7CCE00A88ED6 /* MLFModelDataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1EF232C7CCE00A88ED6 /* MLFModelDataExtractor.swift */; };
 		42B5C1F2232C806A00A88ED6 /* MLFModelDataExtractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTest.swift */; };
-		42B5C1F4232C969B00A88ED6 /* MLFValueExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1F3232C969B00A88ED6 /* MLFValueExtractor.swift */; };
 		42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTest.swift */; };
 		42E6524E2322CED4003BB662 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E6524C2322CED4003BB662 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42E652522322CF0F003BB662 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F6322E015E800573818 /* Metric.swift */; };
@@ -75,7 +74,6 @@
 		42B5C1EB232C33F300A88ED6 /* MLFPredictionCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFPredictionCollector.swift; sourceTree = "<group>"; };
 		42B5C1EF232C7CCE00A88ED6 /* MLFModelDataExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelDataExtractor.swift; sourceTree = "<group>"; };
 		42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelDataExtractorTest.swift; sourceTree = "<group>"; };
-		42B5C1F3232C969B00A88ED6 /* MLFValueExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFValueExtractor.swift; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				42B5C1E9232C1C4300A88ED6 /* MLFModel.swift */,
 				42B5C1EB232C33F300A88ED6 /* MLFPredictionCollector.swift */,
 				42B5C1EF232C7CCE00A88ED6 /* MLFModelDataExtractor.swift */,
-				42B5C1F3232C969B00A88ED6 /* MLFValueExtractor.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -382,7 +379,6 @@
 				42E652552322CF0F003BB662 /* MLFDownloadTask.swift in Sources */,
 				42E6525B2322CF0F003BB662 /* MLFDataModels.swift in Sources */,
 				42E6525D2322CF0F003BB662 /* MLFHostDevice.swift in Sources */,
-				42B5C1F4232C969B00A88ED6 /* MLFValueExtractor.swift in Sources */,
 				42E6525A2322CF0F003BB662 /* MLFNetwork.swift in Sources */,
 				42E652522322CF0F003BB662 /* Metric.swift in Sources */,
 				428ED9D6232BEB11008F289C /* MLFModelResult.swift in Sources */,
@@ -749,7 +745,7 @@
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = ca.vijaysharma.MLFairy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -816,7 +812,7 @@
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = ca.vijaysharma.MLFairy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;

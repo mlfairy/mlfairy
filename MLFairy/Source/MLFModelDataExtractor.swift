@@ -9,8 +9,6 @@ import Foundation
 import CoreML
 
 class MLFModelDataExtractor {
-	private let primitive = MLFPrimitiveValueExtractor()
-	private let noop = MLFNoOpValueExtractor()
 	
 	func modelInformation(model: MLModel) -> [String: String] {
 		var dictionary: [String: String] = [:]
@@ -65,25 +63,14 @@ class MLFModelDataExtractor {
 			}.filter {
 				$0.feature != nil
 			}.map { (name: String, feature: MLFeatureValue?) -> (name: String, value: Any)? in
-				let extractor = self.extractor(from: feature!)
-				if let value = extractor.extract(feature!) {
-					return (name: name, value: value)
-				}
+//				let extractor = self.extractor(from: feature!)
+//				if let value = extractor.extract(feature!) {
+//					return (name: name, value: value)
+//				}
 				return nil
 			}.filter {
 				$0 != nil
 			} as! [(name: String, value: Any)]
-	}
-	
-	private func extractor(from feature: MLFeatureValue) -> MLFValueExtractor {
-		switch feature.type {
-		case .int64, .double, .string:
-			return primitive
-		case .invalid, .dictionary, .image, .multiArray:
-			return noop
-		default:
-			return noop
-		}
 	}
 	
 	private func describe(

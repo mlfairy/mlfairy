@@ -11,8 +11,7 @@ import CoreML
 public class MLFModel: MLModel {
 	private let model: MLModel
 	private let identifier: MLFModelId
-	
-	private let extractor: MLFModelDataExtractor
+
 	private let collector: MLFPredictionCollector
 	private let log: MLFLogger
 	
@@ -20,7 +19,6 @@ public class MLFModel: MLModel {
 	public override var modelDescription: MLModelDescription {
 		return model.modelDescription
 	}
-	
 	
 	/// The load-time parameters used to instantiate this MLModel object.
 	@available(iOS 12.0, macOS 10.14, tvOS 12.0, *)
@@ -32,13 +30,11 @@ public class MLFModel: MLModel {
 		model: MLModel,
 		identifier: MLFModelId,
 		collector: MLFPredictionCollector,
-		extractor: MLFModelDataExtractor,
 		log: MLFLogger
 	) {
 		self.model = model
 		self.identifier = identifier
-		
-		self.extractor = extractor
+
 		self.collector = collector
 		self.log = log
 	}
@@ -52,8 +48,12 @@ public class MLFModel: MLModel {
 	/// All models can predict on a specific set of input features.
 	override public func prediction(from input: MLFeatureProvider) throws -> MLFeatureProvider {
 		let prediction = try self.model.prediction(from: input)
-		let result = self.extractor.convert(input: input, output: prediction)
-		self.collector.collect(data: result, for:identifier)
+		
+		self.collector.collect(
+			for:self.identifier,
+			input: input,
+			output: prediction
+		)
 		
 		return prediction
 	}
@@ -62,9 +62,14 @@ public class MLFModel: MLModel {
 	/// Prediction with explict options
 	override public func prediction(from input: MLFeatureProvider, options: MLPredictionOptions) throws -> MLFeatureProvider {
 		let prediction = try self.model.prediction(from: input, options: options)
-		let result = self.extractor.convert(input: input, output: prediction)
-		self.collector.collect(data: result, for:identifier)
 		
+		self.collector.collect(
+			for:self.identifier,
+			input: input,
+			output: prediction,
+			options: options
+		)
+
 		return prediction
 	}
 	

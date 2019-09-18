@@ -35,10 +35,12 @@ class MLFModelDataExtractorTest: XCTestCase {
 		let inputValue = MLFeatureValue(double: Double(1.0))
 		let outputValue = MLFeatureValue(double: Double(2.0))
 		
-		let input = try! MLDictionaryFeatureProvider(dictionary: ["input": inputValue])
-		let output = try! MLDictionaryFeatureProvider(dictionary: ["output ": outputValue])
+		let input = try! MLDictionaryFeatureProvider(dictionary: ["value": inputValue])
+		let output = try! MLDictionaryFeatureProvider(dictionary: ["value": outputValue])
 		
 		let result = instance.convert(input: input, output: output)
-		
+		XCTAssertEqual(1, result.input.count)
+		XCTAssertEqual(1.0, result.input["value"] as! Double)
+		XCTAssertEqual(2.0, result.output["value"] as! Double)
 	}
 }

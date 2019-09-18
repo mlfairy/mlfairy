@@ -72,6 +72,7 @@ class ViewController: UIViewController {
 	func classify(image: UIImage) {
 		guard let ciImage = CIImage(image: image) else {
 			print("Unable to create CIImage")
+			self.outputLabel.text = "Unable to create CIImage"
 			return
 		}
 		

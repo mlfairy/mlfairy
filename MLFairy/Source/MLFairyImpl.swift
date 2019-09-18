@@ -32,6 +32,7 @@ class MLFairyImpl {
 	private let requestQueue: DispatchQueue
 	private let computationQueue: DispatchQueue
 	private let compilationQueue: DispatchQueue
+	private let predictionQueue: DispatchQueue
 	
 	convenience init() {
 		let fileManger = FileManager.default;
@@ -40,6 +41,11 @@ class MLFairyImpl {
 	}
 	
 	init(fileManager: FileManager, persistenceRoot: URL) {
+		self.requestQueue = DispatchQueue(label: "com.mlfairy.requestQueue")
+		self.computationQueue = DispatchQueue(label: "com.mlfairy.computation")
+		self.compilationQueue = DispatchQueue(label: "com.mlfairy.compilation")
+		self.predictionQueue = DispatchQueue(label: "com.mlfairy.prediction")
+		
 		self.network = MLFNetwork()
 		self.log = MLFDefaultLogger()
 		self.device = MLFDevice(host: MLFHostDevice())
@@ -49,17 +55,16 @@ class MLFairyImpl {
 			log: self.log
 		)
 		self.app = MLFApp(logger:self.log, device:self.device)
+		self.extractor = MLFModelDataExtractor()
 		self.collector = MLFPredictionCollector(
 			info: self.app.appInformation(),
+			extractor: self.extractor,
 			persistence: self.persistence,
 			network: self.network,
+			queue: predictionQueue,
 			log: self.log
 		)
-		self.extractor = MLFModelDataExtractor()
 		
-		self.requestQueue = DispatchQueue(label: "com.mlfairy.requestQueue")
-		self.computationQueue = DispatchQueue(label: "com.mlfairy.computation")
-		self.compilationQueue = DispatchQueue(label: "com.mlfairy.compilation")
 	}
 	
 	func getCoreMLModel(
@@ -128,7 +133,6 @@ class MLFairyImpl {
 			model: model,
 			identifier: identifier,
 			collector:self.collector,
-			extractor:self.extractor,
 			log: self.log
 		)
 	}
