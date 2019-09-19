@@ -34,21 +34,23 @@ class MLFPredictionCollector {
 	
 	func addModelInformation(info: [String: String], for model: MLFModelId) {
 		// TODO: Write to disk and send to server?
+//		self.persistence.newFileFor(model)
 	}
 	
 	func collect(
-		for model:MLFModelId,
+		for model: MLFModelId,
 		input: MLFeatureProvider,
 		output: MLFeatureProvider,
 		options: MLPredictionOptions? = nil
 	) {
 		queue.async {
-			let result = self.extractor.convert(input: input, output: output)
-			self.collect(data: result, for: model)
+			let prediction = self.extractor.convert(input: input, output: output)
+			self.collect(prediction, for: model)
 		}
 	}
 	
-	func collect(data: (input: [String: Any], output: [String: Any]), for identifier: MLFModelId) {
-		
+	func collect(_ prediction: MLFPrediction, for identifier: MLFModelId) {
+		let encoder = JSONEncoder()
+		let _ = try! encoder.encode(prediction)
 	}
 }

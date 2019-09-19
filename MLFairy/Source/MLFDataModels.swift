@@ -7,10 +7,14 @@
 
 import Foundation
 
+struct MLFPrediction: Codable {
+	let input: [String: [String: String]]
+	let output: [String: [String: String]]
+}
+
 struct MLFErrorResponse: Codable {
 	let message: String
 }
-
 
 struct MLFModelId {
 	public let token: String

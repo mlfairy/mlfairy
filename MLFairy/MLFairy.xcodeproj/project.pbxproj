@@ -17,6 +17,9 @@
 		42B5C1EC232C33F300A88ED6 /* MLFPredictionCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1EB232C33F300A88ED6 /* MLFPredictionCollector.swift */; };
 		42B5C1F0232C7CCE00A88ED6 /* MLFModelDataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1EF232C7CCE00A88ED6 /* MLFModelDataExtractor.swift */; };
 		42B5C1F2232C806A00A88ED6 /* MLFModelDataExtractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTest.swift */; };
+		42B5C2BB2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B5C2B82331D01A00A88ED6 /* MLFSupport.framework */; };
+		42B5C2BC2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B5C2B92331D01A00A88ED6 /* MLFSupport.framework */; };
+		42B5C2BF2331D03500A88ED6 /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */; };
 		42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTest.swift */; };
 		42E6524E2322CED4003BB662 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E6524C2322CED4003BB662 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42E652522322CF0F003BB662 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42872F6322E015E800573818 /* Metric.swift */; };
@@ -74,6 +77,9 @@
 		42B5C1EB232C33F300A88ED6 /* MLFPredictionCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFPredictionCollector.swift; sourceTree = "<group>"; };
 		42B5C1EF232C7CCE00A88ED6 /* MLFModelDataExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelDataExtractor.swift; sourceTree = "<group>"; };
 		42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelDataExtractorTest.swift; sourceTree = "<group>"; };
+		42B5C2B82331D01A00A88ED6 /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/tvOS/MLFSupport.framework; sourceTree = "<group>"; };
+		42B5C2B92331D01A00A88ED6 /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/iOS/MLFSupport.framework; sourceTree = "<group>"; };
+		42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/Mac/MLFSupport.framework; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
@@ -108,7 +114,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B5C2BF2331D03500A88ED6 /* MLFSupport.framework in Frameworks */,
+				42B5C2BB2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */,
 				42E6525E23235693003BB662 /* Security.framework in Frameworks */,
+				42B5C2BC2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +211,9 @@
 		42872D9822D7F5BF00573818 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42B5C2B92331D01A00A88ED6 /* MLFSupport.framework */,
+				42B5C2B82331D01A00A88ED6 /* MLFSupport.framework */,
+				42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */,
 				42E652A42329835F003BB662 /* Alamofire.framework */,
 				42E652A12329835F003BB662 /* Alamofire.framework */,
 				42E652A02329835F003BB662 /* Alamofire.framework */,

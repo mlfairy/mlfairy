@@ -7,8 +7,14 @@
 
 import Foundation
 import CoreML
+import MLFSupport
 
 class MLFModelDataExtractor {
+	private let support: MLFSupport
+	
+	init(support: MLFSupport) {
+		self.support = support
+	}
 	
 	func modelInformation(model: MLModel) -> [String: String] {
 		var dictionary: [String: String] = [:]
@@ -42,35 +48,30 @@ class MLFModelDataExtractor {
 	func convert(
 		input: MLFeatureProvider,
 		output: MLFeatureProvider
-	) -> (input: [String: Any], output: [String: Any]) {
-		var inputResult: [String: Any] = [:]
+	) -> MLFPrediction {
+		var inputResult: [String: [String: String]] = [:]
 		self.iterate(over: input).forEach { item in
-			inputResult[item.name] = item.value
+			inputResult[item.0] = item.1
 		}
 		
-		var outputResult: [String: Any] = [:]
+		var outputResult: [String: [String: String]] = [:]
 		self.iterate(over: output).forEach { item in
-			outputResult[item.name] = item.value
+			outputResult[item.0] = item.1
 		}
 		
-		return (input: inputResult, output: outputResult)
+		return MLFPrediction(input: inputResult, output: outputResult)
 	}
 	
-	private func iterate(over provider: MLFeatureProvider) -> [(name: String, value: Any)] {
+	private func iterate(over provider: MLFeatureProvider) -> [(String, [String: String])] {
 		return provider.featureNames
 			.map { name -> (name: String, feature:MLFeatureValue?) in
 				return (name: name, feature: provider.featureValue(for: name))
 			}.filter {
 				$0.feature != nil
-			}.map { (name: String, feature: MLFeatureValue?) -> (name: String, value: Any)? in
-//				let extractor = self.extractor(from: feature!)
-//				if let value = extractor.extract(feature!) {
-//					return (name: name, value: value)
-//				}
-				return nil
-			}.filter {
-				$0 != nil
-			} as! [(name: String, value: Any)]
+			}.map { input -> (String, [String: String]) in
+				let value = self.support.extract(input.feature!)
+				return (input.name, value)
+			}
 	}
 	
 	private func describe(

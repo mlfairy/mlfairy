@@ -100,17 +100,22 @@ class MLFDefaultPersistence: MLFPersistence {
 		
 		let metadataUrl = path.appendingPathComponent(".metadata")
 		do {
-			var options: Data.WritingOptions = [.atomic]
-			#if os(iOS)
-			options.insert(.completeFileProtectionUnlessOpen)
-			#endif
-			let data = try self.encoder.encode(metadata)
-			try data.write(to: metadataUrl, options: options)
+			try self.write(metadata, to: metadataUrl)
 			self.metadataMap[token] = metadata
 		} catch {
 			self.log.d("Failed to write metadata for token \(token): \(error)")
 			throw error
 		}
+	}
+	
+	private func write<T>(_ input: T, to url: URL) throws where T: Encodable{
+		var options: Data.WritingOptions = [.atomic]
+		#if os(iOS)
+		options.insert(.completeFileProtectionUnlessOpen)
+		#endif
+		
+		let data = try self.encoder.encode(input)
+		try data.write(to: url, options: options)
 	}
 	
 	func directoryFor(token: String) throws -> URL? {

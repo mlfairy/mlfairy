@@ -8,6 +8,7 @@
 import Foundation
 import CoreML
 import Promises
+import MLFSupport
 
 class MLFairyImpl {
 	public struct Options: OptionSet {
@@ -28,6 +29,7 @@ class MLFairyImpl {
 	private let network: MLFNetwork
 	private let collector: MLFPredictionCollector
 	private let extractor: MLFModelDataExtractor
+	private let support: MLFSupport
 	
 	private let requestQueue: DispatchQueue
 	private let computationQueue: DispatchQueue
@@ -46,6 +48,7 @@ class MLFairyImpl {
 		self.compilationQueue = DispatchQueue(label: "com.mlfairy.compilation")
 		self.predictionQueue = DispatchQueue(label: "com.mlfairy.prediction")
 		
+		self.support = MLFSupport()
 		self.network = MLFNetwork()
 		self.log = MLFDefaultLogger()
 		self.device = MLFDevice(host: MLFHostDevice())
@@ -55,7 +58,7 @@ class MLFairyImpl {
 			log: self.log
 		)
 		self.app = MLFApp(logger:self.log, device:self.device)
-		self.extractor = MLFModelDataExtractor()
+		self.extractor = MLFModelDataExtractor(support: self.support)
 		self.collector = MLFPredictionCollector(
 			info: self.app.appInformation(),
 			extractor: self.extractor,
@@ -64,7 +67,6 @@ class MLFairyImpl {
 			queue: predictionQueue,
 			log: self.log
 		)
-		
 	}
 	
 	func getCoreMLModel(
