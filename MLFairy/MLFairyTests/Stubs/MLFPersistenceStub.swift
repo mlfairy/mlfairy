@@ -9,10 +9,11 @@ import Foundation
 @testable import MLFairy
 
 class MLFPersistenceStub: MLFPersistence {
-	var saveCallback: (() throws -> ())?
-	var findModelCallback: (() throws -> (OnDiskDownloadMetadata))?
-	var modelFileForCallback: (() throws -> (URL?))?
-	var existsCallback: (() throws -> (Bool))?
+	var saveCallback: (() throws -> URL)?
+	var findModelCallback: (() throws -> OnDiskDownloadMetadata)?
+	var modelFileForCallback: (() throws -> URL?)?
+	var existsCallback: (() throws -> Bool)?
+	var uploadsCallback: (() -> [URL])?
 	
 	private let fallback: MLFPersistence
 	
@@ -24,8 +25,13 @@ class MLFPersistenceStub: MLFPersistence {
 		)
 	}
 	
-	func save(_ metadata: MLFDownloadMetadata, for token: String) throws {
-		try saveCallback!()
+	@discardableResult
+	func save(_ metadata: MLFDownloadMetadata, for token: String) throws -> URL {
+		return try saveCallback!()
+	}
+	
+	func uploads() -> [URL] {
+		return uploadsCallback!()
 	}
 	
 	func findModel(for token: String) throws -> OnDiskDownloadMetadata {
@@ -44,5 +50,9 @@ class MLFPersistenceStub: MLFPersistence {
 	
 	func md5File(url: URL, bufferSize: Int) throws -> [UInt8] {
 		return try self.fallback.md5File(url: url, bufferSize: bufferSize)
+	}
+	
+	func persist<T:Encodable>(_ data: T) throws -> URL {
+		return try self.fallback.persist(data)
 	}
 }

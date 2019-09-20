@@ -11,12 +11,15 @@ import CommonCrypto
 typealias OnDiskDownloadMetadata = (url: URL?, metadata: MLFDownloadMetadata?)
 
 protocol MLFPersistence {
-	func save(_ metadata: MLFDownloadMetadata, for token: String) throws
+	@discardableResult
+	func save(_ metadata: MLFDownloadMetadata, for token: String) throws -> URL
 	func findModel(for token: String) throws -> OnDiskDownloadMetadata
 	func modelFileFor(model: MLFDownloadMetadata) throws -> URL?
 	func deleteFile(at url: URL)
 	func exists(file: URL) throws -> Bool
 	func md5File(url: URL, bufferSize: Int) throws -> [UInt8]
+	func persist<T:Encodable>(_ data: T) throws -> URL
+	func uploads() -> [URL]
 }
 
 extension MLFPersistence {
@@ -27,6 +30,7 @@ class MLFDefaultPersistence: MLFPersistence {
 	private let fileManager: FileManager
 	private let sdkDirectoryPath: URL
 	private let modelDirectoryUrl: URL
+	private let uploadsDirectoryUrl: URL
 	private let log: MLFLogger
 	
 	private let encoder = JSONEncoder()
@@ -41,8 +45,22 @@ class MLFDefaultPersistence: MLFPersistence {
 			.appendingPathComponent("com.mlfairy", isDirectory: true)
 		self.modelDirectoryUrl = self.sdkDirectoryPath
 			.appendingPathComponent("models", isDirectory: true)
-		
+		self.uploadsDirectoryUrl = self.sdkDirectoryPath
+			.appendingPathComponent("uploads", isDirectory: true)
 		self.initLocalFolders()
+	}
+	
+	func uploads() -> [URL] {
+		do {
+			return  try self.fileManager.contentsOfDirectory(
+				at: self.uploadsDirectoryUrl,
+				includingPropertiesForKeys: nil,
+				options: []
+			)
+		} catch {
+			self.log.d(tag: "MLFPersistence", "Failed to get all files in upload directory. \(error)")
+			return []
+		}
 	}
 	
 	func exists(file: URL) -> Bool {
@@ -60,28 +78,24 @@ class MLFDefaultPersistence: MLFPersistence {
 	}
 	
 	func findModel(for token: String) throws -> OnDiskDownloadMetadata {
-		guard let metadata = try self.findDownloadMetadata(for: token) else {
+		guard let metadata = self.findDownloadMetadata(for: token) else {
 			return (nil, nil)
 		}
 		
 		return (try self.modelFileFor(model: metadata), metadata)
 	}
 	
-	private func findDownloadMetadata(for token: String) throws -> MLFDownloadMetadata? {
+	private func findDownloadMetadata(for token: String) -> MLFDownloadMetadata? {
 		if let metadata = self.metadataMap[token] {
 			return metadata
 		}
 		
-		guard let path = try self.directoryFor(token: token) else {
-			return nil
-		}
-		
-		let metadataUrl = path.appendingPathComponent(".metadata")
-		if (!self.exists(file: metadataUrl)) {
-			return nil
-		}
-		
 		do {
+			let path = try self.directoryFor(token: token)
+			let metadataUrl = path.appendingPathComponent(".metadata")
+			if (!self.exists(file: metadataUrl)) {
+				return nil
+			}
 			let data = try Data(contentsOf: metadataUrl)
 			let metadata = try decoder.decode(MLFDownloadMetadata.self, from: data)
 			self.metadataMap[token] = metadata
@@ -93,24 +107,31 @@ class MLFDefaultPersistence: MLFPersistence {
 		}
 	}
 	
-	func save(_ metadata: MLFDownloadMetadata, for token: String) throws {
-		guard let path = try self.directoryFor(token: token) else {
-			return
-		}
-		
-		let metadataUrl = path.appendingPathComponent(".metadata")
+	@discardableResult
+	func save(_ metadata: MLFDownloadMetadata, for token: String) throws -> URL {
 		do {
+			let path = try self.directoryFor(token: token)
+			let metadataUrl = path.appendingPathComponent(".metadata")
 			try self.write(metadata, to: metadataUrl)
 			self.metadataMap[token] = metadata
+			return metadataUrl
 		} catch {
 			self.log.d("Failed to write metadata for token \(token): \(error)")
 			throw error
 		}
 	}
 	
-	private func write<T>(_ input: T, to url: URL) throws where T: Encodable{
+	func persist<T:Encodable>(_ data: T) throws -> URL {
+		let fileId = UUID().uuidString
+		let file = self.uploadsDirectoryUrl.appendingPathComponent("\(fileId)")
+		try self.write(data, to: file)
+		
+		return file
+	}
+	
+	private func write<T: Encodable>(_ input: T, to url: URL) throws {
 		var options: Data.WritingOptions = [.atomic]
-		#if os(iOS)
+		#if os(iOS) || os(watchOS) || os(tvOS)
 		options.insert(.completeFileProtectionUnlessOpen)
 		#endif
 		
@@ -118,7 +139,7 @@ class MLFDefaultPersistence: MLFPersistence {
 		try data.write(to: url, options: options)
 	}
 	
-	func directoryFor(token: String) throws -> URL? {
+	func directoryFor(token: String) throws -> URL {
 		do {
 			let modelDirectory = self.modelDirectoryUrl
 				.appendingPathComponent(token, isDirectory: true)
@@ -134,11 +155,8 @@ class MLFDefaultPersistence: MLFPersistence {
 	func modelFileFor(model: MLFDownloadMetadata) throws -> URL? {
 		guard let activeVersion = model.activeVersion else { return nil }
 		
-		if let path = try self.directoryFor(token: model.token) {
-			return path.appendingPathComponent(activeVersion)
-		}
-		
-		return nil
+		let path = try self.directoryFor(token: model.token)
+		return path.appendingPathComponent(activeVersion)
 	}
 	
 	func md5File(
@@ -183,6 +201,7 @@ class MLFDefaultPersistence: MLFPersistence {
 		do {
 			try self.fileManager.createDirectory(at: self.sdkDirectoryPath, withIntermediateDirectories: true)
 			try self.fileManager.createDirectory(at: modelDirectoryUrl, withIntermediateDirectories: true)
+			try self.fileManager.createDirectory(at: uploadsDirectoryUrl, withIntermediateDirectories: true)
 			
 			var sdkDirectoryPath = self.sdkDirectoryPath
 			var resourceValues = URLResourceValues()

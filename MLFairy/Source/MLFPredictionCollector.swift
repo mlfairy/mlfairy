@@ -32,9 +32,12 @@ class MLFPredictionCollector {
 		self.log = log
 	}
 	
-	func addModelInformation(info: [String: String], for model: MLFModelId) {
-		// TODO: Write to disk and send to server?
-//		self.persistence.newFileFor(model)
+	func addModelInformation(info: MLFModelInfo) {
+		do {
+			let file = try self.persistence.persist(info)
+		} catch {
+			self.log.i("Failed to save app info to disk. \(error)")
+		}
 	}
 	
 	func collect(
@@ -44,13 +47,17 @@ class MLFPredictionCollector {
 		options: MLPredictionOptions? = nil
 	) {
 		queue.async {
-			let prediction = self.extractor.convert(input: input, output: output)
-			self.collect(prediction, for: model)
+			do {
+				let results = self.extractor.convert(input: input, output: output)
+				let prediction = MLFPrediction(
+					modelId: model,
+					input: results.input,
+					output: results.output
+				)
+				let file = try self.persistence.persist(prediction)
+			} catch {
+				self.log.i("Failed to save prediction to disk. \(error)")
+			}
 		}
-	}
-	
-	func collect(_ prediction: MLFPrediction, for identifier: MLFModelId) {
-		let encoder = JSONEncoder()
-		let _ = try! encoder.encode(prediction)
 	}
 }

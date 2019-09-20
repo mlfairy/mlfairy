@@ -34,7 +34,7 @@ class MLFairyImpl {
 	private let requestQueue: DispatchQueue
 	private let computationQueue: DispatchQueue
 	private let compilationQueue: DispatchQueue
-	private let predictionQueue: DispatchQueue
+	private let eventQueue: DispatchQueue
 	
 	convenience init() {
 		let fileManger = FileManager.default;
@@ -46,7 +46,10 @@ class MLFairyImpl {
 		self.requestQueue = DispatchQueue(label: "com.mlfairy.requestQueue")
 		self.computationQueue = DispatchQueue(label: "com.mlfairy.computation")
 		self.compilationQueue = DispatchQueue(label: "com.mlfairy.compilation")
-		self.predictionQueue = DispatchQueue(label: "com.mlfairy.prediction")
+		self.eventQueue = DispatchQueue(
+			label: "com.mlfairy.event",
+			attributes: [.concurrent]
+		)
 		
 		self.support = MLFSupport()
 		self.network = MLFNetwork()
@@ -64,7 +67,7 @@ class MLFairyImpl {
 			extractor: self.extractor,
 			persistence: self.persistence,
 			network: self.network,
-			queue: predictionQueue,
+			queue: self.eventQueue,
 			log: self.log
 		)
 	}
@@ -130,7 +133,8 @@ class MLFairyImpl {
 	
 	private func wrap(_ model: MLModel, identifier: MLFModelId) -> MLFModel {
 		let info = self.extractor.modelInformation(model: model);
-		self.collector.addModelInformation(info: info, for: identifier)
+		let appInfo = MLFModelInfo(modelId: identifier, info: info)
+		self.collector.addModelInformation(info: appInfo)
 		return MLFModel(
 			model: model,
 			identifier: identifier,

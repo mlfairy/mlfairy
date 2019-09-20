@@ -48,7 +48,7 @@ class MLFModelDataExtractor {
 	func convert(
 		input: MLFeatureProvider,
 		output: MLFeatureProvider
-	) -> MLFPrediction {
+	) -> (input:[String: [String: String]], output: [String: [String: String]]) {
 		var inputResult: [String: [String: String]] = [:]
 		self.iterate(over: input).forEach { item in
 			inputResult[item.0] = item.1
@@ -59,7 +59,7 @@ class MLFModelDataExtractor {
 			outputResult[item.0] = item.1
 		}
 		
-		return MLFPrediction(input: inputResult, output: outputResult)
+		return (input: inputResult, output: outputResult)
 	}
 	
 	private func iterate(over provider: MLFeatureProvider) -> [(String, [String: String])] {
