@@ -7,57 +7,40 @@
 
 import Foundation
 import CoreML
+import Promises
 
 class MLFPredictionCollector {
-	private let info: [String: String]
 	private let extractor: MLFModelDataExtractor
-	private let persistence: MLFPersistence
-	private let network: MLFNetwork
+	private let upload: MLFUploadTask
 	private let queue: DispatchQueue
-	private let log: MLFLogger
 	
 	init(
-		info: [String: String],
 		extractor: MLFModelDataExtractor,
-		persistence: MLFPersistence,
-		network: MLFNetwork,
-		queue: DispatchQueue,
-		log: MLFLogger
+		upload: MLFUploadTask,
+		queue: DispatchQueue
 	) {
-		self.info = info
 		self.extractor = extractor
-		self.persistence = persistence
-		self.network = network
+		self.upload = upload
 		self.queue = queue
-		self.log = log
 	}
 	
-	func addModelInformation(info: MLFModelInfo) {
-		do {
-			let file = try self.persistence.persist(info)
-		} catch {
-			self.log.i("Failed to save app info to disk. \(error)")
-		}
-	}
-	
+	@discardableResult
 	func collect(
 		for model: MLFModelId,
 		input: MLFeatureProvider,
 		output: MLFeatureProvider,
 		options: MLPredictionOptions? = nil
-	) {
-		queue.async {
-			do {
-				let results = self.extractor.convert(input: input, output: output)
-				let prediction = MLFPrediction(
-					modelId: model,
-					input: results.input,
-					output: results.output
-				)
-				let file = try self.persistence.persist(prediction)
-			} catch {
-				self.log.i("Failed to save prediction to disk. \(error)")
-			}
+	) -> Promise<MLFPrediction> {
+		return Promise(on: self.queue) { () -> MLFPrediction in
+			let results = self.extractor.convert(input: input, output: output)
+			let prediction = MLFPrediction(
+				modelId: model,
+				input: results.input,
+				output: results.output
+			)
+			return prediction
+		}.then(on: self.queue) { prediction in
+			self.upload.queue(prediction)
 		}
 	}
 }

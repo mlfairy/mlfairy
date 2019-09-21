@@ -29,6 +29,7 @@ class MLFairyImpl {
 	private let network: MLFNetwork
 	private let collector: MLFPredictionCollector
 	private let extractor: MLFModelDataExtractor
+	private let upload: MLFUploadTask
 	private let support: MLFSupport
 	
 	private let requestQueue: DispatchQueue
@@ -60,16 +61,21 @@ class MLFairyImpl {
 			root: persistenceRoot,
 			log: self.log
 		)
+		self.upload = MLFUploadTask(
+			persistence: self.persistence,
+			network: self.network,
+			log: self.log,
+			queue: self.eventQueue
+		)
 		self.app = MLFApp(logger:self.log, device:self.device)
 		self.extractor = MLFModelDataExtractor(support: self.support)
 		self.collector = MLFPredictionCollector(
-			info: self.app.appInformation(),
 			extractor: self.extractor,
-			persistence: self.persistence,
-			network: self.network,
-			queue: self.eventQueue,
-			log: self.log
+			upload: self.upload,
+			queue: self.eventQueue
 		)
+		
+		self.upload.poke()
 	}
 	
 	func getCoreMLModel(
@@ -133,8 +139,8 @@ class MLFairyImpl {
 	
 	private func wrap(_ model: MLModel, identifier: MLFModelId) -> MLFModel {
 		let info = self.extractor.modelInformation(model: model);
-		let appInfo = MLFModelInfo(modelId: identifier, info: info)
-		self.collector.addModelInformation(info: appInfo)
+		let modelInfo = MLFModelInfo(modelId: identifier, info: info)
+		self.upload.queue(modelInfo)
 		return MLFModel(
 			model: model,
 			identifier: identifier,

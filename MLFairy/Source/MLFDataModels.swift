@@ -109,6 +109,10 @@ struct MLFDownloadMetadata: Codable {
 	let size: Int?
 }
 
+struct MLFUploadResponse: Codable {
+	let message: String
+}
+
 extension MLFDownloadMetadata: CustomStringConvertible, CustomDebugStringConvertible {
 	public var description: String {
 		return "\(downloadId)"

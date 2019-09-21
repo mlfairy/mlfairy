@@ -7,12 +7,12 @@
 
 import Foundation
 import Alamofire
+import Promises
 
 class MLFNetwork {
 	private static let BASE_URL = "https://api.mlfairy.com/api"
 	private static let DOWNLOAD_URL = "\(BASE_URL)/download"
 	private static let EVENT_URL = "\(BASE_URL)/event"
-	private static let PREDICT_URL = "\(BASE_URL)/prediction"
 	private static let DOWNLOAD_OPTIONS: DownloadRequest.Options = [
 		.createIntermediateDirectories, .removePreviousFile
 	]
