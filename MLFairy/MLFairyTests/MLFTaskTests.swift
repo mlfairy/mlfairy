@@ -34,7 +34,7 @@ class MLTaskTests: XCTestCase {
 		let metadata = self.makeMetadata(token: token)
 		let promise = task.compileModel(URL(string:"https://example.com")!, metadata, on: queue)
 		
-		XCTAssert(waitForPromises(timeout: 1))
+		XCTAssert(waitForPromises(timeout: 10))
 		XCTAssertNotNil(promise.error)
 		XCTAssertFalse(promise.isFulfilled)
 		XCTAssertNil(promise.value)
