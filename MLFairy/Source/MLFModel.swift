@@ -50,21 +50,20 @@ public class MLFModel: MLModel {
 		let prediction = try self.model.prediction(from: input)
 		
 		self.collector.collect(
-			for:self.identifier,
+			for: self.identifier,
 			input: input,
 			output: prediction
 		)
 		
 		return prediction
 	}
-	
-	
+
 	/// Prediction with explict options
 	override public func prediction(from input: MLFeatureProvider, options: MLPredictionOptions) throws -> MLFeatureProvider {
 		let prediction = try self.model.prediction(from: input, options: options)
 		
 		self.collector.collect(
-			for:self.identifier,
+			for: self.identifier,
 			input: input,
 			output: prediction,
 			options: options

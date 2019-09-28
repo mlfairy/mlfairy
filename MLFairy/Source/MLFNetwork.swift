@@ -8,9 +8,10 @@
 import Foundation
 import Alamofire
 import Promises
+import MLFSupport
 
 class MLFNetwork {
-	private static let BASE_URL = "https://api.mlfairy.com/api"
+	private static let BASE_URL = "https://api.mlfairy.com/1"
 	private static let DOWNLOAD_URL = "\(BASE_URL)/download"
 	private static let EVENT_URL = "\(BASE_URL)/event"
 	private static let DOWNLOAD_OPTIONS: DownloadRequest.Options = [
@@ -52,7 +53,7 @@ class MLFNetwork {
 					guard
 						let afInfo = Bundle(for: Session.self).infoDictionary,
 						let build = afInfo["CFBundleShortVersionString"]
-						else { return "Unknown" }
+						else { return "Alamofire/Unknown" }
 					
 					return "Alamofire/\(build)"
 				}()
@@ -61,7 +62,7 @@ class MLFNetwork {
 					guard
 						let afInfo = Bundle(for: MLFNetwork.self).infoDictionary,
 						let build = afInfo["CFBundleShortVersionString"]
-						else { return "Unknown" }
+						else { return "MLFairy/Unknown" }
 					
 					return "MLFairy/\(build)"
 				}()

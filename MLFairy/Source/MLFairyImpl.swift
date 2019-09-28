@@ -1,5 +1,5 @@
 //
-//  MLFairyImpl2.swift
+//  MLFairyImpl.swift
 //  MLFairy
 //
 //  Copyright © 2019 MLFairy. All rights reserved.
@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreML
-import Promises
+	import Promises
 import MLFSupport
 
 class MLFairyImpl {

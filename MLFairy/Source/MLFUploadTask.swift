@@ -62,8 +62,7 @@ class MLFUploadTask {
 	
 	private func makePromise(_ file: URL) -> Promise<URL> {
 		let promise =  Promise(on: self.queue) { resolve, reject in
-			// TODO: Should you have a policy of deleting files
-			// TODO: Older than x days?
+			// TODO: Should you have a policy of deleting files older than x days?
 			let data = try String(contentsOf: file, encoding: .utf8)
 			let body: [String: Any] = ["event": data]
 			let request = self.network
