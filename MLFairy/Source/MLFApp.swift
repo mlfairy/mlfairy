@@ -12,6 +12,10 @@ class MLFApp {
 	public let app: Bundle
 	public let sdk: Bundle
 	private let log: MLFLogger
+
+	public lazy var info: [String: String] = {
+		return self.appInformation()
+	}()
 	
 	init(logger: MLFLogger, device: MLFDevice) {
 		self.device = device
@@ -20,7 +24,7 @@ class MLFApp {
 		self.sdk = Bundle(for: MLFApp.self)
 	}
 	
-	func appInformation() -> [String: String] {
+	private func appInformation() -> [String: String] {
 		var information = self.device.deviceInformation()
 		
 		let bundleVersion = self.app.object(forInfoDictionaryKey: "CFBundleVersion") as? String

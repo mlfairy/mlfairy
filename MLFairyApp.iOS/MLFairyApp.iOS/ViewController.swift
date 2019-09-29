@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 		self.outputLabel.superview?.backgroundColor = UIColor.black.withAlphaComponent(0.7)
 		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
 		
-		model.model = MLFairy.wrapMpdel(model.model, token: MLFAIRY_TOKEN)
+		model.model = MLFairy.wrapCoreMLModel(model.model, token: MLFAIRY_TOKEN)
 	}
 	
 	@IBAction func takePhoto(_ sender: Any) {

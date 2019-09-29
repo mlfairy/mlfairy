@@ -47,12 +47,17 @@ public class MLFModel: MLModel {
 	
 	/// All models can predict on a specific set of input features.
 	override public func prediction(from input: MLFeatureProvider) throws -> MLFeatureProvider {
+		let start = DispatchTime.now()
 		let prediction = try self.model.prediction(from: input)
+		let end = DispatchTime.now()
+		let diff = end.rawValue - start.rawValue
+		let elapsed: DispatchTimeInterval = .nanoseconds(Int(diff))
 		
 		self.collector.collect(
 			for: self.identifier,
 			input: input,
-			output: prediction
+			output: prediction,
+			elapsed: elapsed
 		)
 		
 		return prediction
@@ -60,12 +65,17 @@ public class MLFModel: MLModel {
 
 	/// Prediction with explict options
 	override public func prediction(from input: MLFeatureProvider, options: MLPredictionOptions) throws -> MLFeatureProvider {
+		let start = DispatchTime.now()
 		let prediction = try self.model.prediction(from: input, options: options)
-		
+		let end = DispatchTime.now()
+		let diff = end.rawValue - start.rawValue
+		let elapsed: DispatchTimeInterval = .nanoseconds(Int(diff))
+
 		self.collector.collect(
 			for: self.identifier,
 			input: input,
 			output: prediction,
+			elapsed: elapsed,
 			options: options
 		)
 

@@ -69,6 +69,8 @@ struct MLFPrediction: Codable {
 	let modelId: MLFModelId
 	let input: [String: [String: String]]
 	let output: [String: [String: String]]
+	let appInfo: [String: String]
+	let elasped: Double?
 }
 
 struct MLFModelInfo: Codable {

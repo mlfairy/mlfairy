@@ -11,17 +11,6 @@ import CoreML
 import MLFSupport
 
 class MLFairyImpl {
-	public struct Options: OptionSet {
-		public static let fallbackDisk = Options(rawValue: 1)
-		public static let fallbackNone = Options(rawValue: 2)
-		
-		public let rawValue: Int
-		
-		public init(rawValue: Int) {
-			self.rawValue = rawValue
-		}
-	}
-	
 	private let log: MLFLogger
 	private let app: MLFApp
 	private let device: MLFDevice
@@ -70,6 +59,7 @@ class MLFairyImpl {
 		self.app = MLFApp(logger:self.log, device:self.device)
 		self.extractor = MLFModelDataExtractor(support: self.support)
 		self.collector = MLFPredictionCollector(
+			app: self.app,
 			extractor: self.extractor,
 			upload: self.upload,
 			queue: self.eventQueue
@@ -80,7 +70,7 @@ class MLFairyImpl {
 	
 	func getCoreMLModel(
 		token: String,
-		options: Options = [.fallbackDisk],
+		options: MLFairy.Options,
 		queue: DispatchQueue,
 		callback: @escaping (MLFModelResult) -> Void
 	) {
@@ -91,10 +81,9 @@ class MLFairyImpl {
 				log: self.log
 			)
 			let diskMetadata = try self.persistence.findModel(for: token)
-			let appInfo = self.app.appInformation()
 			let metadata = try await(task.downloadMetadata(
 				token,
-				info: appInfo,
+				info: self.app.info,
 				fallback: diskMetadata.metadata,
 				on: self.computationQueue
 			))
@@ -135,6 +124,21 @@ class MLFairyImpl {
 	func wrap(_ model: MLModel, token: String) -> MLFModel {
 		let identifier = MLFModelId(token: token, downloadId: nil)
 		return self.wrap(model, identifier: identifier)
+	}
+	
+	func collect(
+		token: String,
+		input: MLFeatureProvider,
+		output: MLFeatureProvider,
+		elapsed: DispatchTimeInterval
+	) {
+		self.collector.collect(
+			for: MLFModelId(token: token, downloadId: nil),
+			input: input,
+			output: output,
+			elapsed: elapsed,
+			options: nil
+		)
 	}
 	
 	private func wrap(_ model: MLModel, identifier: MLFModelId) -> MLFModel {
