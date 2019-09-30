@@ -9,8 +9,8 @@ matrix:
       - plutil -replace CFBundleShortVersionString -string "${TRAVIS_TAG}" MLFairy/MLFairy/Info.plist
       - carthage build --archive --platform iOS,tvOS,macOS
       - sed "s/%VERSION%/${TRAVIS_TAG}/g" MLFairy.podspec.template > MLFairy.podspec
-      - pod trunk push MLFairy.podspec --skip-tests --allow-warnings
     after_deploy:
+      - pod trunk push MLFairy.podspec --skip-tests --allow-warnings
       - sh <(curl -s https://codecov.io/bash) -J '^MLFairy'
     deploy:
       provider: releases

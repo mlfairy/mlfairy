@@ -42,7 +42,7 @@ class MLFPredictionCollector {
 				input: results.input,
 				output: results.output,
 				appInfo: self.app.info,
-				elasped: self.toDouble(elapsed)
+				elapsed: self.toDouble(elapsed)
 			)
 			return prediction
 		}.then(on: self.queue) { prediction in

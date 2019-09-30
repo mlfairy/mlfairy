@@ -70,11 +70,11 @@ struct MLFPrediction: Codable {
 	let input: [String: [String: String]]
 	let output: [String: [String: String]]
 	let appInfo: [String: String]
-	let elasped: Double?
+	let elapsed: Double?
 }
 
 struct MLFModelInfo: Codable {
-	let type = "appInfo"
+	let type = "modelInfo"
 	let modelId: MLFModelId
 	let info: [String: String]
 }

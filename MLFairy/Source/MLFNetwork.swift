@@ -49,13 +49,13 @@ class MLFNetwork {
 					return "\(osName) \(versionString)"
 				}()
 				
-				let alamofireVersion: String = {
+				let mlFairySupport: String = {
 					guard
-						let afInfo = Bundle(for: Session.self).infoDictionary,
+						let afInfo = Bundle(for: MLFSupport.self).infoDictionary,
 						let build = afInfo["CFBundleShortVersionString"]
-						else { return "Alamofire/Unknown" }
+						else { return "MLFSupport/Unknown" }
 					
-					return "Alamofire/\(build)"
+					return "MLFSupport/\(build)"
 				}()
 				
 				let mlFairyVersion: String = {
@@ -67,7 +67,7 @@ class MLFNetwork {
 					return "MLFairy/\(build)"
 				}()
 				
-				return "\(executable)/\(appVersion) (\(bundle); build:\(appBuild); \(osNameVersion)) \(mlFairyVersion) \(alamofireVersion)"
+				return "\(executable)/\(appVersion) (\(bundle); build:\(appBuild); \(osNameVersion)) \(mlFairySupport) \(mlFairyVersion)"
 			}
 			
 			return "MLFairy"
