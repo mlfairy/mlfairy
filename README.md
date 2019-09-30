@@ -8,7 +8,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MLFairy.svg)](https://cocoapods.org/pods/MLFairy)
 
-MLFairy gives developers the tools needed to better understand their CoreML models. It gives them the ability to update and deploy their latest CoreML model.
+MLFairy gives developers the tools needed to better understand their CoreML models. It gives them the ability to update and deploy their latest CoreML model. MLFairy also gives you the ability to collect predictions from your model, so you can improve your model based on real-world results from your app.
 
 ## Installation
 
@@ -38,6 +38,8 @@ If this is your first time using Carthage in the project, you'll need to go thro
 
 ## Usage
 
+### Downloading the latest CoreML model
+
 After installing MLFairy, you can access an API like this:
 
 ```swift
@@ -45,22 +47,37 @@ private let TOKEN = "<get your token from your account at www.mlfairy.com>"
 
 let model = <Generated Class from .mlmodel file>()
 
-MLFairy.getCoreMLModel(TOKEN) { model, error in
-	guard error == nil else {
-		print("Failed to get CoreML model \(String(describing: error)).")
-		return
-	}
+MLFairy.getCoreMLModel(TOKEN) { response in
+    switch (response.result) {
+        case .success(let model):
+            guard let model = model else {
+                print("Failed to get CoreML model.")
+                return
+            }
 
-	guard let _ = model else {
-		print("Failed to get CoreML model.")
-		return
-	}
-
-	print("Model Downloaded")
-	ml.model = model // Assign the returned model to your existing model
+            // Assign the returned model to your existing model
+            // If you want to collect predictions, you can assign your model to response.mlFairyModel
+            model.model = model
+        case .failure(let error):
+            print("Failed to get CoreML model \(String(describing: error)).")
+    }
 }
 ```
 
+### Automatically collect predictions
+
+You can collect your model's predictions using MLFairy. You can do this with `MLFairy.wrapCoreMLModel`.
+
+```swift
+private let TOKEN = "<get your token from your account at www.mlfairy.com>"
+
+let model = <Generated Class from .mlmodel file>()
+
+model.model = MLFairy.wrapCoreMLModel(model.model, token: TOKEN)
+```
+
+> **Note**: `MLFairy.getCoreMLModel` also returns an optional wrapped model if you are using MLFairy for model distribution.
+
 ## License
 
-MLFairy is released under an MIT license. See [License.txt](License.txt) for more information.
+MLFairy is released under an GPL-3 license. See [License.txt](License.txt) for more information.

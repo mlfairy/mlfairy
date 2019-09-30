@@ -53,8 +53,8 @@ class ViewController: UIViewController {
 		self.outputLabel.text = "Downloading model from MLFairy..."
 		MLFairy.getCoreMLModel(MLFAIRY_TOKEN) { result in
 			switch (result.result) {
-				case .success(let model):
-					guard let model = model else {
+				case .success(_):
+					guard let model = result.mlFairyModel else {
 						self.outputLabel.text = "Failed to assign CoreML model"
 						print("Failed to get CoreML model.")
 						return

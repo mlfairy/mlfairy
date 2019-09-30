@@ -28,7 +28,7 @@ public struct MLFModelResult {
 		compiledModelUrl: URL?,
 		downloadedModelUrl: URL?,
 		mlFairyModel: MLFModel?
-		) {
+	) {
 		self.result = result
 		self.compiledModel = compiledModel
 		self.compiledModelUrl = compiledModelUrl
