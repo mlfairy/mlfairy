@@ -7,6 +7,8 @@
 [![Build Status](https://travis-ci.com/mlfairy/ios.svg?branch=master)](https://travis-ci.com/mlfairy/ios)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MLFairy.svg)](https://cocoapods.org/pods/MLFairy)
+[![codebeat badge](https://codebeat.co/badges/55c8d36b-cde6-4cf3-bbd1-573c61662900)](https://codebeat.co/projects/github-com-mlfairy-mlfairy-master)
+[![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS.svg)][https://docs.mlfairy.com]
 
 MLFairy gives developers the tools needed to better understand their CoreML models. It gives them the ability to update and deploy their latest CoreML model. MLFairy also gives you the ability to collect predictions from your model, so you can improve your model based on real-world results from your app.
 
