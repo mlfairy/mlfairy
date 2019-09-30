@@ -1,10 +1,10 @@
 language: objective-c
 matrix:
   include:
-  - osx_image: xcode10.2
+  - osx_image: xcode11
     env:
     - SDK="iphonesimulator"
-    - DESTINATION="OS=12.2,name=iPhone Xs"
+    - DESTINATION="OS=11.0,name=iPhone Xs"
     before_deploy:
       - plutil -replace CFBundleShortVersionString -string "${TRAVIS_TAG}" MLFairy/MLFairy/Info.plist
       - carthage build --archive --platform iOS,tvOS,macOS
@@ -24,14 +24,14 @@ matrix:
         branch: master
         tags: true
         repo: mlfairy/mlfairy
-  - osx_image: xcode10.2
+  - osx_image: xcode11
     env:
     - SDK="macosx"
     - DESTINATION="arch=x86_64"
-  - osx_image: xcode10.2
+  - osx_image: xcode11
     env:
     - SDK="appletvsimulator"
-    - DESTINATION="OS=12.2,name=Apple TV 4K (at 1080p)"
+    - DESTINATION="OS=11.0,name=Apple TV 4K (at 1080p)"
 cache:
   directories:
   - Carthage
