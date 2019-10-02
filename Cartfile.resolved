@@ -1,4 +1,4 @@
-binary "MLFSupport.json" "0.0.2"
+binary "MLFSupport.json" "0.0.4"
 github "Alamofire/Alamofire" "5.0.0-rc.2"
 github "AliSoftware/OHHTTPStubs" "8.0.0"
 github "google/promises" "1.2.8"
