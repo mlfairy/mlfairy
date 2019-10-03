@@ -33,9 +33,11 @@ class MLFDevice {
 		let diskSpace = self.diskSpace()
 		let country = self.locale.languageCode
 		let language = Locale.preferredLanguages.first
+		let deviceModel = self.systemInfoByName(type: "hw.machine")
 		
 		var information:[String:String] = [:]
 		information["memorySize"] = String(deviceMemory)
+		information["deviceModel"] = deviceModel
 		information["osVersion"] = osVersion
 		information["osName"] = osName
 		information["batteryLevel"] = batteryLevel > -1 ? "" : String(batteryLevel)
@@ -66,5 +68,14 @@ class MLFDevice {
 		} catch  {
 			return nil
 		}
+	}
+	
+	private func systemInfoByName(type: String) -> String {
+		var size = 0
+		sysctlbyname(type, nil, &size, nil, 0)
+		var machine = [CChar](repeating: 0,  count: size)
+		sysctlbyname(type, &machine, &size, nil, 0)
+		
+		return String(cString: machine)
 	}
 }
