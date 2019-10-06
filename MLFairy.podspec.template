@@ -17,8 +17,12 @@ Pod::Spec.new do |s|
 	s.subspec "Core" do |ss|
 		ss.source_files  = "MLFairy/Source"
 		ss.dependency "Alamofire", "~> 5.0.0-rc.2"
-		ss.dependency "MLFPromisesSwift", "~> 1.2.8"
 		ss.dependency "MLFSupport"
+
+		ss.osx.dependency "MLFPromisesSwift", "~> 1.2.8"
+		ss.ios.dependency "PromisesSwift", "~> 1.2.8"
+		ss.tvos.dependency "PromisesSwift", "~> 1.2.8"
+
 		ss.frameworks  = "Foundation", "Security"
 	end
 end
