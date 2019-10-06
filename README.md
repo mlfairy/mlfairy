@@ -18,7 +18,7 @@ MLFairy gives developers the tools needed to better understand their CoreML mode
 For MLFairy, use the following entry in your Podfile:
 
 ```
-pod 'MLFairy' '~> 0.0.1'
+pod 'MLFairy' '~> 0.0.2'
 ```
 
 Then run `pod install`.
@@ -30,7 +30,7 @@ In any file you'd like to use MLFairy in, don't forget to import the framework w
 Make the following entry in your Cartfile:
 
 ```
-github "mlfairy/mlfairy" ~> 0.0.1
+github "mlfairy/mlfairy" ~> 0.0.2
 ```
 
 Then run `carthage update`.
