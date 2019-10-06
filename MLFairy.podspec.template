@@ -13,17 +13,22 @@ Pod::Spec.new do |s|
 	s.tvos.deployment_target = "11.0"
 	s.osx.deployment_target = "10.13"
 
+	s.pod_target_xcconfig = {
+		"PRODUCT_BUNDLE_IDENTIFIER" => "com.mlfairy.sdk"
+	}
+
+	s.dependency "Alamofire", "~> 5.0.0-rc.2"
+	s.dependency "MLFSupport"
+
+	s.osx.dependency "MLFPromisesSwift", "~> 1.2.8"
+	s.ios.dependency "PromisesSwift", "~> 1.2.8"
+	s.tvos.dependency "PromisesSwift", "~> 1.2.8"
+
+	s.frameworks  = "Foundation", "Security"
+
 	s.default_subspec = "Core"
 	s.subspec "Core" do |ss|
 		ss.source_files  = "MLFairy/Source"
-		ss.dependency "Alamofire", "~> 5.0.0-rc.2"
-		ss.dependency "MLFSupport"
-
-		ss.osx.dependency "MLFPromisesSwift", "~> 1.2.8"
-		ss.ios.dependency "PromisesSwift", "~> 1.2.8"
-		ss.tvos.dependency "PromisesSwift", "~> 1.2.8"
-
-		ss.frameworks  = "Foundation", "Security"
 	end
 end
   
