@@ -1,5 +1,5 @@
 github "Alamofire/Alamofire" ~> 5.0.0-beta.7
 github "google/promises" ~> 1.2.8
 github "AliSoftware/OHHTTPStubs" ~> 8.0.0
-binary "MLFSupport.json" 
+binary "https://api.mlfairy.com/1/MLFSupport" 
 

@@ -1,4 +1,4 @@
-binary "MLFSupport.json" "0.0.5"
+binary "https://api.mlfairy.com/1/MLFSupport" "0.0.5"
 github "Alamofire/Alamofire" "5.0.0-rc.2"
 github "AliSoftware/OHHTTPStubs" "8.0.0"
 github "google/promises" "1.2.8"
