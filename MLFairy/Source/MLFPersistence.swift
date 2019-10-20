@@ -18,7 +18,7 @@ protocol MLFPersistence {
 	func deleteFile(at url: URL)
 	func exists(file: URL) throws -> Bool
 	func md5File(url: URL, bufferSize: Int) throws -> [UInt8]
-	func persist<T:Encodable>(_ data: T) throws -> URL
+	func persist<T:Encodable>(_ data: T, filename: String) throws -> URL
 	func uploads() -> [URL]
 }
 
@@ -121,9 +121,8 @@ class MLFDefaultPersistence: MLFPersistence {
 		}
 	}
 	
-	func persist<T:Encodable>(_ data: T) throws -> URL {
-		let fileId = UUID().uuidString
-		let file = self.uploadsDirectoryUrl.appendingPathComponent("\(fileId)")
+	func persist<T:Encodable>(_ data: T, filename: String) throws -> URL {
+		let file = self.uploadsDirectoryUrl.appendingPathComponent("\(filename)")
 		try self.write(data, to: file)
 		
 		return file

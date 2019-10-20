@@ -52,7 +52,7 @@ class MLFPersistenceStub: MLFPersistence {
 		return try self.fallback.md5File(url: url, bufferSize: bufferSize)
 	}
 	
-	func persist<T:Encodable>(_ data: T) throws -> URL {
-		return try self.fallback.persist(data)
+	func persist<T:Encodable>(_ data: T, filename: String) throws -> URL {
+		return try self.fallback.persist(data, filename: filename)
 	}
 }

@@ -64,6 +64,12 @@ extension Result {
 	}
 }
 
+struct MLFEncryptedData: Codable {
+	let type = "encrypted"
+	let encryptionId: String
+	let data: String
+}
+
 struct MLFPrediction: Codable {
 	let type = "prediction"
 	let modelId: MLFModelId
@@ -95,6 +101,17 @@ struct MLFModelId: Codable {
 		self.token = token
 		self.downloadId = downloadId
 	}
+}
+
+extension MLFModelId: Hashable {
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(self.token)
+	}
+}
+
+struct MLFEncryptionData: Codable {
+	let id: String
+	let publicKey: String
 }
 
 struct MLFDownloadMetadata: Codable {

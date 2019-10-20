@@ -20,6 +20,7 @@ class MLFairyImpl {
 	private let extractor: MLFModelDataExtractor
 	private let upload: MLFUploadTask
 	private let support: MLFSupport
+	private let encryption: MLFEncryptionClient
 	
 	private let requestQueue: DispatchQueue
 	private let computationQueue: DispatchQueue
@@ -45,6 +46,11 @@ class MLFairyImpl {
 		self.network = MLFNetwork()
 		self.log = MLFDefaultLogger()
 		self.device = MLFDevice(host: MLFHostDevice())
+		self.encryption = MLFEncryptionClient(
+			network: self.network,
+			log: self.log,
+			queue: requestQueue
+		)
 		self.persistence = MLFDefaultPersistence(
 			fileManager: fileManager,
 			root: persistenceRoot,
@@ -62,6 +68,7 @@ class MLFairyImpl {
 			app: self.app,
 			extractor: self.extractor,
 			upload: self.upload,
+			encryption: self.encryption,
 			queue: self.eventQueue
 		)
 		

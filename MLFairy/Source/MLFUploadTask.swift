@@ -28,9 +28,12 @@ class MLFUploadTask {
 	}
 	
 	@discardableResult
-	func queue<T: Encodable>(_ uploadable: T) -> Promise<[URL]> {
+	func queue<T: Encodable>(
+		_ uploadable: T,
+		filename: String = UUID().uuidString
+	) -> Promise<[URL]> {
 		return Promise(on: self.queue) { () -> URL in
-			let file = try self.persistence.persist(uploadable)
+			let file = try self.persistence.persist(uploadable, filename: filename)
 			return file
 		}.then(on: self.queue) {
 			return self.upload(files: [$0])

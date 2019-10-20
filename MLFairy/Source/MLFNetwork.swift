@@ -13,6 +13,7 @@ import MLFSupport
 class MLFNetwork {
 	private static let BASE_URL = "https://api.mlfairy.com/1"
 	private static let DOWNLOAD_URL = "\(BASE_URL)/download"
+	private static let ENCRYPTION_URL = "\(BASE_URL)/encryption"
 	private static let EVENT_URL = "\(BASE_URL)/event"
 	private static let DOWNLOAD_OPTIONS: DownloadRequest.Options = [
 		.createIntermediateDirectories, .removePreviousFile
@@ -105,6 +106,16 @@ class MLFNetwork {
 	func metadata(_ body: Parameters) -> DataRequest {
 		return self.session.request(
 			MLFNetwork.DOWNLOAD_URL,
+			method: .post,
+			parameters: body,
+			encoding: JSONEncoding.default,
+			headers: MLFNetwork.default
+		)
+	}
+	
+	func encryption(_ body: Parameters) -> DataRequest {
+		return self.session.request(
+			MLFNetwork.ENCRYPTION_URL,
 			method: .post,
 			parameters: body,
 			encoding: JSONEncoding.default,
