@@ -40,7 +40,7 @@ cache:
   - Carthage
 before_install:
 - brew update
-- brew update carthage
+- brew upgrade carthage
 - gem install xcpretty
 - pod repo update
 script:
