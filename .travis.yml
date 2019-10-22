@@ -42,7 +42,7 @@ before_install:
 - brew update
 - brew upgrade carthage
 - gem install xcpretty
-- pod repo update
+#- pod repo update
 script:
 - set -o pipefail
 - carthage update --cache-builds --new-resolver --configuration Debug
