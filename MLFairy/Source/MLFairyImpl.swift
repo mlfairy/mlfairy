@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreML
-	import Promises
+import Promises
 import MLFSupport
 
 class MLFairyImpl {
@@ -46,11 +46,6 @@ class MLFairyImpl {
 		self.network = MLFNetwork()
 		self.log = MLFDefaultLogger()
 		self.device = MLFDevice(host: MLFHostDevice())
-		self.encryption = MLFEncryptionClient(
-			network: self.network,
-			log: self.log,
-			queue: requestQueue
-		)
 		self.persistence = MLFDefaultPersistence(
 			fileManager: fileManager,
 			root: persistenceRoot,
@@ -64,6 +59,13 @@ class MLFairyImpl {
 		)
 		self.app = MLFApp(logger:self.log, device:self.device)
 		self.extractor = MLFModelDataExtractor(support: self.support)
+		self.encryption = MLFEncryptionClient(
+			app: self.app,
+			support: self.support,
+			network: self.network,
+			log: self.log,
+			queue: requestQueue
+		)
 		self.collector = MLFPredictionCollector(
 			app: self.app,
 			extractor: self.extractor,
@@ -71,7 +73,6 @@ class MLFairyImpl {
 			encryption: self.encryption,
 			queue: self.eventQueue
 		)
-		
 		self.upload.poke()
 	}
 	

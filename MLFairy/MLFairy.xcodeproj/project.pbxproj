@@ -21,6 +21,7 @@
 		42B5C2BF2331D03500A88ED6 /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */; };
 		42B5C2E22334716C00A88ED6 /* MLFUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C2E12334716C00A88ED6 /* MLFUploadTask.swift */; };
 		42DE6E5A235CBD9A00B63895 /* MLFEncryptionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */; };
+		42DE6E64235CF40700B63895 /* MLFEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE6E63235CF40700B63895 /* MLFEncryptor.swift */; };
 		42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTest.swift */; };
 		42E6524E2322CED4003BB662 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E6524C2322CED4003BB662 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42E652532322CF0F003BB662 /* MLFairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F217B22D6CEC5002F2463 /* MLFairy.swift */; };
@@ -78,6 +79,7 @@
 		42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/Mac/MLFSupport.framework; sourceTree = "<group>"; };
 		42B5C2E12334716C00A88ED6 /* MLFUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFUploadTask.swift; sourceTree = "<group>"; };
 		42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFEncryptionClient.swift; sourceTree = "<group>"; };
+		42DE6E63235CF40700B63895 /* MLFEncryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFEncryptor.swift; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				42872D9E22DAB50C00573818 /* MLFDevice.swift */,
 				42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */,
 				42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */,
+				42DE6E63235CF40700B63895 /* MLFEncryptor.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			files = (
 				42E652532322CF0F003BB662 /* MLFairy.swift in Sources */,
 				42E652572322CF0F003BB662 /* MLFDevice.swift in Sources */,
+				42DE6E64235CF40700B63895 /* MLFEncryptor.swift in Sources */,
 				42E652542322CF0F003BB662 /* MLFairyImpl.swift in Sources */,
 				42B5C2E22334716C00A88ED6 /* MLFUploadTask.swift in Sources */,
 				42E652592322CF0F003BB662 /* MLFPersistence.swift in Sources */,

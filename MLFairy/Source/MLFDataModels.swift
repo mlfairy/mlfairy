@@ -66,8 +66,11 @@ extension Result {
 
 struct MLFEncryptedData: Codable {
 	let type = "encrypted"
-	let encryptionId: String
 	let data: String
+	let modelId: MLFModelId
+	let encryptionId: String
+	let aesKey: String
+	let ivKey: String
 }
 
 struct MLFPrediction: Codable {
