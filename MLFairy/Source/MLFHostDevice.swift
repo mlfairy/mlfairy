@@ -7,7 +7,7 @@
 
 import Foundation
 
-#if os(iOS) || os(watchOS) || os(tvOS)
+#if os(iOS) || os(tvOS)
 import UIKit
 class MLFHostDevice {
 	private let device: UIDevice
@@ -17,7 +17,7 @@ class MLFHostDevice {
 	}
 	
 	func name() -> String {
-		return self.device.systemName;
+		return self.device.systemName
 	}
 	
 	func version() -> String {
@@ -25,14 +25,14 @@ class MLFHostDevice {
 	}
 	
 	func batteryLevel() -> Float {
-#if os(iOS) || os(watchOS)
+#if os(iOS)
 		return self.device.batteryLevel
 #elseif os(tvOS)
 		return -1
 #endif
 	}
 }
-	
+
 #elseif os(OSX)
 class MLFHostDevice {
 	private let device: Host
@@ -44,7 +44,7 @@ class MLFHostDevice {
 	}
 	
 	func name() -> String {
-		return self.device.name ?? "osx";
+		return self.device.name ?? "osx"
 	}
 	
 	func version() -> String {
@@ -53,6 +53,27 @@ class MLFHostDevice {
 	
 	func batteryLevel() -> Float {
 		return -1
+	}
+}
+#elseif os(watchOS)
+import WatchKit
+class MLFHostDevice {
+	private let device: WKInterfaceDevice
+	
+	init() {
+		self.device = WKInterfaceDevice()
+	}
+	
+	func name() -> String {
+		return self.device.systemName
+	}
+	
+	func version() -> String {
+		return self.device.systemVersion
+	}
+	
+	func batteryLevel() -> Float {
+		return self.device.batteryLevel
 	}
 }
 #endif

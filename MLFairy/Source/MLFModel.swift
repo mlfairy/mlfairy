@@ -21,7 +21,7 @@ public class MLFModel: MLModel {
 	}
 	
 	/// The load-time parameters used to instantiate this MLModel object.
-	@available(iOS 12.0, macOS 10.14, tvOS 12.0, *)
+	@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 5.0, *)
 	public override var configuration: MLModelConfiguration {
 		return model.configuration
 	}
@@ -42,7 +42,7 @@ public class MLFModel: MLModel {
 	public convenience init(contentsOf url: URL) throws { throw MLFModelError.notSupported }
 	
 	/// Construct a model given the location of its on-disk representation. Returns nil on error.
-	@available(iOS 12.0, macOS 10.14, tvOS 12.0, *)
+	@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 5.0, *)
 	public convenience init(contentsOf url: URL, configuration: MLModelConfiguration) throws { throw MLFModelError.notSupported }
 	
 	/// All models can predict on a specific set of input features.
@@ -84,7 +84,7 @@ public class MLFModel: MLModel {
 	
 	
 	/// Batch prediction with explict options
-	@available(iOS 12.0, macOS 10.14, tvOS 12.0, *)
+	@available(iOS 12.0, macOS 10.14, tvOS 12.0, watchOS 5.0, *)
 	override public func predictions(from inputBatch: MLBatchProvider, options: MLPredictionOptions) throws -> MLBatchProvider {
 		let predictions = try self.model.predictions(from: inputBatch, options: options)
 		return predictions

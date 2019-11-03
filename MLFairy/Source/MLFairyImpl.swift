@@ -107,12 +107,16 @@ class MLFairyImpl {
 			let result = Result<MLModel?, Error>(value:compilation.model, error: nil)
 			
 			let modelIdentifier = MLFModelId(metadata: metadata)
+			var mlfModel: MLFModel? = nil
+			if let model = compilation.model {
+				mlfModel = self.wrap(model, identifier: modelIdentifier)
+			}
 			return MLFModelResult(
 				result: result,
 				compiledModel: compilation.model,
 				compiledModelUrl: compilation.compiledModelUrl,
 				downloadedModelUrl: url,
-				mlFairyModel: self.wrap(compilation.model, identifier: modelIdentifier)
+				mlFairyModel: mlfModel
 			)
 		}.then(on: queue) { model in
 			callback(model)
