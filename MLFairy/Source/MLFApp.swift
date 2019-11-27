@@ -51,22 +51,22 @@ class MLFApp {
 			return "simulator"
 		}
 		
-		let embeddedDictionary = self.embeddedDictionary()
-		if embeddedDictionary == nil {
+		
+		guard let embeddedDictionary = self.embeddedDictionary() else {
 			return "app-store"
 		}
 		
-		let provisionsAllDevices = embeddedDictionary!["ProvisionsAllDevices"] as? Bool
+		let provisionsAllDevices = embeddedDictionary["ProvisionsAllDevices"] as? Bool
 		if let _ = provisionsAllDevices {
 			return "enterprise"
 		}
 		
-		let provisionedDevices = embeddedDictionary!["ProvisionedDevices"]
+		let provisionedDevices = embeddedDictionary["ProvisionedDevices"]
 		guard let _ = provisionedDevices else {
 			return "app-store"
 		}
 		
-		let entitlements = embeddedDictionary!["Entitlements"] as? [String:Any]
+		let entitlements = embeddedDictionary["Entitlements"] as? [String:Any]
 		guard let _ = entitlements else {
 			return "ad-hoc"
 		}
