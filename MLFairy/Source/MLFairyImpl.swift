@@ -8,6 +8,7 @@
 import Foundation
 import CoreML
 import Promises
+import Combine
 import MLFSupport
 
 class MLFairyImpl {
@@ -26,6 +27,9 @@ class MLFairyImpl {
 	private let computationQueue: DispatchQueue
 	private let compilationQueue: DispatchQueue
 	private let eventQueue: DispatchQueue
+	
+	private var pokeSubscription: AnyCancellable?
+	private var modelInfoSubscription: AnyCancellable?
 	
 	convenience init() {
 		let fileManger = FileManager.default;
@@ -73,7 +77,12 @@ class MLFairyImpl {
 			encryption: self.encryption,
 			queue: self.eventQueue
 		)
-		self.upload.poke()
+		
+		self.pokeSubscription = self.upload.poke().sink(
+			receiveCompletion: { [unowned self] _ in
+				self.pokeSubscription = nil
+			}, receiveValue: {_ in}
+		)
 	}
 	
 	func getCoreMLModel(
@@ -156,11 +165,16 @@ class MLFairyImpl {
 	private func wrap(_ model: MLModel, identifier: MLFModelId) -> MLFModel {
 		let info = self.extractor.modelInformation(model: model);
 		let modelInfo = MLFModelInfo(modelId: identifier, info: info)
-		self.upload.queue(modelInfo)
+		self.modelInfoSubscription = self.upload.queue(modelInfo).sink(
+			receiveCompletion: { [unowned self] _ in
+				self.modelInfoSubscription = nil
+			}, receiveValue: {_ in}
+		)
+		
 		return MLFModel(
 			model: model,
 			identifier: identifier,
-			collector:self.collector,
+			collector: self.collector,
 			log: self.log
 		)
 	}

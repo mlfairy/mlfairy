@@ -5,6 +5,9 @@
       location = "group:MLFairy/MLFairy.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MLFairyApp/MLFairyApp.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MLFairyApp.iOS/MLFairyApp.iOS.xcodeproj">
    </FileRef>
 </Workspace>

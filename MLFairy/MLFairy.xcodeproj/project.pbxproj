@@ -22,6 +22,7 @@
 		42B5C2E22334716C00A88ED6 /* MLFUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C2E12334716C00A88ED6 /* MLFUploadTask.swift */; };
 		42DE6E5A235CBD9A00B63895 /* MLFEncryptionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */; };
 		42DE6E64235CF40700B63895 /* MLFEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE6E63235CF40700B63895 /* MLFEncryptor.swift */; };
+		42E4FF40238C70E6001DED50 /* MLFFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4FF3F238C70E6001DED50 /* MLFFuture.swift */; };
 		42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTest.swift */; };
 		42E6524E2322CED4003BB662 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E6524C2322CED4003BB662 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42E652532322CF0F003BB662 /* MLFairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F217B22D6CEC5002F2463 /* MLFairy.swift */; };
@@ -80,6 +81,7 @@
 		42B5C2E12334716C00A88ED6 /* MLFUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFUploadTask.swift; sourceTree = "<group>"; };
 		42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFEncryptionClient.swift; sourceTree = "<group>"; };
 		42DE6E63235CF40700B63895 /* MLFEncryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFEncryptor.swift; sourceTree = "<group>"; };
+		42E4FF3F238C70E6001DED50 /* MLFFuture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFFuture.swift; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */,
 				42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */,
 				42DE6E63235CF40700B63895 /* MLFEncryptor.swift */,
+				42E4FF3F238C70E6001DED50 /* MLFFuture.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				42E652572322CF0F003BB662 /* MLFDevice.swift in Sources */,
 				42DE6E64235CF40700B63895 /* MLFEncryptor.swift in Sources */,
 				42E652542322CF0F003BB662 /* MLFairyImpl.swift in Sources */,
+				42E4FF40238C70E6001DED50 /* MLFFuture.swift in Sources */,
 				42B5C2E22334716C00A88ED6 /* MLFUploadTask.swift in Sources */,
 				42E652592322CF0F003BB662 /* MLFPersistence.swift in Sources */,
 				42E652552322CF0F003BB662 /* MLFDownloadTask.swift in Sources */,
@@ -449,15 +453,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -507,15 +514,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -556,7 +566,7 @@
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,15 +600,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -639,7 +649,7 @@
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -673,15 +683,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -706,7 +716,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -740,15 +750,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvos appletvsimulator watchsimulator watchos";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -773,7 +783,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -807,15 +817,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvos appletvsimulator watchsimulator watchos";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
