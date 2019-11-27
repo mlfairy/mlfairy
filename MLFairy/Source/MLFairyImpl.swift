@@ -170,7 +170,6 @@ class MLFairyImpl {
 				self.modelInfoSubscription = nil
 			}, receiveValue: {_ in}
 		)
-		
 		return MLFModel(
 			model: model,
 			identifier: identifier,
