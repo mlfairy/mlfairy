@@ -81,33 +81,11 @@ class MLFApp {
 	
 	private func embeddedDictionary() -> [String: Any]? {
 		let provisioningFilePath = app.path(forResource: "embedded.mobileprovision", ofType: nil)
-		guard let _ = provisioningFilePath else {
-			return nil
+		if let path = provisioningFilePath {
+			return self.readPlist(path)
 		}
 		
-		do {
-			let binary = try String(contentsOfFile: provisioningFilePath!, encoding: .isoLatin1)
-			let scanner = Scanner(string: binary)
-			if !scanner.scanUpTo("<plist", into: nil) {
-				return nil
-			}
-			
-			var plistString: NSString?
-			if !scanner.scanUpTo("</plist>", into: &plistString) {
-				return nil
-			}
-			
-			let data = "\(plistString!)</plist>".data(using: .isoLatin1)
-			if data == nil {
-				return nil
-			}
-			
-			let plist = try PropertyListSerialization.propertyList(from: data!, options: [], format: nil) as! [String:Any]
-			
-			return plist
-		} catch {
-			return nil
-		}
+		return nil
 	}
 	
 	private func bundleName() -> String {
@@ -127,5 +105,32 @@ class MLFApp {
 		}
 		
 		return ""
+	}
+	
+	// Visible for testing
+	func readPlist(_ path: String) -> [String:Any]? {
+		do {
+			let binary = try String(contentsOfFile: path, encoding: .isoLatin1)
+			let scanner = Scanner(string: binary)
+			
+			guard let _ = scanner.scanUpToString("<plist") else {
+				return nil
+			}
+			
+			guard let plistString = scanner.scanUpToString("</plist>") else {
+				return nil
+			}
+			
+			let data = "\(plistString)</plist>".data(using: .isoLatin1)
+			if data == nil {
+				return nil
+			}
+			
+			let plist = try PropertyListSerialization.propertyList(from: data!, options: [], format: nil) as! [String:Any]
+			
+			return plist
+		} catch {
+			return nil
+		}
 	}
 }
