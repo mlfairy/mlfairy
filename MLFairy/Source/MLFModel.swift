@@ -46,6 +46,7 @@ public class MLFModel: MLModel {
 	public convenience init(contentsOf url: URL, configuration: MLModelConfiguration) throws { throw MLFModelError.notSupported }
 	
 	/// All models can predict on a specific set of input features.
+	// TODO: Currently, we're leaking the subscriptions
 	override public func prediction(from input: MLFeatureProvider) throws -> MLFeatureProvider {
 		let start = DispatchTime.now()
 		let prediction = try self.model.prediction(from: input)
@@ -64,6 +65,7 @@ public class MLFModel: MLModel {
 	}
 
 	/// Prediction with explict options
+	// TODO: Currently, we're leaking the subscriptions
 	override public func prediction(from input: MLFeatureProvider, options: MLPredictionOptions) throws -> MLFeatureProvider {
 		let start = DispatchTime.now()
 		let prediction = try self.model.prediction(from: input, options: options)
@@ -86,6 +88,18 @@ public class MLFModel: MLModel {
 	/// Batch prediction with explict options
 	override public func predictions(from inputBatch: MLBatchProvider, options: MLPredictionOptions) throws -> MLBatchProvider {
 		let predictions = try self.model.predictions(from: inputBatch, options: options)
+		
+		if inputBatch.count == predictions.count {
+			for index in 0..<predictions.count {
+				self.collector.collect(
+					for: self.identifier,
+					input: inputBatch.features(at: index),
+					output: predictions.features(at: index),
+					elapsed: .never
+				)
+			}
+		}
+		
 		return predictions
 	}
 }

@@ -71,16 +71,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F6CDC828-E295-4170-A7D8-71A5172526E5"
+            uuid = "3701421D-B441-4A18-9108-BD01B59774CD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MLFairy/Source/MLFUploadTask.swift"
+            filePath = "MLFairy/Source/MLFApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "queue(_:filename:)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "readPlist(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2FB895D-A697-43CC-975C-DDF59D8F3560"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MLFairy/Source/MLFairyImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "coreMLModelPublisher(token:options:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

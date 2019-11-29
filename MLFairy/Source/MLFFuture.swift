@@ -27,4 +27,11 @@ extension Future where Failure == Error {
 			}
 		}
 	}
+	
+	static func just(_ value: Output) -> Future<Output, Failure> {
+		return Future<Output, Failure> { promise in
+			promise(.success(value))
+		}
+	}
 }
+

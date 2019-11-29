@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Promises
+import Combine
 import CoreML
 import Alamofire
 
@@ -30,17 +30,17 @@ class MLFDownloadTask {
 		info:[String: String],
 		fallback: MLFDownloadMetadata?,
 		on queue: DispatchQueue
-	) -> Promise<MLFDownloadMetadata> {
-		return Promise(on: queue) { resolve, reject in
+	) -> Future<MLFDownloadMetadata, Error> {
+		return Future<MLFDownloadMetadata, Error>{ promise in
 			let body: [String: Any] = ["token": token, "data": info]
 			let request = self.network
 				.metadata(body)
 				.responseDecodable(queue: queue) { (response: DataResponse<MLFDownloadMetadata, AFError>) in
 					do {
 						let metadata = try self.onDownloadMetadata(response, fallback)
-						resolve(metadata)
+						promise(.success(metadata))
 					} catch {
-						reject(error)
+						promise(.failure(error))
 					}
 				}
 			
@@ -52,13 +52,13 @@ class MLFDownloadTask {
 		_ metadata: MLFDownloadMetadata,
 		to destination: URL,
 		on queue: DispatchQueue
-	) -> Promise<URL> {
-		return Promise(on: queue) { resolve, reject in
+	) -> Future<URL, Error> {
+		return Future<URL, Error>.run(on: queue) { promise in
 			do {
 				if try self.persistence.exists(file: destination) {
 					self.log.d("Skipping download. \(destination) exists. Will use existing file.")
 					try self.performChecksum(destination, with: metadata)
-					resolve(destination)
+					promise(.success(destination))
 				} else {
 					self.log.d("Downloading model into \(destination)")
 					let request = self.network
@@ -66,35 +66,35 @@ class MLFDownloadTask {
 						.response(queue: queue) { (response: DownloadResponse<URL?, AFError>) in
 							do {
 								let url = try self.onDownloadModel(response, metadata)
-								resolve(url)
+								promise(.success(url))
 							} catch {
-								reject(error)
+								promise(.failure(error))
 							}
 						}
 					
 					request.resume()
 				}
 			} catch {
-				reject(error)
+				promise(.failure(error))
 			}
 		}
 	}
 	
-	func compileModel(_ url: URL, _ metadata: MLFDownloadMetadata, on queue: DispatchQueue) -> Promise<(compiledModelUrl: URL?, model: MLModel?)> {
-		return Promise(on: queue) { resolve, reject in
+	func compileModel(_ url: URL, _ metadata: MLFDownloadMetadata) -> Future<(compiledModelUrl: URL?, model: MLModel?), Error> {
+		return Future<(compiledModelUrl: URL?, model: MLModel?), Error> { promise in
 			do {
 				#if os(watchOS)
-				resolve((nil, nil))
+				promise(.success(nil, nil))
 				#else
 				let compiledUrl = try MLModel.compileModel(at: url)
 				let model = try MLModel(contentsOf: compiledUrl)
-				resolve((compiledUrl, model))
+				promise(.success((compiledUrl, model)))
 				#endif
 			} catch {
-				reject(MLFError.compilationFailed(
+				promise(.failure(MLFError.compilationFailed(
 					message: "Failed to compile model for token \(metadata.token)",
 					reason: error
-				))
+				)))
 			}
 		}
 	}
