@@ -88,19 +88,11 @@
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
 		42E6524D2322CED4003BB662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42E652972329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/tvOS/FBLPromises.framework; sourceTree = "<group>"; };
-		42E652982329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/watchOS/FBLPromises.framework; sourceTree = "<group>"; };
-		42E652992329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/tvOS/Promises.framework; sourceTree = "<group>"; };
-		42E6529A2329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
-		42E6529B2329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/Mac/Promises.framework; sourceTree = "<group>"; };
 		42E6529C2329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		42E6529D2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/tvOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		42E6529E2329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/watchOS/Promises.framework; sourceTree = "<group>"; };
 		42E6529F2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		42E652A02329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		42E652A12329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
-		42E652A22329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
-		42E652A32329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/Mac/FBLPromises.framework; sourceTree = "<group>"; };
 		42E652A42329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
 		42E652A52329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,17 +224,9 @@
 				42E652A12329835F003BB662 /* Alamofire.framework */,
 				42E652A02329835F003BB662 /* Alamofire.framework */,
 				42E6529C2329835F003BB662 /* Alamofire.framework */,
-				42E652A32329835F003BB662 /* FBLPromises.framework */,
-				42E6529A2329835F003BB662 /* FBLPromises.framework */,
-				42E652982329835F003BB662 /* FBLPromises.framework */,
-				42E652972329835F003BB662 /* FBLPromises.framework */,
 				42E652A52329835F003BB662 /* OHHTTPStubs.framework */,
 				42E6529F2329835F003BB662 /* OHHTTPStubs.framework */,
 				42E6529D2329835F003BB662 /* OHHTTPStubs.framework */,
-				42E652A22329835F003BB662 /* Promises.framework */,
-				42E6529E2329835F003BB662 /* Promises.framework */,
-				42E6529B2329835F003BB662 /* Promises.framework */,
-				42E652992329835F003BB662 /* Promises.framework */,
 				42005F132316E1CB00C7EF59 /* Security.framework */,
 				42872F5F22DFE94500573818 /* Security.framework */,
 			);
