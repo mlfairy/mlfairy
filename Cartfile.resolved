@@ -1,4 +1,3 @@
 binary "https://api.mlfairy.com/1/MLFSupport" "0.0.9"
 github "Alamofire/Alamofire" "5.0.0-rc.3"
 github "AliSoftware/OHHTTPStubs" "8.0.0"
-github "google/promises" "1.2.8"

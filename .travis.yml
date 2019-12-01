@@ -1,7 +1,7 @@
 language: objective-c
 matrix:
   include:
-  - osx_image: xcode11
+  - osx_image: xcode11.2
     env:
     - SDK="iphonesimulator"
     - DESTINATION="OS=13.0,name=iPhone 11"
@@ -25,12 +25,12 @@ matrix:
         branch: master
         tags: true
         repo: mlfairy/mlfairy
-  - osx_image: xcode11
+  - osx_image: xcode11.2
     env:
     - SDK="macosx"
     - DESTINATION="arch=x86_64"
     - PLATFORM="macos"
-  - osx_image: xcode11
+  - osx_image: xcode11.2
     env:
     - SDK="appletvsimulator"
     - DESTINATION="OS=13.0,name=Apple TV 4K (at 1080p)"
