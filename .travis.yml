@@ -25,11 +25,11 @@ matrix:
         branch: master
         tags: true
         repo: mlfairy/mlfairy
-  # - osx_image: xcode11.2 #disabled because travis doesn't have osx 10.15
-  #   env:
-  #   - SDK="macosx"
-  #   - DESTINATION="arch=x86_64"
-  #   - PLATFORM="macos"
+  - osx_image: xcode11.2
+    env:
+    - SDK="macosx10.15"
+    - DESTINATION="arch=x86_64"
+    - PLATFORM="macos"
   - osx_image: xcode11.2
     env:
     - SDK="watchsimulator"
