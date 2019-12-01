@@ -84,7 +84,9 @@ class MLFDownloadTask {
 		return Future<(compiledModelUrl: URL?, model: MLModel?), Error> { promise in
 			do {
 				#if os(watchOS)
-				promise(.success(nil, nil))
+				let compiledUrl: URL? = nil
+				let model: MLModel? = nil
+				promise(.success((compiledUrl, model)))
 				#else
 				let compiledUrl = try MLModel.compileModel(at: url)
 				let model = try MLModel(contentsOf: compiledUrl)
