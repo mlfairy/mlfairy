@@ -25,7 +25,6 @@
 		42DE6E64235CF40700B63895 /* MLFEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE6E63235CF40700B63895 /* MLFEncryptor.swift */; };
 		42E4FF40238C70E6001DED50 /* MLFFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4FF3F238C70E6001DED50 /* MLFFuture.swift */; };
 		42E6523D23204C21003BB662 /* MLFairyImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTests.swift */; };
-		42E6524E2322CED4003BB662 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E6524C2322CED4003BB662 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42E652532322CF0F003BB662 /* MLFairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F217B22D6CEC5002F2463 /* MLFairy.swift */; };
 		42E652542322CF0F003BB662 /* MLFairyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F3F231808AB00C7EF59 /* MLFairyImpl.swift */; };
 		42E652552322CF0F003BB662 /* MLFDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F4223180F8700C7EF59 /* MLFDownloadTask.swift */; };
@@ -86,8 +85,6 @@
 		42E4FF3F238C70E6001DED50 /* MLFFuture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFFuture.swift; sourceTree = "<group>"; };
 		42E6523C23204C21003BB662 /* MLFairyImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTests.swift; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
-		42E6524D2322CED4003BB662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42E6529C2329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		42E6529D2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/tvOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		42E6529F2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
@@ -167,7 +164,6 @@
 				42005EEA2316DE1D00C7EF59 /* Source */,
 				422F216022D6CDB8002F2463 /* MLFairy */,
 				422F216B22D6CDB8002F2463 /* MLFairyTests */,
-				42E6524B2322CED4003BB662 /* MLFairy */,
 				422F215F22D6CDB8002F2463 /* Products */,
 				42872D9822D7F5BF00573818 /* Frameworks */,
 			);
@@ -233,15 +229,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		42E6524B2322CED4003BB662 /* MLFairy */ = {
-			isa = PBXGroup;
-			children = (
-				42E6524C2322CED4003BB662 /* MLFairy.h */,
-				42E6524D2322CED4003BB662 /* Info.plist */,
-			);
-			path = MLFairy;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -249,7 +236,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E6524E2322CED4003BB662 /* MLFairy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
