@@ -4,7 +4,7 @@ matrix:
   - osx_image: xcode11.2
     env:
     - SDK="iphonesimulator"
-    - DESTINATION="OS=13.0,name=iPhone 11"
+    - DESTINATION="OS=13.2.2,name=iPhone 11"
     - PLATFORM="ios"
     before_deploy:
       - plutil -replace CFBundleShortVersionString -string "${TRAVIS_TAG}" MLFairy/MLFairy/Info.plist
@@ -33,7 +33,7 @@ matrix:
   - osx_image: xcode11.2
     env:
     - SDK="appletvsimulator"
-    - DESTINATION="OS=13.0,name=Apple TV 4K (at 1080p)"
+    - DESTINATION="OS=13.2.2,name=Apple TV 4K (at 1080p)"
     - PLATFORM="tvos"
 cache:
   directories:
