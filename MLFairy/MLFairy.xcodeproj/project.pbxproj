@@ -37,6 +37,7 @@
 		42E6525D2322CF0F003BB662 /* MLFHostDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */; };
 		42E6525E23235693003BB662 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F132316E1CB00C7EF59 /* Security.framework */; };
 		42E652642323599E003BB662 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6524A2322CED3003BB662 /* MLFairy.framework */; };
+		42F8432C23945B6F00E1E05F /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F8432B23945B6E00E1E05F /* MLFSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		42E652A12329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
 		42E652A42329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
 		42E652A52329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		42F8432B23945B6E00E1E05F /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/watchOS/MLFSupport.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			files = (
 				42B5C2BF2331D03500A88ED6 /* MLFSupport.framework in Frameworks */,
 				42B5C2BB2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */,
+				42F8432C23945B6F00E1E05F /* MLFSupport.framework in Frameworks */,
 				42E6525E23235693003BB662 /* Security.framework in Frameworks */,
 				42B5C2BC2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */,
 			);
@@ -216,6 +219,7 @@
 				42B5C2B92331D01A00A88ED6 /* MLFSupport.framework */,
 				42B5C2B82331D01A00A88ED6 /* MLFSupport.framework */,
 				42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */,
+				42F8432B23945B6E00E1E05F /* MLFSupport.framework */,
 				42E652A42329835F003BB662 /* Alamofire.framework */,
 				42E652A12329835F003BB662 /* Alamofire.framework */,
 				42E652A02329835F003BB662 /* Alamofire.framework */,
