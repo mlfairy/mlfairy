@@ -30,11 +30,11 @@ matrix:
   #   - SDK="macosx10.15"
   #   - DESTINATION="arch=x86_64"
   #   - PLATFORM="macos"
-  - osx_image: xcode11.2
-    env:
-    - SDK="watchsimulator"
-    - DESTINATION="OS=6.1,name=Apple Watch Series 5 - 44mm"
-    - c="watchos"
+  # - osx_image: xcode11.2
+  #   env:
+  #   - SDK="watchsimulator"
+  #   - DESTINATION="OS=6.1,name=Apple Watch Series 5 - 44mm"
+  #   - c="watchos"
   - osx_image: xcode11.2
     env:
     - SDK="appletvsimulator"
