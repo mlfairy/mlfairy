@@ -11,19 +11,20 @@
 		42005F50231BF75500C7EF59 /* MultiSnacks in Resources */ = {isa = PBXBuildFile; fileRef = 42005F4D231BF33500C7EF59 /* MultiSnacks */; };
 		42005F53231DA6B200C7EF59 /* MLFLoggerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F52231DA6B200C7EF59 /* MLFLoggerStub.swift */; };
 		42005F55231EDD3F00C7EF59 /* MLFPersistenceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F54231EDD3F00C7EF59 /* MLFPersistenceStub.swift */; };
-		422F216D22D6CDB8002F2463 /* MLFairyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F216C22D6CDB8002F2463 /* MLFairyTests.swift */; };
+		426785F0238E2A13009B13D7 /* MLFAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426785EF238E2A13009B13D7 /* MLFAppTests.swift */; };
+		426785F3238E2AEF009B13D7 /* embedded.mp in Resources */ = {isa = PBXBuildFile; fileRef = 426785F2238E2AEF009B13D7 /* embedded.mp */; };
 		42B5C1EA232C1C4300A88ED6 /* MLFModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1E9232C1C4300A88ED6 /* MLFModel.swift */; };
 		42B5C1EC232C33F300A88ED6 /* MLFPredictionCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1EB232C33F300A88ED6 /* MLFPredictionCollector.swift */; };
 		42B5C1F0232C7CCE00A88ED6 /* MLFModelDataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1EF232C7CCE00A88ED6 /* MLFModelDataExtractor.swift */; };
-		42B5C1F2232C806A00A88ED6 /* MLFModelDataExtractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTest.swift */; };
+		42B5C1F2232C806A00A88ED6 /* MLFModelDataExtractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTests.swift */; };
 		42B5C2BB2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B5C2B82331D01A00A88ED6 /* MLFSupport.framework */; };
 		42B5C2BC2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B5C2B92331D01A00A88ED6 /* MLFSupport.framework */; };
 		42B5C2BF2331D03500A88ED6 /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */; };
 		42B5C2E22334716C00A88ED6 /* MLFUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5C2E12334716C00A88ED6 /* MLFUploadTask.swift */; };
 		42DE6E5A235CBD9A00B63895 /* MLFEncryptionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */; };
 		42DE6E64235CF40700B63895 /* MLFEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE6E63235CF40700B63895 /* MLFEncryptor.swift */; };
-		42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTest.swift */; };
-		42E6524E2322CED4003BB662 /* MLFairy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E6524C2322CED4003BB662 /* MLFairy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		42E4FF40238C70E6001DED50 /* MLFFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4FF3F238C70E6001DED50 /* MLFFuture.swift */; };
+		42E6523D23204C21003BB662 /* MLFairyImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6523C23204C21003BB662 /* MLFairyImplTests.swift */; };
 		42E652532322CF0F003BB662 /* MLFairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F217B22D6CEC5002F2463 /* MLFairy.swift */; };
 		42E652542322CF0F003BB662 /* MLFairyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F3F231808AB00C7EF59 /* MLFairyImpl.swift */; };
 		42E652552322CF0F003BB662 /* MLFDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F4223180F8700C7EF59 /* MLFDownloadTask.swift */; };
@@ -36,6 +37,7 @@
 		42E6525D2322CF0F003BB662 /* MLFHostDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */; };
 		42E6525E23235693003BB662 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42005F132316E1CB00C7EF59 /* Security.framework */; };
 		42E652642323599E003BB662 /* MLFairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E6524A2322CED3003BB662 /* MLFairy.framework */; };
+		42F8432C23945B6F00E1E05F /* MLFSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F8432B23945B6E00E1E05F /* MLFSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +62,10 @@
 		422F216122D6CDB8002F2463 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
 		422F216222D6CDB8002F2463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422F216722D6CDB8002F2463 /* MLFairyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLFairyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		422F216C22D6CDB8002F2463 /* MLFairyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyTests.swift; sourceTree = "<group>"; };
 		422F216E22D6CDB8002F2463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422F217B22D6CEC5002F2463 /* MLFairy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairy.swift; sourceTree = "<group>"; };
+		426785EF238E2A13009B13D7 /* MLFAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFAppTests.swift; sourceTree = "<group>"; };
+		426785F2238E2AEF009B13D7 /* embedded.mp */ = {isa = PBXFileReference; lastKnownFileType = file; path = embedded.mp; sourceTree = "<group>"; };
 		42872D9C22DAB40B00573818 /* MLFApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFApp.swift; sourceTree = "<group>"; };
 		42872D9E22DAB50C00573818 /* MLFDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFDevice.swift; sourceTree = "<group>"; };
 		42872DA022DAD1ED00573818 /* MLFLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFLogger.swift; sourceTree = "<group>"; };
@@ -73,32 +76,24 @@
 		42B5C1E9232C1C4300A88ED6 /* MLFModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModel.swift; sourceTree = "<group>"; };
 		42B5C1EB232C33F300A88ED6 /* MLFPredictionCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFPredictionCollector.swift; sourceTree = "<group>"; };
 		42B5C1EF232C7CCE00A88ED6 /* MLFModelDataExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelDataExtractor.swift; sourceTree = "<group>"; };
-		42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelDataExtractorTest.swift; sourceTree = "<group>"; };
+		42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFModelDataExtractorTests.swift; sourceTree = "<group>"; };
 		42B5C2B82331D01A00A88ED6 /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/tvOS/MLFSupport.framework; sourceTree = "<group>"; };
 		42B5C2B92331D01A00A88ED6 /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/iOS/MLFSupport.framework; sourceTree = "<group>"; };
 		42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/Mac/MLFSupport.framework; sourceTree = "<group>"; };
 		42B5C2E12334716C00A88ED6 /* MLFUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFUploadTask.swift; sourceTree = "<group>"; };
 		42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFEncryptionClient.swift; sourceTree = "<group>"; };
 		42DE6E63235CF40700B63895 /* MLFEncryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFEncryptor.swift; sourceTree = "<group>"; };
-		42E6523C23204C21003BB662 /* MLFairyImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTest.swift; sourceTree = "<group>"; };
+		42E4FF3F238C70E6001DED50 /* MLFFuture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFFuture.swift; sourceTree = "<group>"; };
+		42E6523C23204C21003BB662 /* MLFairyImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFairyImplTests.swift; sourceTree = "<group>"; };
 		42E6524A2322CED3003BB662 /* MLFairy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLFairy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		42E6524C2322CED4003BB662 /* MLFairy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLFairy.h; sourceTree = "<group>"; };
-		42E6524D2322CED4003BB662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42E652972329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/tvOS/FBLPromises.framework; sourceTree = "<group>"; };
-		42E652982329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/watchOS/FBLPromises.framework; sourceTree = "<group>"; };
-		42E652992329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/tvOS/Promises.framework; sourceTree = "<group>"; };
-		42E6529A2329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
-		42E6529B2329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/Mac/Promises.framework; sourceTree = "<group>"; };
 		42E6529C2329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		42E6529D2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/tvOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		42E6529E2329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/watchOS/Promises.framework; sourceTree = "<group>"; };
 		42E6529F2329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		42E652A02329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		42E652A12329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
-		42E652A22329835F003BB662 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = ../Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
-		42E652A32329835F003BB662 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = ../Carthage/Build/Mac/FBLPromises.framework; sourceTree = "<group>"; };
 		42E652A42329835F003BB662 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
 		42E652A52329835F003BB662 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		42F8432B23945B6E00E1E05F /* MLFSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLFSupport.framework; path = ../Carthage/Build/watchOS/MLFSupport.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +111,7 @@
 			files = (
 				42B5C2BF2331D03500A88ED6 /* MLFSupport.framework in Frameworks */,
 				42B5C2BB2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */,
+				42F8432C23945B6F00E1E05F /* MLFSupport.framework in Frameworks */,
 				42E6525E23235693003BB662 /* Security.framework in Frameworks */,
 				42B5C2BC2331D01A00A88ED6 /* MLFSupport.framework in Frameworks */,
 			);
@@ -143,6 +139,7 @@
 				42005F2F2316F1DC00C7EF59 /* MLFHostDevice.swift */,
 				42DE6E59235CBD9A00B63895 /* MLFEncryptionClient.swift */,
 				42DE6E63235CF40700B63895 /* MLFEncryptor.swift */,
+				42E4FF3F238C70E6001DED50 /* MLFFuture.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -170,7 +167,6 @@
 				42005EEA2316DE1D00C7EF59 /* Source */,
 				422F216022D6CDB8002F2463 /* MLFairy */,
 				422F216B22D6CDB8002F2463 /* MLFairyTests */,
-				42E6524B2322CED4003BB662 /* MLFairy */,
 				422F215F22D6CDB8002F2463 /* Products */,
 				42872D9822D7F5BF00573818 /* Frameworks */,
 			);
@@ -199,13 +195,22 @@
 			children = (
 				42005F51231DA69E00C7EF59 /* Stubs */,
 				42005F4C231BF33500C7EF59 /* Models */,
+				426785F1238E2A5A009B13D7 /* Files */,
 				422F216E22D6CDB8002F2463 /* Info.plist */,
-				422F216C22D6CDB8002F2463 /* MLFairyTests.swift */,
 				42005F452318158000C7EF59 /* MLFTaskTests.swift */,
-				42E6523C23204C21003BB662 /* MLFairyImplTest.swift */,
-				42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTest.swift */,
+				42E6523C23204C21003BB662 /* MLFairyImplTests.swift */,
+				42B5C1F1232C806A00A88ED6 /* MLFModelDataExtractorTests.swift */,
+				426785EF238E2A13009B13D7 /* MLFAppTests.swift */,
 			);
 			path = MLFairyTests;
+			sourceTree = "<group>";
+		};
+		426785F1238E2A5A009B13D7 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				426785F2238E2AEF009B13D7 /* embedded.mp */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 		42872D9822D7F5BF00573818 /* Frameworks */ = {
@@ -214,34 +219,18 @@
 				42B5C2B92331D01A00A88ED6 /* MLFSupport.framework */,
 				42B5C2B82331D01A00A88ED6 /* MLFSupport.framework */,
 				42B5C2BE2331D03500A88ED6 /* MLFSupport.framework */,
+				42F8432B23945B6E00E1E05F /* MLFSupport.framework */,
 				42E652A42329835F003BB662 /* Alamofire.framework */,
 				42E652A12329835F003BB662 /* Alamofire.framework */,
 				42E652A02329835F003BB662 /* Alamofire.framework */,
 				42E6529C2329835F003BB662 /* Alamofire.framework */,
-				42E652A32329835F003BB662 /* FBLPromises.framework */,
-				42E6529A2329835F003BB662 /* FBLPromises.framework */,
-				42E652982329835F003BB662 /* FBLPromises.framework */,
-				42E652972329835F003BB662 /* FBLPromises.framework */,
 				42E652A52329835F003BB662 /* OHHTTPStubs.framework */,
 				42E6529F2329835F003BB662 /* OHHTTPStubs.framework */,
 				42E6529D2329835F003BB662 /* OHHTTPStubs.framework */,
-				42E652A22329835F003BB662 /* Promises.framework */,
-				42E6529E2329835F003BB662 /* Promises.framework */,
-				42E6529B2329835F003BB662 /* Promises.framework */,
-				42E652992329835F003BB662 /* Promises.framework */,
 				42005F132316E1CB00C7EF59 /* Security.framework */,
 				42872F5F22DFE94500573818 /* Security.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		42E6524B2322CED4003BB662 /* MLFairy */ = {
-			isa = PBXGroup;
-			children = (
-				42E6524C2322CED4003BB662 /* MLFairy.h */,
-				42E6524D2322CED4003BB662 /* Info.plist */,
-			);
-			path = MLFairy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +240,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E6524E2322CED4003BB662 /* MLFairy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				426785F3238E2AEF009B13D7 /* embedded.mp in Resources */,
 				42005F50231BF75500C7EF59 /* MultiSnacks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,12 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42B5C1F2232C806A00A88ED6 /* MLFModelDataExtractorTest.swift in Sources */,
-				42E6523D23204C21003BB662 /* MLFairyImplTest.swift in Sources */,
+				42B5C1F2232C806A00A88ED6 /* MLFModelDataExtractorTests.swift in Sources */,
+				42E6523D23204C21003BB662 /* MLFairyImplTests.swift in Sources */,
 				42005F53231DA6B200C7EF59 /* MLFLoggerStub.swift in Sources */,
 				42005F55231EDD3F00C7EF59 /* MLFPersistenceStub.swift in Sources */,
 				42005F462318158000C7EF59 /* MLFTaskTests.swift in Sources */,
-				422F216D22D6CDB8002F2463 /* MLFairyTests.swift in Sources */,
+				426785F0238E2A13009B13D7 /* MLFAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +360,7 @@
 				42E652572322CF0F003BB662 /* MLFDevice.swift in Sources */,
 				42DE6E64235CF40700B63895 /* MLFEncryptor.swift in Sources */,
 				42E652542322CF0F003BB662 /* MLFairyImpl.swift in Sources */,
+				42E4FF40238C70E6001DED50 /* MLFFuture.swift in Sources */,
 				42B5C2E22334716C00A88ED6 /* MLFUploadTask.swift in Sources */,
 				42E652592322CF0F003BB662 /* MLFPersistence.swift in Sources */,
 				42E652552322CF0F003BB662 /* MLFDownloadTask.swift in Sources */,
@@ -449,15 +439,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -507,15 +500,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -556,7 +552,7 @@
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,15 +586,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -639,7 +635,7 @@
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
 				INFOPLIST_FILE = MLFairyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -673,15 +669,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.MLFairyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -706,7 +702,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -740,15 +736,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvos appletvsimulator watchsimulator watchos";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -773,7 +769,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = MLFairy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -807,15 +803,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../Carthage/Build/watchOS",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlfairy.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvos appletvsimulator watchsimulator watchos";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};

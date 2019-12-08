@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Promises
+import Combine
 import Alamofire
 import MLFSupport
 
@@ -32,43 +32,41 @@ class MLFEncryptionClient {
 		self.queue = queue
 	}
 	
-	func encrypt(prediction: MLFPrediction) -> Promise<MLFEncryptedData> {
-		return self.keys(id: prediction.modelId)
-			.then(on: self.queue) { (encryptor) -> MLFEncryptedData in
-				// TODO: You might not want to do this on this thread if encryption takes a long time (this thread is serial)
-				return try encryptor.encrypt(prediction)
-			}
+	func encrypt(prediction: MLFPrediction) -> AnyPublisher<MLFEncryptedData, Error> {
+		return self.encryptor(id: prediction.modelId)
+			.flatMap { cryptor -> Future<MLFEncryptedData, Error> in
+				return self.encrypt(prediction: prediction, with: cryptor)
+			}.eraseToAnyPublisher()
 	}
 	
-	private func keys(id: MLFModelId) -> Promise<MLFEncryptor> {
-		return Promise<MLFEncryptor>(on: self.queue) { () -> Promise<MLFEncryptor> in
-			if let key = self.keys[id] {
-				let promise = Promise<MLFEncryptor>.pending()
-				promise.fulfill(key)
-				return promise
+	private func encrypt(prediction: MLFPrediction, with encryptor: MLFEncryptor) -> Future<MLFEncryptedData, Error> {
+		return Future<MLFEncryptedData, Error> { promise in
+			do {
+				// TODO: You might not want to do this on this thread if encryption takes a long time (this thread is serial)
+				let data = try encryptor.encrypt(prediction)
+				promise(.success(data))
+			} catch {
+				promise(.failure(error))
 			}
-			
-			return self.fetch(id, queue: self.queue)
-				.then(on: self.queue) { (encryption) -> MLFEncryptor in
-					let encryptor = MLFEncryptor(encryption, support: self.support)
-					self.keys[id] = encryptor
-					
-					return encryptor
-				}
 		}
 	}
-	
-	private func fetch(_ id: MLFModelId, queue: DispatchQueue) -> Promise<MLFEncryptionData> {
-		return Promise<MLFEncryptionData>(on: queue) { resolve, reject in
-			let body: [String: Any] = ["token": id.token, "data": self.app.info]
-			let request = self.network
-				.encryption(body)
-				.responseDecodable(queue: queue) { (response: DataResponse<MLFEncryptionData, AFError>) in
-					let encryption = self.onDownloadEncryption(response)
-					resolve(encryption)
-				}
-			
-			request.resume()
+	private func encryptor(id: MLFModelId) -> Future<MLFEncryptor, Error> {
+		return Future<MLFEncryptor, Error>.run(on: self.queue) { promise in
+			if let key = self.keys[id] {
+				promise(.success(key))
+			} else {
+				let body: [String: Any] = ["token": id.token, "data": self.app.info]
+				let request = self.network
+					.encryption(body)
+					.responseDecodable(queue: self.queue) { (response: DataResponse<MLFEncryptionData, AFError>) in
+						let encryption = self.onDownloadEncryption(response)
+						let encryptor = MLFEncryptor(encryption, support: self.support)
+						self.keys[id] = encryptor
+						promise(.success(encryptor))
+					}
+				
+				request.resume()
+			}
 		}
 	}
 	
@@ -81,7 +79,10 @@ class MLFEncryptionClient {
 				return value
 			case .failure(let failure):
 				self.log.d("Failed to download encryption \(failure.errorDescription ?? ""). Using default keys")
-				return MLFEncryptionData(id: "23TeglyK7Yq8VPqYwbwf", publicKey: "MIIBCgKCAQEAnVAbjBm6nAfK+tozbJ+japVTplh0QY0sCNDmc0QFTSFDxs9Lxl9T\nXVNnAVif2lrCoCD/03BW2nUuNH0Co44S7XWTb0EwdGRpzqJFb6+BgTXLgsDxXLA6\nNWa6kjh+2UyfAAdcrcu+kaxeR+jov6X/ws0XURgAQus+BafnW++V0vn46KJpGuAB\nv4Ya8YutLzNg0UbExjGe2tICl3MAnhDtjXDRpKjIwojS1GQZu5EO+Ic3fRZNuf0v\nwFqEnsc+OFQRcBlhVmvkT6FU9dcJ1KGcD+wRl3IUwDsCD9h6dDDOrnxzafsrWLzI\nauQtKa9ikxW3ITkxkU07KuFPMZIsIeynmwIDAQAB")
+				return MLFEncryptionData(
+					id: "23TeglyK7Yq8VPqYwbwf",
+					publicKey: "MIIBCgKCAQEAnVAbjBm6nAfK+tozbJ+japVTplh0QY0sCNDmc0QFTSFDxs9Lxl9T\nXVNnAVif2lrCoCD/03BW2nUuNH0Co44S7XWTb0EwdGRpzqJFb6+BgTXLgsDxXLA6\nNWa6kjh+2UyfAAdcrcu+kaxeR+jov6X/ws0XURgAQus+BafnW++V0vn46KJpGuAB\nv4Ya8YutLzNg0UbExjGe2tICl3MAnhDtjXDRpKjIwojS1GQZu5EO+Ic3fRZNuf0v\nwFqEnsc+OFQRcBlhVmvkT6FU9dcJ1KGcD+wRl3IUwDsCD9h6dDDOrnxzafsrWLzI\nauQtKa9ikxW3ITkxkU07KuFPMZIsIeynmwIDAQAB"
+			)
 		}
 	}
 }

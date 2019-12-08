@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Promises
+import Combine
 import Alamofire
 
 class MLFUploadTask {
@@ -28,44 +28,36 @@ class MLFUploadTask {
 	}
 	
 	@discardableResult
-	func queue<T: Encodable>(
-		_ uploadable: T,
-		filename: String = UUID().uuidString
-	) -> Promise<[URL]> {
-		return Promise(on: self.queue) { () -> URL in
-			let file = try self.persistence.persist(uploadable, filename: filename)
-			return file
-		}.then(on: self.queue) {
-			return self.upload(files: [$0])
-		}
+	func poke() -> AnyPublisher<[URL], Error> {
+		return Future<[URL], Error>.run(on: queue) { promise in
+			let files = self.persistence.uploads()
+			promise(.success(files))
+		}.flatMap(upload).eraseToAnyPublisher()
 	}
 	
 	@discardableResult
-	func poke() -> Promise<[URL]> {
-		return Promise(on: self.queue) { () -> [URL] in
-			return self.persistence.uploads()
-		}.then(on: self.queue) {
-			return self.upload(files: $0)
-		}
+	func queue<T: Encodable>(
+		_ uploadable: T,
+		filename: String = UUID().uuidString
+	) -> AnyPublisher<[URL], Error> {
+		return Future<[URL], Error>.run(on: queue) { promise in
+			let file = try self.persistence.persist(uploadable, filename: filename)
+			promise(.success([file]))
+		}.flatMap(upload).eraseToAnyPublisher()
 	}
 	
-	private func upload(files: [URL]) -> Promise<[URL]> {
+	private func upload(files: [URL]) -> AnyPublisher<[URL], Error> {
 		if files.count == 0 {
-			return Promise() {}
-		}
-
-		var promises: [Promise<URL>] = []
-		for file in files {
-			let promise = self.makePromise(file)
-			promises.append(promise)
+			return Empty(completeImmediately: true).eraseToAnyPublisher()
 		}
 		
-		return all(promises)
+		return Publishers.MergeMany(files.map(perform))
+			.collect()
+			.eraseToAnyPublisher()
 	}
 	
-	private func makePromise(_ file: URL) -> Promise<URL> {
-		let promise =  Promise(on: self.queue) { resolve, reject in
-			// TODO: Should you have a policy of deleting files older than x days?
+	private func perform(_ file: URL) -> AnyPublisher<URL, Error> {
+		return Future<URL, Error>.run(on: queue) { promise in
 			let data = try String(contentsOf: file, encoding: .utf8)
 			let body: [String: Any] = ["event": data]
 			let request = self.network
@@ -73,22 +65,18 @@ class MLFUploadTask {
 				.responseDecodable(queue: self.queue) { (response: DataResponse<MLFUploadResponse, AFError>) in
 					switch(response.result) {
 					case .success:
-						resolve(file)
+						self.persistence.deleteFile(at: file)
+						promise(.success(file))
 					case .failure(let error):
-						reject(error)
+						self.log.d(tag: "MLFUploadTask", "Failed to upload [\(file)]. Skipping file.\(error)")
+						promise(.failure(error))
 					}
 				}
 			
 			request.resume()
-		}.then(on: self.queue) {
-			self.persistence.deleteFile(at: $0)
-		}.catch { error in
-			self.log.d(tag: "MLFUploadTask", "Failed to upload [\(file)]. Skipping file.\(error)")
 		}
-		
-		return retry(on: self.queue, attempts: 2, delay: 2, condition: nil) {
-			return promise
-		}
+		.retry(2)
+		.eraseToAnyPublisher()
 	}
 }
 

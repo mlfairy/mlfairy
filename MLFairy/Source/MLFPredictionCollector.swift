@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreML
-import Promises
+import Combine
 
 class MLFPredictionCollector {
 	private let extractor: MLFModelDataExtractor
@@ -37,8 +37,8 @@ class MLFPredictionCollector {
 		output: MLFeatureProvider,
 		elapsed: DispatchTimeInterval,
 		options: MLPredictionOptions? = nil
-	) -> Promise<[URL]> {
-		return Promise<MLFPrediction>(on: self.queue) { () -> MLFPrediction in
+	) -> AnyPublisher<[URL], Error> {
+		return Future<MLFPrediction, Error>.run(on: self.queue) { promise in
 			let results = self.extractor.convert(input: input, output: output)
 			let prediction = MLFPrediction(
 				modelId: model,
@@ -47,12 +47,11 @@ class MLFPredictionCollector {
 				appInfo: self.app.info,
 				elapsed: self.toDouble(elapsed)
 			)
-			return prediction
-		}.then(on: self.queue) { (prediction) -> Promise<MLFEncryptedData> in
-			return self.encryption.encrypt(prediction: prediction)
-		}.then(on: self.queue) { (data) -> Promise<[URL]> in
-			return self.upload.queue(data)
+			promise(.success(prediction))
 		}
+		.flatMap(self.encryption.encrypt)
+		.flatMap { self.upload.queue($0) }
+		.eraseToAnyPublisher()
 	}
 	
 	private func toDouble(_ interval: DispatchTimeInterval) -> Double? {
