@@ -37,7 +37,7 @@ class MLFairyImpl {
 		self.init(fileManager: fileManger, persistenceRoot: root)
 	}
 	
-	init(fileManager: FileManager, persistenceRoot: URL) {
+	init(fileManager: FileManager, persistenceRoot: URL, environment: APIEnvironment = .prod) {
 		self.requestQueue = DispatchQueue(label: "com.mlfairy.requestQueue")
 		self.computationQueue = DispatchQueue(label: "com.mlfairy.computation")
 		self.compilationQueue = DispatchQueue(label: "com.mlfairy.compilation")
@@ -47,7 +47,7 @@ class MLFairyImpl {
 		)
 		
 		self.support = MLFTools()
-		self.network = MLFNetwork()
+		self.network = MLFNetwork(environment: environment)
 		self.log = MLFDefaultLogger()
 		self.device = MLFDevice(host: MLFHostDevice())
 		self.persistence = MLFDefaultPersistence(

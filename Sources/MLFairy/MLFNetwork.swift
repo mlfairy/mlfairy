@@ -9,11 +9,20 @@ import Foundation
 import Alamofire
 import MLFSupport
 
+struct APIEnvironment {
+  var baseUrl: URL
+}
+
+extension APIEnvironment {
+  static let prod = APIEnvironment(baseUrl: URL(string: "https://api.mlfairy.com/1")!)
+  static let local = APIEnvironment(baseUrl: URL(string: "http://localhost:8080/1")!)
+}
+
 class MLFNetwork {
-	private static let BASE_URL = "https://api.mlfairy.com/1"
-	private static let DOWNLOAD_URL = "\(BASE_URL)/download"
-	private static let ENCRYPTION_URL = "\(BASE_URL)/encryption"
-	private static let EVENT_URL = "\(BASE_URL)/event"
+//	private static let BASE_URL = "https://api.mlfairy.com/1"
+//	private static let DOWNLOAD_URL = "\(BASE_URL)/download"
+//	private static let ENCRYPTION_URL = "\(BASE_URL)/encryption"
+//	private static let EVENT_URL = "\(BASE_URL)/event"
 	private static let DOWNLOAD_OPTIONS: DownloadRequest.Options = [
 		.createIntermediateDirectories, .removePreviousFile
 	]
@@ -83,6 +92,7 @@ class MLFNetwork {
 	]
 	
 	private let session: Session = Session(startRequestsImmediately:false)
+	private let environment: APIEnvironment
 	
 	static func remapToMLFErrorIfNecessary(_ error: Error, data: Data?) -> Error {
 		if case AFError.responseSerializationFailed(_) = error {
@@ -102,9 +112,14 @@ class MLFNetwork {
 		return try? decoder.decode(type.self, from: data)
 	}
 	
+	init(environment: APIEnvironment = .prod) {
+		self.environment = environment
+	}
+	
 	func metadata(_ body: Parameters) -> DataRequest {
+		let url = self.environment.baseUrl.appendingPathComponent("download")
 		return self.session.request(
-			MLFNetwork.DOWNLOAD_URL,
+			url,
 			method: .post,
 			parameters: body,
 			encoding: JSONEncoding.default,
@@ -114,7 +129,7 @@ class MLFNetwork {
 	
 	func encryption(_ body: Parameters) -> DataRequest {
 		return self.session.request(
-			MLFNetwork.ENCRYPTION_URL,
+			self.environment.baseUrl.appendingPathComponent("encryption"),
 			method: .post,
 			parameters: body,
 			encoding: JSONEncoding.default,
@@ -129,7 +144,7 @@ class MLFNetwork {
 	
 	func event(_ event: Parameters) -> DataRequest {
 		return self.session.request(
-			MLFNetwork.EVENT_URL,
+			self.environment.baseUrl.appendingPathComponent("event"),
 			method: .post,
 			parameters: event,
 			encoding: JSONEncoding.default,

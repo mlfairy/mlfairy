@@ -6,52 +6,58 @@
 //
 
 import XCTest
-//import OHHTTPStubs
 import CoreML
+import Swifter
 
 @testable import MLFairy
 
 class MLFairyImplTest: XCTestCase {
+	private var server = HttpServer()
 	private let token = "12345678"
 	private let queue = DispatchQueue(label: "com.mlfairy.MLTaskTests")
 	
 	private var instance: MLFairyImpl!
 	
-	override func setUp() {
+	override func setUpWithError() throws {
 		let root = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
 			.appendingPathComponent(UUID().uuidString)
 		instance = MLFairyImpl(
 			fileManager: FileManager.default,
-			persistenceRoot: root
+			persistenceRoot: root,
+			environment: .local
 		)
+		
+		do {
+			try server.start()
+		} catch {
+			XCTFail("Coult not start Swifter")
+		}
 	}
-	/*
+	
+	override func tearDownWithError() throws {
+		server.stop()
+	}
+
   	func testSuccessfulDownload() {
-		var callCounter = 0
-		stub(condition: isHost("api.mlfairy.com")) { _ in
-			callCounter += 1
-			if callCounter == 1 {
-				let obj = [
-					"downloadId": "downloadId",
-					"modelId": "modelId",
-					"organizationId": "organization",
-					"token": self.token,
-					"activeVersion": "activeVersion",
-					"modelFileUrl": "https://api.mlfairy.com/modelfilename",
-					"hash": "YZdCsLFbjT4h0ANwzc9F8Q==",
-					"algorithm": "md5"
-				]
-				return OHHTTPStubsResponse(jsonObject: obj, statusCode: 200, headers: nil)
-			} else if callCounter == 2 {
-				let bundle = Bundle(for: type(of: self))
-				let path = bundle.url(forResource: "MultiSnacks", withExtension: nil)!
-				return OHHTTPStubsResponse(fileURL: path, statusCode: 200, headers: nil)
-			} else {
-				let error = NSError(domain: "test", code: 42, userInfo: [:])
-				return OHHTTPStubsResponse(error: error)
-			}
+		server["/1/download"] = { _ -> HttpResponse in
+			return .ok(.json([
+				"downloadId": "downloadId",
+				"modelId": "modelId",
+				"organizationId": "organization",
+				"token": self.token,
+				"activeVersion": "activeVersion",
+				"modelFileUrl": "http://localhost:8080/1/modelfilename",
+				"hash": "YZdCsLFbjT4h0ANwzc9F8Q==",
+				"algorithm": "md5"
+		   ]))
 		}
 		
+		server["/1/modelfilename"] = { _ -> HttpResponse in
+			let path = Bundle.module.url(forResource: "Models/MultiSnacks", withExtension: nil)!
+			let data = try! Data(contentsOf: path)
+			return .ok(.data(data, contentType: "application/octet-stream"))
+		}
+
 		var model: MLModel? = nil
 		var error: Error? = nil
 		
@@ -68,29 +74,23 @@ class MLFairyImplTest: XCTestCase {
 	}
 	
 	func testFailedDownload() {
-		var callCounter = 0
-		stub(condition: isHost("api.mlfairy.com")) { _ in
-			callCounter += 1
-			if callCounter == 1 {
-				let obj = [
-					"downloadId": "downloadId",
-					"modelId": "modelId",
-					"organizationId": "organization",
-					"token": self.token,
-					"activeVersion": "activeVersion",
-					"modelFileUrl": "https://api.mlfairy.com/modelfilename",
-					"hash": "ZdCsLFbjT4h0ANwzc9F8Q==",
-					"algorithm": "md5"
-				]
-				return OHHTTPStubsResponse(jsonObject: obj, statusCode: 200, headers: nil)
-			} else if callCounter == 2 {
-				let bundle = Bundle(for: type(of: self))
-				let path = bundle.url(forResource: "MultiSnacks", withExtension: nil)!
-				return OHHTTPStubsResponse(fileURL: path, statusCode: 200, headers: nil)
-			} else {
-				let error = NSError(domain: "test", code: 42, userInfo: [:])
-				return OHHTTPStubsResponse(error: error)
-			}
+		server["/1/download"] = { _ -> HttpResponse in
+			return .ok(.json([
+				"downloadId": "downloadId",
+				"modelId": "modelId",
+				"organizationId": "organization",
+				"token": self.token,
+				"activeVersion": "activeVersion",
+				"modelFileUrl": "http://localhost:8080/1/modelfilename",
+				"hash": "ZdCsLFbjT4h0ANwzc9F8Q==",
+				"algorithm": "md5"
+		   ]))
+		}
+		
+		server["/1/modelfilename"] = { _ -> HttpResponse in
+			let path = Bundle.module.url(forResource: "Models/MultiSnacks", withExtension: nil)!
+			let data = try! Data(contentsOf: path)
+			return .ok(.data(data, contentType: "application/octet-stream"))
 		}
 		
 		var model: MLModel? = nil
@@ -107,5 +107,4 @@ class MLFairyImplTest: XCTestCase {
 		XCTAssertNotNil(error)
 		XCTAssertNil(model)
 	}
-	*/
 }
